@@ -10,7 +10,7 @@ namespace Services.DataService
 {
     public class UserDataService
     {
-        AppDbContext context = new AppDbContext();
+        private AppDbContext context = new AppDbContext();
 
        
         public List<User> GetAll()
