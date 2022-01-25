@@ -530,11 +530,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Services\\Services.csproj",
+      "projectUniqueName": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\Services\\Services.csproj",
       "projectName": "Services",
-      "projectPath": "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Services\\Services.csproj",
+      "projectPath": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\Services\\Services.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Services\\obj\\",
+      "outputPath": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

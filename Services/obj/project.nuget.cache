@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yOceWBFWIs9qhzgqKiZH+kVqWtgaMPNV7eUyN6OLoxZm3BQ4tYMIpS1671l9N0QaWHSBhIncJz0madVCfxm+8w==",
+  "dgSpecHash": "/sGqn7sWSJKctzy5vlDVZ/26cNnb54Mi1jDg58tb/0fbcadZ25gIoKZJLNObL/8f8cb3wj7jNzoRU2O97r0ATw==",
   "success": true,
-  "projectFilePath": "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Services\\Services.csproj",
+  "projectFilePath": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\Services\\Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.1\\microsoft.entityframeworkcore.6.0.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.1\\microsoft.entityframeworkcore.abstractions.6.0.1.nupkg.sha512",

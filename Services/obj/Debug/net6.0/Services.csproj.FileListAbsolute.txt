@@ -1,0 +1,5 @@
+E:\LatestworkUpwork\OfficeDeskSchedulingAPP\OfficeDeskSchedulingAPPRepository\Services\obj\Debug\net6.0\Services.csproj.AssemblyReference.cache
+E:\LatestworkUpwork\OfficeDeskSchedulingAPP\OfficeDeskSchedulingAPPRepository\Services\obj\Debug\net6.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+E:\LatestworkUpwork\OfficeDeskSchedulingAPP\OfficeDeskSchedulingAPPRepository\Services\obj\Debug\net6.0\Services.AssemblyInfoInputs.cache
+E:\LatestworkUpwork\OfficeDeskSchedulingAPP\OfficeDeskSchedulingAPPRepository\Services\obj\Debug\net6.0\Services.AssemblyInfo.cs
+E:\LatestworkUpwork\OfficeDeskSchedulingAPP\OfficeDeskSchedulingAPPRepository\Services\obj\Debug\net6.0\Services.csproj.CoreCompileInputs.cache

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Office Desk Scheduling APP\\OfficeDeskSchedulingAPP.csproj": {}
+    "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPP.csproj": {}
   },
   "projects": {
-    "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Office Desk Scheduling APP\\OfficeDeskSchedulingAPP.csproj": {
+    "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Office Desk Scheduling APP\\OfficeDeskSchedulingAPP.csproj",
+        "projectUniqueName": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPP.csproj",
         "projectName": "OfficeDeskSchedulingAPP",
-        "projectPath": "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Office Desk Scheduling APP\\OfficeDeskSchedulingAPP.csproj",
+        "projectPath": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPP.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Office Desk Scheduling APP\\obj\\",
+        "outputPath": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\OfficeDeskSchedulingAPP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,8 +31,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Services\\Services.csproj": {
-                "projectPath": "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Services\\Services.csproj"
+              "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\Services\\Services.csproj": {
+                "projectPath": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\Services\\Services.csproj"
               }
             }
           }
@@ -78,14 +78,14 @@
         }
       }
     },
-    "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Services\\Services.csproj": {
+    "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Services\\Services.csproj",
+        "projectUniqueName": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Services\\Services.csproj",
+        "projectPath": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\Services\\Services.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "E:\\Latest work Upwork\\Office Desk Scheduling APP\\Services\\obj\\",
+        "outputPath": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPP\\OfficeDeskSchedulingAPPRepository\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
