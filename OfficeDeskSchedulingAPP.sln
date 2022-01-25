@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OfficeDeskSchedulingAPP", "Office Desk Scheduling APP\OfficeDeskSchedulingAPP.csproj", "{F4738F96-6BB1-4D3F-8C6E-B8F35A9E280E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{36E38D4C-124C-418C-8D35-70797CCFF1A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4738F96-6BB1-4D3F-8C6E-B8F35A9E280E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4738F96-6BB1-4D3F-8C6E-B8F35A9E280E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4738F96-6BB1-4D3F-8C6E-B8F35A9E280E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4738F96-6BB1-4D3F-8C6E-B8F35A9E280E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E38D4C-124C-418C-8D35-70797CCFF1A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E38D4C-124C-418C-8D35-70797CCFF1A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E38D4C-124C-418C-8D35-70797CCFF1A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E38D4C-124C-418C-8D35-70797CCFF1A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EDEC634F-6B32-4184-905D-FF45DEB067A8}
+	EndGlobalSection
+EndGlobal

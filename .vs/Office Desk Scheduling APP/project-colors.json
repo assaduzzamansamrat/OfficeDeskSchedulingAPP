@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f4738f96-6bb1-4d3f-8c6e-b8f35a9e280e": {
+      "ProjectGuid": "f4738f96-6bb1-4d3f-8c6e-b8f35a9e280e",
+      "DisplayName": "OfficeDeskSchedulingAPP",
+      "ColorIndex": 0
+    },
+    "36e38d4c-124c-418c-8d35-70797ccff1a4": {
+      "ProjectGuid": "36e38d4c-124c-418c-8d35-70797ccff1a4",
+      "DisplayName": "Services",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
