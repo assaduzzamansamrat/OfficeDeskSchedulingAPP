@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\LatestworkUpwork\\OfficeDeskScheduler\\OfficeDeskScheduler\\OfficeDeskScheduler.csproj": {}
+    "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPPRepository\\OfficeDeskScheduler\\OfficeDeskScheduler\\OfficeDeskScheduler.csproj": {}
   },
   "projects": {
-    "E:\\LatestworkUpwork\\OfficeDeskScheduler\\OfficeDeskScheduler\\OfficeDeskScheduler.csproj": {
+    "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPPRepository\\OfficeDeskScheduler\\OfficeDeskScheduler\\OfficeDeskScheduler.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\LatestworkUpwork\\OfficeDeskScheduler\\OfficeDeskScheduler\\OfficeDeskScheduler.csproj",
+        "projectUniqueName": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPPRepository\\OfficeDeskScheduler\\OfficeDeskScheduler\\OfficeDeskScheduler.csproj",
         "projectName": "OfficeDeskScheduler",
-        "projectPath": "E:\\LatestworkUpwork\\OfficeDeskScheduler\\OfficeDeskScheduler\\OfficeDeskScheduler.csproj",
+        "projectPath": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPPRepository\\OfficeDeskScheduler\\OfficeDeskScheduler\\OfficeDeskScheduler.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "E:\\LatestworkUpwork\\OfficeDeskScheduler\\OfficeDeskScheduler\\obj\\",
+        "outputPath": "E:\\LatestworkUpwork\\OfficeDeskSchedulingAPPRepository\\OfficeDeskScheduler\\OfficeDeskScheduler\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
