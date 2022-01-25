@@ -128,4 +128,8 @@
     <None Include="wwwroot\Resources\vendor\select2\select2.min.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Services\Services.csproj" />
+  </ItemGroup>
+
 </Project>

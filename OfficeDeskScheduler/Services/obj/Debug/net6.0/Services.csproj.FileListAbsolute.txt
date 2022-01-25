@@ -1,0 +1,12 @@
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\bin\Debug\net6.0\Services.deps.json
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\bin\Debug\net6.0\Services.dll
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\bin\Debug\net6.0\ref\Services.dll
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\bin\Debug\net6.0\Services.pdb
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\Services.csproj.AssemblyReference.cache
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\Services.AssemblyInfoInputs.cache
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\Services.AssemblyInfo.cs
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\Services.csproj.CoreCompileInputs.cache
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\Services.dll
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\ref\Services.dll
+E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\Services.pdb
