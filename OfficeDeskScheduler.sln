@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OfficeDeskScheduler", "OfficeDeskScheduler\OfficeDeskScheduler.csproj", "{C0A3AF3D-1A4A-4A24-88E5-3558B4C0DE01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0A3AF3D-1A4A-4A24-88E5-3558B4C0DE01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A3AF3D-1A4A-4A24-88E5-3558B4C0DE01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A3AF3D-1A4A-4A24-88E5-3558B4C0DE01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A3AF3D-1A4A-4A24-88E5-3558B4C0DE01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5632F9ED-CBC0-44D7-88EC-0F01D992D501}
+	EndGlobalSection
+EndGlobal
