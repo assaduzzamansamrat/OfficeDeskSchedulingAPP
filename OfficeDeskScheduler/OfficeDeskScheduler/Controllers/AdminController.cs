@@ -8,5 +8,9 @@ namespace OfficeDeskScheduler.Controllers
         {
             return View();
         }
+        public IActionResult CreateNewUser()
+        {
+            return View();
+        }
     }
 }

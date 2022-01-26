@@ -8,7 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Resources\css\main.css" />
+	 <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0-msbuild2-final" />
+	<None Include="wwwroot\Resources\css\main.css" />
     <None Include="wwwroot\Resources\css\util.css" />
     <None Include="wwwroot\Resources\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <None Include="wwwroot\Resources\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -130,6 +131,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.1" />
     <PackageReference Include="Unity.Microsoft.DependencyInjection" Version="5.11.5" />
   </ItemGroup>
 
