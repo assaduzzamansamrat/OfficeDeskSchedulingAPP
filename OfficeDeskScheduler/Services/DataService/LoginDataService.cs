@@ -10,9 +10,12 @@ namespace Services.DataService
 {
     public class LoginDataService
     {
-        private  AppDbContext context = new AppDbContext();
+        private  AppDbContext context;
         
-       
+        public LoginDataService(AppDbContext _context)
+        {
+            context = _context;
+        }
         public User AuthenticateAndGetUserByEmailAndPassword(string emailAddress, string password)
         {
             try

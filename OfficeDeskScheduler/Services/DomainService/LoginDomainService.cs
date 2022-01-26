@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace Services.DomainService
 {
-    public class LoginDomainService
+    public class LoginDomainService 
     {
-        LoginDataService loginDataService = new LoginDataService();
+        LoginDataService loginDataService;
 
-
+        public LoginDomainService(LoginDataService _loginDataService)
+        {
+            loginDataService = _loginDataService;
+        }
         public User AuthenticateAndGetUserByEmailAndPassword(string emailAddress, string password)
         {
             try

@@ -8,9 +8,9 @@ namespace OfficeDeskScheduler.Controllers
     public class LoginController : Controller
     {
         LoginDomainService loginDomainService;
-        public LoginController()
+        public LoginController(LoginDomainService _LoginDomainService)
         {
-            loginDomainService = new LoginDomainService();
+            loginDomainService = _LoginDomainService;
         }
 
         // GET: Login
