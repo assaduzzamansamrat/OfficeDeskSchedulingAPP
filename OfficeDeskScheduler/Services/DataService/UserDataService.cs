@@ -109,7 +109,7 @@ namespace Services.DataService
             user.CreatedBy = -1;
             user.CreatedDate = DateTime.Now;
             user.Password = Utilities.GetPasswordHash(user.Password);
-            user.Role = "Student";
+            
             try
             {
                 context.Users.Add(user);

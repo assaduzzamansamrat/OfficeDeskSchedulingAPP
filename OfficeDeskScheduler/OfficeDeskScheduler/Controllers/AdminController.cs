@@ -1,10 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Services.DataService;
 using Services.EntityModels;
 
 namespace OfficeDeskScheduler.Controllers
 {
     public class AdminController : Controller
     {
+        private readonly UserDataService userDataService;
+        public AdminController(UserDataService _userDataService)
+        {
+            userDataService = _userDataService;
+        }
         public IActionResult Index()
         {
             return View();
@@ -18,7 +24,19 @@ namespace OfficeDeskScheduler.Controllers
         [HttpPost]
         public IActionResult Create(User user)
         {
-            return View();
+            try
+            {
+                if(user != null)
+                {
+                    userDataService.CreateNewUser(user);
+                }
+                return RedirectToAction("Index", "Admin");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
