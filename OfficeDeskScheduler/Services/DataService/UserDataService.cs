@@ -10,23 +10,26 @@ namespace Services.DataService
 {
     public class UserDataService
     {
-        private AppDbContext context = new AppDbContext();
+        private AppDbContext context;
 
-       
+        public UserDataService(AppDbContext _context)
+        {
+            context = _context;
+        }
         public List<User> GetAll()
         {
             try
             {
-               
-                return  context.Users.ToList();
-                
+
+                return context.Users.ToList();
+
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
-            
+
         }
 
         public List<User> GetAllActiveUsersByID(long id)
@@ -43,7 +46,7 @@ namespace Services.DataService
 
         }
 
-      
+
         public User GetUserByID(long id)
         {
             try
@@ -55,16 +58,16 @@ namespace Services.DataService
 
                 throw ex;
             }
-           
+
         }
 
-        public bool UpdateUserWallPaperByUserId(long userid,string wallpaperName)
+        public bool UpdateUserWallPaperByUserId(long userid, string wallpaperName)
         {
             try
             {
                 User user = new User();
-                user =  context.Users.SingleOrDefault(d => d.Id == userid);
-                if(user != null)
+                user = context.Users.SingleOrDefault(d => d.Id == userid);
+                if (user != null)
                 {
                     user.Wallpaper = wallpaperName;
                     context.SaveChanges();
@@ -111,7 +114,7 @@ namespace Services.DataService
             {
                 context.Users.Add(user);
                 context.SaveChanges();
-                isUserAddTrue =true;
+                isUserAddTrue = true;
                 return isUserAddTrue;
             }
             catch (Exception ex)

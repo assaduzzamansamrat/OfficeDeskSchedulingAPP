@@ -10,9 +10,12 @@ namespace Services.DomainService
 {
     public class UserDomainService
     {
-        UserDataService userDataService = new UserDataService();
+        UserDataService userDataService;
 
-      
+        public UserDomainService(UserDataService _userDataService)
+        {
+            userDataService = _userDataService;
+        }
         public List<User> GetAllUsersData()
         {
             try
