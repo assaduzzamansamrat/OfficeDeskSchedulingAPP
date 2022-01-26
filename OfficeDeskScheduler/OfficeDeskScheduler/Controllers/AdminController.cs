@@ -13,7 +13,17 @@ namespace OfficeDeskScheduler.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            try
+            {
+                List<User> usersList = userDataService.GetAll();
+                return View(usersList);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+          
         }
         [HttpGet]
         public IActionResult Create()
@@ -39,17 +49,6 @@ namespace OfficeDeskScheduler.Controllers
             }
         }
 
-        public IActionResult GetAll()
-        {
-            try
-            {
-                return View(userDataService.GetAll());
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
+       
     }
 }

@@ -20,7 +20,7 @@ namespace Services.EntityModels
         public long? EditedBy { get; set; }
         public string? ContactNumber { get; set; }
         public string? EmailAddress { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        //public DateTime DateOfBirth { get; set; }
         public string? AddressOne { get; set; }
         public string? AddressTwo { get; set; }
         public string? ZipCode { get; set; }
