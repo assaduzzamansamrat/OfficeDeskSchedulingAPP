@@ -7,9 +7,11 @@ namespace OfficeDeskScheduler.Controllers
     public class AdminController : Controller
     {
         private readonly UserDataService userDataService;
-        public AdminController(UserDataService _userDataService)
+        private readonly TeamDataService teamDataService;
+        public AdminController(UserDataService _userDataService, TeamDataService _teamDataService)
         {
             userDataService = _userDataService;
+            teamDataService = _teamDataService;
         }
         public async Task<IActionResult> Index()
         {
@@ -111,6 +113,21 @@ namespace OfficeDeskScheduler.Controllers
 
                 throw;
             }
+        }
+
+        public async Task<IActionResult> Team()
+        {
+            try
+            {
+                List<Team> teamList = teamDataService.GetAll();
+                return View(teamList);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
         }
 
     }
