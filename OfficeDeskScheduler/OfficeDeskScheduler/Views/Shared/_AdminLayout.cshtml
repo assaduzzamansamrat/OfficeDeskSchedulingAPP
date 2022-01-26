@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="~/reset.css" />
     <link href="https://www.cssscript.com/demo/sticky.css" rel="stylesheet" type="text/css">
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
           rel="stylesheet" />
-    <link rel="stylesheet" href="./styled.css" />
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/styled.css" />
     <title>Smooth Collapsible Sidebar Navigation Example</title>
     <style type="text/css">
 
@@ -17,6 +18,12 @@
             transition: 0.5s ease;
         }
     </style>
+
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -58,12 +65,11 @@
 
     </div>
     <div class="container">
-        <div style="margin:30px auto">
+       
             @RenderBody()
 
-            <div id="carbon-block">
-            </div>
-        </div>
+           
+       
     </div>
 
     <!-- CSSScript Demo Page -->
@@ -84,6 +90,11 @@
           };
         }
     </script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 

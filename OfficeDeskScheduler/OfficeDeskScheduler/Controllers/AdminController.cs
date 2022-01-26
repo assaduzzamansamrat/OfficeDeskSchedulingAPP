@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Services.EntityModels;
 
 namespace OfficeDeskScheduler.Controllers
 {
@@ -8,7 +9,14 @@ namespace OfficeDeskScheduler.Controllers
         {
             return View();
         }
-        public IActionResult CreateNewUser()
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(User user)
         {
             return View();
         }

@@ -9,4 +9,3 @@ E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Servic
 E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\Services.dll
 E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\ref\Services.dll
 E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\Services.pdb
-E:\LatestworkUpwork\OfficeDeskSchedulingAPPRepository\OfficeDeskScheduler\Services\obj\Debug\net6.0\Services.csproj.AssemblyReference.cache
