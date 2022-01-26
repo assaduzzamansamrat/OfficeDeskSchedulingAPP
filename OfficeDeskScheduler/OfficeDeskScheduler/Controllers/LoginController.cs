@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Services.DomainService;
+using Services.DataService;
 using Services.EntityModels;
 
 namespace OfficeDeskScheduler.Controllers
 {
     public class LoginController : Controller
     {
-        LoginDomainService loginDomainService;
-        public LoginController(LoginDomainService _LoginDomainService)
+        LoginDataService loginDomainService;
+        public LoginController(LoginDataService _LoginDomainService)
         {
             loginDomainService = _LoginDomainService;
         }
