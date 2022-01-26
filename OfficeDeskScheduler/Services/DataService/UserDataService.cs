@@ -46,12 +46,49 @@ namespace Services.DataService
 
         }
 
+        public bool UpdateUser(User _user)
+        {
+            try
+            {
+                if(_user != null)
 
+                {
+                    User user = context.Users.FirstOrDefault(d => d.Id == _user.Id);
+                    if (user != null)
+                    {
+                        user.EditedDate = DateTime.Now;
+                        user.FirstName = _user.FirstName;
+                        user.LastName = _user.LastName;
+                        user.EmailAddress = _user.EmailAddress;
+                        user.ContactNumber = _user.ContactNumber;
+                        user.DateOfBirth = _user.DateOfBirth;
+                        user.AddressOne = _user.AddressOne;
+                        user.AddressTwo = _user.AddressTwo;
+                        user.Role = _user.Role;
+                        user.Password = _user.Password;
+                        user.State = _user.State;
+                        user.ZipCode = _user.ZipCode;
+                        user.City = _user.City;
+                        context.SaveChanges();
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
+        }
+       
         public User GetUserByID(long id)
         {
             try
             {
-                return context.Users.SingleOrDefault(d => d.Id == id);
+                return context.Users.FirstOrDefault(d => d.Id == id);
             }
             catch (Exception ex)
             {
@@ -122,6 +159,22 @@ namespace Services.DataService
 
                 throw ex;
             }
+        }
+
+        public bool Delete(long id)
+        {
+            if (id > 0)
+            {
+                User user = context.Users.FirstOrDefault(d => d.Id == id);
+                if (user != null)
+                {
+                    context.Users.Remove(user);
+                    context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            return false;
         }
     }
 }

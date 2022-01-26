@@ -14,7 +14,7 @@ namespace OfficeDeskScheduler.Controllers
         }
 
         // GET: Login
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
            
                 return View();
@@ -23,7 +23,7 @@ namespace OfficeDeskScheduler.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(LoginModel login)
+        public async Task<IActionResult> Index(LoginModel login)
         {
             try
             {

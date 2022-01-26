@@ -5,433 +5,440 @@
 }
 
 
-    <style type="text/css">
+<style type="text/css">
 
-        body {
-          
-            overflow-x: hidden;
-            font-family: sans-serif !important;
-        }
+    body {
+        overflow-x: hidden;
+        font-family: sans-serif !important;
+    }
 
-        .main-panel {
-            margin-top: 5%;
-            margin-bottom: 5%;
-            margin-left: 1%;
-            margin-right: -6%;
-            border-radius: 25px;
-        }
+    .main-panel {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: 1%;
+        margin-right: -6%;
+        border-radius: 25px;
+    }
 
-        .img-thumbnail {
-            padding: 0px;
-            background-color: #fff;
-            max-width: 100%;
-            height: auto;
-            border: none;
-            border-top-left-radius: 25px;
-            border-bottom-left-radius: 25px;
-            min-height: 650px;
-            width: 100%;
-            object-fit: cover;
-        }
+    .img-thumbnail {
+        padding: 0px;
+        background-color: #fff;
+        max-width: 100%;
+        height: auto;
+        border: none;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        min-height: 650px;
+        width: 100%;
+        object-fit: cover;
+    }
 
-        .passwordlength {
-            color: red;
-            font-weight: 300;
-            font-size: 13px;
-            display: none;
-        }
+    .passwordlength {
+        color: red;
+        font-weight: 300;
+        font-size: 13px;
+        display: none;
+    }
 
-        .passwordmatch {
-            color: red;
-            font-weight: 300;
-            font-size: 13px;
-            display: none;
-        }
+    .passwordmatch {
+        color: red;
+        font-weight: 300;
+        font-size: 13px;
+        display: none;
+    }
 
-        .no-padding {
-            padding: 0px !important;
-        }
+    .no-padding {
+        padding: 0px !important;
+    }
 
-        .container-fluid {
-            margin-left: 43px;
-            padding-right: 100px;
-        }
+    .container-fluid {
+        margin-left: 43px;
+        padding-right: 100px;
+    }
 
-        .header {
-            padding-top: 20px;
-            padding-bottom: 15px;
-            text-align: center;
-            color: #15c2de;
-        }
+    .header {
+        padding-top: 20px;
+        padding-bottom: 15px;
+        text-align: center;
+        color: #15c2de;
+    }
 
-        .top-left {
-            position: absolute;
-            top: 8px;
-            left: 16px;
-            color: white;
-            font-family: open-sans;
-            font-size: 20px;
-            font-weight: 500;
-        }
+    .top-left {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+        color: white;
+        font-family: open-sans;
+        font-size: 20px;
+        font-weight: 500;
+    }
 
-        .email-message {
-            color: red;
-            font-weight: 300;
-            font-size: 13px;
-            display: none;
-        }
-        /* Centered text */
-        .centered {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #ffff;
-        }
+    .email-message {
+        color: red;
+        font-weight: 300;
+        font-size: 13px;
+        display: none;
+    }
+    /* Centered text */
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ffff;
+    }
 
-        .required-sign-left {
-            padding-left: 45px;
-            padding-top: 14px;
-            color: #ff0000;
-        }
+    .required-sign-left {
+        padding-left: 45px;
+        padding-top: 14px;
+        color: #ff0000;
+    }
 
-        .required-sign-right {
-            overflow: hidden;
-            display: block;
-            position: absolute;
-            padding-left: -6px;
-            padding-top: 13px;
-            margin-left: -26px;
-            color: #ff0000;
-        }
+    .required-sign-right {
+        overflow: hidden;
+        display: block;
+        position: absolute;
+        padding-left: -6px;
+        padding-top: 13px;
+        margin-left: -26px;
+        color: #ff0000;
+    }
 
-        .required-field {
-            border-bottom: 1px solid red !important;
-        }
+    .required-field {
+        border-bottom: 1px solid red !important;
+    }
 
-        .login-container {
-            padding-left: 40px;
-        }
+    .login-container {
+        padding-left: 40px;
+    }
 
-        .form-row > .col, .form-row > [class*=col-] {
-            padding-right: 15px;
-            padding-left: 15px;
-        }
-        .form-control {
-            float: right;
-            width: calc(100% - 20px);
-        }
-        span.req-asterisk {
-            width: 20px;
-            float: left;
-            color: red;
-            padding-top: 15px;
-            display: block;
-        }
+    .form-row > .col, .form-row > [class*=col-] {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
 
-        body.blue {
-            background-color: #019494;
-        }
+    .form-control {
+        float: right;
+        width: calc(100% - 20px);
+    }
 
-        body.magenta {
-            background-color: #FF00FF;
-        }
-        .col-sm-12{
-           margin-bottom:15px;
-        }
+    span.req-asterisk {
+        width: 20px;
+        float: left;
+        color: red;
+        padding-top: 15px;
+        display: block;
+    }
 
-    </style>
-   <script type="text/javascript">
+    body.blue {
+        background-color: #019494;
+    }
 
+    body.magenta {
+        background-color: #FF00FF;
+    }
 
-        //$(function () {
-        //    $("#DateOfBirth").datepicker();
-        //});
+    .col-sm-12 {
+        margin-bottom: 15px;
+    }
 
-    </script>
+</style>
+<script type="text/javascript">
 
 
+    //$(function () {
+    //    $("#DateOfBirth").datepicker();
+    //});
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('input[type=radio][name=Gender]').change(function () {
-                if (this.value == 'Male') {
-                    $('body').removeClass('magenta');
-                    $('body').addClass('blue');
-                }
-                else if (this.value == 'Female') {
-                    $('body').removeClass('blue');
-                    $('body').addClass('magenta');
-                }
-            });
+</script>
 
-            $(".required").focusin(function () {
-                $(this).removeClass("required-field");
-            });
 
-            //Password Strength Check
-            $(".password").keyup(function () {
 
-                // Check Password Input Field By Regular Expression
-                $(".passwordlength").css("display", "none");
-                var pass = $(this).val();
-
-                var strength = 1;
-                var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
-                jQuery.map(arr, function (regexp) {
-                    if (pass.match(regexp))
-                        strength++;
-                });
-                if (strength < 3) {
-                    $(this).css("color", "red");
-                }
-                else if (strength >= 3 && strength <= 4) {
-                    $(this).css("color", "#c39b07");
-                }
-                else if (strength >= 5) {
-                    $(this).css("color", "green");
-                }
-
-            });
-
-            $(".email").keyup(function () {
-                $("#validEmail").css("display", "none");
-                //$("#existEmail").css("display", "block");
-            });
-            $("#ConfirmPassword").keyup(function () {
-                $(".passwordmatch").css("display", "none");
-            });
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[type=radio][name=Gender]').change(function () {
+            if (this.value == 'Male') {
+                $('body').removeClass('magenta');
+                $('body').addClass('blue');
+            }
+            else if (this.value == 'Female') {
+                $('body').removeClass('blue');
+                $('body').addClass('magenta');
+            }
         });
 
-        function CommonValidation() {
-            var isValid = true;
-            $(".required").each(function () {
+        $(".required").focusin(function () {
+            $(this).removeClass("required-field");
+        });
 
-                // Check Empty Input Fields
-                var value = $(this).val();
-                if (value != null && value != "" && typeof (value) !== undefined) {
-                    //do nothing
-                }
-                else {
+        //Password Strength Check
+        $(".password").keyup(function () {
+
+            // Check Password Input Field By Regular Expression
+            $(".passwordlength").css("display", "none");
+            var pass = $(this).val();
+
+            var strength = 1;
+            var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
+            jQuery.map(arr, function (regexp) {
+                if (pass.match(regexp))
+                    strength++;
+            });
+            if (strength < 3) {
+                $(this).css("color", "red");
+            }
+            else if (strength >= 3 && strength <= 4) {
+                $(this).css("color", "#c39b07");
+            }
+            else if (strength >= 5) {
+                $(this).css("color", "green");
+            }
+
+        });
+
+        $(".email").keyup(function () {
+            $("#validEmail").css("display", "none");
+            //$("#existEmail").css("display", "block");
+        });
+        $("#ConfirmPassword").keyup(function () {
+            $(".passwordmatch").css("display", "none");
+        });
+    });
+
+    function CommonValidation() {
+        var isValid = true;
+        $(".required").each(function () {
+
+            // Check Empty Input Fields
+            var value = $(this).val();
+            if (value != null && value != "" && typeof (value) !== undefined) {
+                //do nothing
+            }
+            else {
+                isValid = false;
+                $(this).addClass("required-field");
+            }
+
+
+
+        });
+
+        // Check Email Address
+        $(".email").each(function () {
+
+            // Check Email Input Field By Regular Expression
+            var userinput = $(this).val();
+
+            if (userinput != null && userinput != "" && typeof (userinput) !== undefined) {
+                var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+
+                if (!pattern.test(userinput)) {
+
                     isValid = false;
+                    $("#validEmail").css("display", "block");
+                    //$("#existEmail").css("display", "block");
                     $(this).addClass("required-field");
                 }
+            }
+
+        });
 
 
 
+        //Password Strength Check
+        $(".password-box").each(function () {
+
+            // Check Password Input Field By Regular Expression
+            var pass = $(this).val();
+            var confirmPass = $("#ConfirmPassword").val();
+
+            if (pass != confirmPass) {
+                $(".passwordmatch").css("display", "block");
+            }
+
+            var strength = 1;
+            var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
+            jQuery.map(arr, function (regexp) {
+                if (pass.match(regexp))
+                    strength++;
             });
 
-            // Check Email Address
-            $(".email").each(function () {
+            if (pass.length <= 6) {
+                // If Password length Is less than 6
+                $(".passwordlength").css("display", "block");
+                isValid = false;
+            }
+            else {
+                $(".passwordlength").css("display", "none");
+            }
+            if (strength < 3) {
+                // if Password Is not Strong
+                isValid = false;
+            }
 
-                // Check Email Input Field By Regular Expression
-                var userinput = $(this).val();
 
-                if (userinput != null && userinput != "" && typeof (userinput) !== undefined) {
-                    var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
-
-                    if (!pattern.test(userinput)) {
-
-                        isValid = false;
-                        $("#validEmail").css("display", "block");
-                        //$("#existEmail").css("display", "block");
-                        $(this).addClass("required-field");
-                    }
-                }
-
-            });
+        });
 
 
 
-            //Password Strength Check
-            $(".password-box").each(function () {
-
-                // Check Password Input Field By Regular Expression
-                var pass = $(this).val();
-                var confirmPass = $("#ConfirmPassword").val();
-
-                if (pass != confirmPass) {
-                    $(".passwordmatch").css("display", "block");
-                }
-
-                var strength = 1;
-                var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
-                jQuery.map(arr, function (regexp) {
-                    if (pass.match(regexp))
-                        strength++;
-                });
-
-                if (pass.length <= 6) {
-                    // If Password length Is less than 6
-                    $(".passwordlength").css("display", "block");
-                    isValid = false;
-                }
-                else {
-                    $(".passwordlength").css("display", "none");
-                }
-                if (strength < 3) {
-                    // if Password Is not Strong
-                    isValid = false;
-                }
-
-
-            });
+        return isValid;
+    }
+</script>
 
 
 
-            return isValid;
-        }
-    </script>
+<div class="col-sm-12">
+    <h3 class="h3 header">Please Provide Informations To Proceed</h3>
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Horizontal material form -->
+            <form action="~/Admin/Create" method="post">
 
-
-   
-            <div class="col-sm-12">
-                <h3 class="h3 header">Please Provide Informations To Proceed</h3>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <!-- Horizontal material form -->
-                        <form action="~/Admin/Create" method="post">
-
-                            <div class="login-container">
-                                <div class="form-row">
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="text" class="form-control required" name="FirstName" id="FirstName" placeholder="First Name">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="text" class="form-control required" name="LastName" id="LastName" placeholder="Last Name">
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <div class="form-row">
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="text" class="form-control required" name="ContactNumber" id="ContactNumber" placeholder="Contact Number">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="email" class="form-control required email" name="EmailAddress" id="EmailAddress" placeholder="Email Address">
-                                            <p id="validEmail" class="email-message">Email address is not valid</p>
-                                            <p id="existEmail" class="email-message">Email address already exists</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                   
-                                <div class="form-row">
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input placeholder="Date Of Birth" type="text" name="DateOfBirth" id="DateOfBirth" class="form-control input-with-post-icon datepicker required">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="text" class="form-control required" name="ZipCode" id="ZipCode" placeholder="Zip Code">
-                                        </div>
-                                    </div>
-                                </div>
-                                   
-                                <div class="form-row">
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="text" class="form-control required" name="AddressOne" id="AddressOne" placeholder="Address Line One">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="text" class="form-control" name="AddressTwo" id="AddressTwo" placeholder="Address Line Two">
-                                        </div>
-                                    </div>
-                                </div>
-                                  
-                                <div class="form-row">
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="text" class="form-control required" name="City" id="City" placeholder="City/Town">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="text" class="form-control required" name="State" id="State" placeholder="State">
-                                        </div>
-                                    </div>
-                                </div>
-                                 
-                                <div class="form-row">
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="Password" class="form-control required password password-box" name="Password" id="Password" placeholder="Password">
-                                            <span class="passwordlength">Password length should be at least 6</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="Password" class="form-control required password" name="ConfirmPassword" id="ConfirmPassword" placeholder="Confirm Password">
-                                            <span class="passwordmatch">Password and confirm password does not match</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                  <div class="form-row">
-                                    <div class="col-sm-12">
-                                        <div class="md-form mt-0">
-                                            <span class="req-asterisk">*</span>
-                                            <input type="text" class="form-control required password password-box" name="Role" id="Role" placeholder="Role">
-                                            <span class="passwordlength">Password length should be at least 6</span>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                                  
-                                <div class="form-row" style="margin-left:10px;">
-                                    <label for="Gender" class="col-sm-12 col-form-label">Gender</label>
-                                    <div class="md-form mt-0">
-                                        <div class="form-check form-check-inline col-sm-1">
-                                            <input type="radio" class="form-check-input" value="Male" id="Genderone" name="Gender" checked>
-                                            <label class="form-check-label" for="Genderone">Male</label>
-                                        </div>
-                                        <div class="form-check form-check-inline col-sm-1">
-                                            <input type="radio" class="form-check-input" value="Female" id="Gendertwo" name="Gender">
-                                            <label class="form-check-label" for="Gendertwo">Female</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                  
-                                <div class="form-row">
-                                     <div class="col-sm-10">
-                                      </div>
-                                      <div class="col-sm-11" >
-                                       </div>
-                                    <div class="col-sm-1" >
-                                        <input type="submit" class="btn btn-success success-btn btn-sm" onclick="return CommonValidation();" value="Submit" />
-                                    </div>
-                                </div>
-
+                <div class="login-container">
+                    <div class="form-row">
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="text" class="form-control required" name="FirstName" id="FirstName" placeholder="First Name">
                             </div>
+                        </div>
 
-                        </form>
-                        <!-- Horizontal material form -->
-
-
-                        <div class="col-sm-1"></div>
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="text" class="form-control required" name="LastName" id="LastName" placeholder="Last Name">
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="text" class="form-control required" name="ContactNumber" id="ContactNumber" placeholder="Contact Number">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="email" class="form-control required email" name="EmailAddress" id="EmailAddress" placeholder="Email Address">
+                                <p id="validEmail" class="email-message">Email address is not valid</p>
+                                <p id="existEmail" class="email-message">Email address already exists</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <div class="form-group">
+                                   
+                                        @Html.EditorFor(model => model.CreatedDate, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.CreatedDate, "", new { @class = "text-danger" })
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="text" class="form-control required" name="ZipCode" id="ZipCode" placeholder="Zip Code">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="text" class="form-control required" name="AddressOne" id="AddressOne" placeholder="Address Line One">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="text" class="form-control" name="AddressTwo" id="AddressTwo" placeholder="Address Line Two">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="text" class="form-control required" name="City" id="City" placeholder="City/Town">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="text" class="form-control required" name="State" id="State" placeholder="State">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="Password" class="form-control required password password-box" name="Password" id="Password" placeholder="Password">
+                                <span class="passwordlength">Password length should be at least 6</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="Password" class="form-control required password" name="ConfirmPassword" id="ConfirmPassword" placeholder="Confirm Password">
+                                <span class="passwordmatch">Password and confirm password does not match</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="text" class="form-control required password password-box" name="Role" id="Role" placeholder="Role">
+                                <span class="passwordlength">Password length should be at least 6</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row" style="margin-left:10px;">
+                        <label for="Gender" class="col-sm-12 col-form-label">Gender</label>
+                        <div class="md-form mt-0">
+                            <div class="form-check form-check-inline col-sm-1">
+                                <input type="radio" class="form-check-input" value="Male" id="Genderone" name="Gender" checked>
+                                <label class="form-check-label" for="Genderone">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline col-sm-1">
+                                <input type="radio" class="form-check-input" value="Female" id="Gendertwo" name="Gender">
+                                <label class="form-check-label" for="Gendertwo">Female</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-10">
+                        </div>
+                        <div class="col-sm-11">
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="submit" class="btn btn-success success-btn btn-sm" onclick="return CommonValidation();" value="Submit" />
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+
+            </form>
+            <!-- Horizontal material form -->
+
+
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</div>
 
