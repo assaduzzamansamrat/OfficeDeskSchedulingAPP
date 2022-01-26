@@ -38,5 +38,18 @@ namespace OfficeDeskScheduler.Controllers
                 throw ex;
             }
         }
+
+        public IActionResult GetAll()
+        {
+            try
+            {
+                return View(userDataService.GetAll());
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }
