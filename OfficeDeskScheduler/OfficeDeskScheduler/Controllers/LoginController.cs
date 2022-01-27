@@ -40,7 +40,18 @@ namespace OfficeDeskScheduler.Controllers
                     //HttpContext.Session.SetString("UserFullName")["UserFullName"] = user.FirstName + " " + user.LastName;
                     // Set Role For Authorization
                    // SetRoleForAuthorization(user, login);
-                    return RedirectToAction("Index", "Admin");
+                   if(user.Role == "Admin")
+                   {
+                        return RedirectToAction("Index", "Admin");
+                   }
+                   if (user.Role == "Manager")
+                   {
+                        return RedirectToAction("Index", "Manager");
+                   }
+                    else
+                    {
+                        return View("Index");
+                    }
                 }
                 else
                 {

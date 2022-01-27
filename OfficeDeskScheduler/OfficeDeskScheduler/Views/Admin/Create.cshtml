@@ -397,12 +397,24 @@
 
                     <div class="form-row">
                         <div class="col-sm-12">
-                            <div class="md-form mt-0">
+                            @*<div class="md-form mt-0">
                                 <span class="req-asterisk">*</span>
                                 <input type="text" class="form-control required password password-box" name="Role" id="Role" placeholder="Role">
                                 <span class="passwordlength">Password length should be at least 6</span>
+                            </div>*@
+                          
+                            <div class="md-form mt-0">
+                                <div class="dropdown" style="margin-left: 20px;">
+                                  
+                                    <select name="Role" id="Role">
+                                        <option value="Admin">Admin </option>
+                                        <option value="Manager">Manager</option>
+                                        <option value="Contributor">Contributor</option>
+                                       
+                                     </select>
+                                </div>
                             </div>
-                        </div>
+                       
 
                     </div>
 

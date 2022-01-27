@@ -74,7 +74,7 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                User user = userDataService.GetUserByID(Id);
+                User user = userDataService.GetUserByID(Id);               
                 return View(user);
             }
             catch (Exception ex)
