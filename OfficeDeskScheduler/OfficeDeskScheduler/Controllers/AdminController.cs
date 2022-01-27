@@ -189,7 +189,20 @@ namespace OfficeDeskScheduler.Controllers
             }
         }
 
-        
+        public async Task<IActionResult> TeamDetails(long Id)
+        {
+            try
+            {
+                Team team = teamDataService.GetTeamByID(Id);
+                return View(team);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
 
     }
 }
