@@ -17,6 +17,10 @@
             color: var(--white-color);
             transition: 0.5s ease;
         }
+        a {
+    color: #131313 !important;
+    text-decoration: none;
+}
     </style>
 
      <meta charset="utf-8">
@@ -46,12 +50,12 @@
 
 
         <ul class="features-list">
-            <li class="features-item inbox active">
-               <a href="Admin/Team">
+           @* <li class="features-item inbox active">
+               <a href="/Admin/Team">
                 <span class="features-item-text">Manage Desks</span>
                 <span class="tooltip">Manage Desks</span>
             </li>
-
+*@
             <li class="features-item ">
                  <a href="/Admin">
                 <span class="features-item-text">Manage Users</span>
@@ -59,13 +63,13 @@
             </li>
 
             <li class="features-item active">
-               <a href="Admin/Team">
+               <a href="/Admin/Team">
                 <span class="features-item-text">Manage Teams</span>
                 <span class="tooltip">Manage Teams</span>
                 </a> 
             </li>
              <li class="features-item active">
-               <a href="Admin/Desk">
+               <a href="/Admin/Desk">
                 <span class="features-item-text">Manage Desks</span>
                 <span class="tooltip">Manage Teams</span>
                 </a> 
@@ -85,7 +89,7 @@
 
     <!-- CSSScript Demo Page -->
 
-    <script type="text/javascript">
+   @* <script type="text/javascript">
         {
           let sideBar = document.querySelector('.side-bar');
           let arrowCollapse = document.querySelector('#logo-name__icon');
@@ -100,7 +104,7 @@
             }
           };
         }
-    </script>
+    </script>*@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

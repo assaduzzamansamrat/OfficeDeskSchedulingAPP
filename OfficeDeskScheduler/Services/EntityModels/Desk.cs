@@ -18,5 +18,6 @@ namespace Services.EntityModels
         public long CreatedBy { get; set; }
         public DateTime? EditedDate { get; set; }
         public long EditedBy { get; set; }
+        public string? EquipmentDetails { get; set; }
     }
 }

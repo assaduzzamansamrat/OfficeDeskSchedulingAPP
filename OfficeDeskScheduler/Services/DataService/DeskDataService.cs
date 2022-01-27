@@ -72,6 +72,7 @@ namespace Services.DataService
                     Desk desk = context.Desks.FirstOrDefault(d => d.Id == _desk.Id);
                     if (desk != null)
                     {
+                        desk.EquipmentDetails = _desk.EquipmentDetails;
                         desk.EditedDate = DateTime.Now;
                         desk.DeskNumber = _desk.DeskNumber;
                         desk.DeskType = _desk.DeskType;

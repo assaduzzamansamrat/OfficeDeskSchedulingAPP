@@ -258,6 +258,68 @@ namespace OfficeDeskScheduler.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> DeskEdit(long Id)
+        {
+            try
+            {
+                Desk team = deskDataService.GetDeskByID(Id);
+                return View(team);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeskEdit(Desk desk)
+        {
+            try
+            {
+                bool result = deskDataService.UpdateDesk(desk);
+                if (result == true)
+                {
+                    return RedirectToAction("Desk", "Admin");
+                }
+                return RedirectToAction("Desk", "Admin");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<IActionResult> DeskDetails(long Id)
+        {
+            try
+            {
+                Desk desk = deskDataService.GetDeskByID(Id);
+                return View(desk);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public async Task<IActionResult> DeskDelete(long Id)
+        {
+            try
+            {
+                deskDataService.Delete(Id);
+                return RedirectToAction("Desk", "Admin");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
     }
 }
