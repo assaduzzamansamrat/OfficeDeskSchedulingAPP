@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model IEnumerable<Services.EntityModels.Desk>
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<p>
+    @Html.ActionLink("Create New", "DeskCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeskNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeskType)
+        </th>
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeskNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeskType)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Edit", "DeskEdit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "DeskDetails", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeskDelete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+

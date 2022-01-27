@@ -8,10 +8,12 @@ namespace OfficeDeskScheduler.Controllers
     {
         private readonly UserDataService userDataService;
         private readonly TeamDataService teamDataService;
-        public AdminController(UserDataService _userDataService, TeamDataService _teamDataService)
+        private readonly DeskDataService deskDataService;
+        public AdminController(UserDataService _userDataService, TeamDataService _teamDataService, DeskDataService _deskDataService)
         {
             userDataService = _userDataService;
             teamDataService = _teamDataService;
+            deskDataService = _deskDataService;
         }
         public async Task<IActionResult> Index()
         {
@@ -203,6 +205,59 @@ namespace OfficeDeskScheduler.Controllers
             }
 
         }
+
+        public async Task<IActionResult> TeamDelete(long Id)
+        {
+            try
+            {
+                teamDataService.Delete(Id);
+                return RedirectToAction("Team", "Admin");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<IActionResult> Desk()
+        {
+            try
+            {
+                List<Desk> deskList = deskDataService.GetAll();
+                return View(deskList);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public async Task<IActionResult> DeskCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeskCreate(Desk desk)
+        {
+            try
+            {
+                if (desk != null)
+                {
+                    deskDataService.CreateNewDesk(desk);
+                }
+                return RedirectToAction("Desk", "Admin");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
 
     }
 }

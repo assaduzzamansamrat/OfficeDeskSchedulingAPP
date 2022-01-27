@@ -21,5 +21,8 @@ namespace Services
         public DbSet<User> Users { get; set; }
 
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Desk> Desks { get; set; }
+
+        
     }
 }

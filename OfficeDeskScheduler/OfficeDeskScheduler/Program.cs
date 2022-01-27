@@ -12,6 +12,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<LoginDataService, LoginDataService>();
 builder.Services.AddScoped<UserDataService, UserDataService>();
 builder.Services.AddScoped<TeamDataService, TeamDataService>();
+builder.Services.AddScoped<DeskDataService, DeskDataService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

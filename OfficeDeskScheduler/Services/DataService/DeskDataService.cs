@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace Services.DataService
 {
-    public class TeamDataService
+    public class DeskDataService
     {
         private AppDbContext context;
 
-        public TeamDataService(AppDbContext _context)
+        public DeskDataService(AppDbContext _context)
         {
             context = _context;
         }
-        public List<Team> GetAll()
+        public List<Desk> GetAll()
         {
             try
             {
 
-                return context.Teams.ToList();
+                return context.Desks.ToList();
 
             }
             catch (Exception ex)
@@ -31,13 +31,13 @@ namespace Services.DataService
 
         }
 
-        public bool CreateNewTeam(Team team)
+        public bool CreateNewDesk(Desk desk)
         {
          
             try
             {
-                team.CreatedDate = DateTime.Now;
-                context.Teams.Add(team);
+                desk.CreatedDate = DateTime.Now;
+                context.Desks.Add(desk);
                 context.SaveChanges();
                 return true;
             }
@@ -48,11 +48,11 @@ namespace Services.DataService
             }
         }
 
-        public Team GetTeamByID(long id)
+        public Desk GetDeskByID(long id)
         {
             try
             {
-                return context.Teams.FirstOrDefault(d => d.Id == id);
+                return context.Desks.FirstOrDefault(d => d.Id == id);
             }
             catch (Exception ex)
             {
@@ -62,19 +62,19 @@ namespace Services.DataService
 
         }
 
-        public bool UpdateTeam(Team _team)
+        public bool UpdateDesk(Desk _desk)
         {
             try
             {
-                if (_team != null)
+                if (_desk != null)
 
                 {
-                    Team team = context.Teams.FirstOrDefault(d => d.Id == _team.Id);
-                    if (team != null)
+                    Desk desk = context.Desks.FirstOrDefault(d => d.Id == _desk.Id);
+                    if (desk != null)
                     {
-                        team.EditedDate = DateTime.Now;
-                        team.TeamName = _team.TeamName;
-                        team.ManagerId = _team.ManagerId;
+                        desk.EditedDate = DateTime.Now;
+                        desk.DeskNumber = _desk.DeskNumber;
+                        desk.DeskType = _desk.DeskType;
                       
                         context.SaveChanges();
                         return true;
@@ -95,10 +95,10 @@ namespace Services.DataService
         {
             if (id > 0)
             {
-                Team team = context.Teams.FirstOrDefault(d => d.Id == id);
-                if (team != null)
+                Desk desk = context.Desks.FirstOrDefault(d => d.Id == id);
+                if (desk != null)
                 {
-                    context.Teams.Remove(team);
+                    context.Desks.Remove(desk);
                     context.SaveChanges();
                     return true;
                 }
