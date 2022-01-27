@@ -31,5 +31,67 @@ namespace Services.DataService
 
         }
 
+        public bool CreateNewTeam(Team team)
+        {
+         
+            try
+            {
+                team.CreatedDate = DateTime.Now;
+                context.Teams.Add(team);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public Team GetTeamByID(long id)
+        {
+            try
+            {
+                return context.Teams.FirstOrDefault(d => d.Id == id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public bool UpdateTeam(Team _team)
+        {
+            try
+            {
+                if (_team != null)
+
+                {
+                    Team team = context.Teams.FirstOrDefault(d => d.Id == _team.Id);
+                    if (team != null)
+                    {
+                        team.EditedDate = DateTime.Now;
+                        team.TeamName = _team.TeamName;
+                        team.ManagerId = _team.ManagerId;
+                      
+                        context.SaveChanges();
+                        return true;
+                    }
+                    return false;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+
+
     }
 }

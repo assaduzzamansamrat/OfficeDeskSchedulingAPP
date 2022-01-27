@@ -130,5 +130,66 @@ namespace OfficeDeskScheduler.Controllers
 
         }
 
+
+
+        public async Task<IActionResult> TeamCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> TeamCreate(Team team)
+        {
+            try
+            {
+                if (team != null)
+                {
+                    teamDataService.CreateNewTeam(team);
+                }
+                return RedirectToAction("Team", "Admin");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> TeamEdit(long Id)
+        {
+            try
+            {
+                Team team = teamDataService.GetTeamByID(Id);
+                return View(team);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> TeamEdit(Team team)
+        {
+            try
+            {
+                bool result = teamDataService.UpdateTeam(team);
+                if (result == true)
+                {
+                    return RedirectToAction("Team", "Admin");
+                }
+                return RedirectToAction("Team", "Admin");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        
+
     }
 }
