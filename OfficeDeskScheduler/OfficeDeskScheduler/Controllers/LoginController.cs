@@ -44,10 +44,15 @@ namespace OfficeDeskScheduler.Controllers
                    {
                         return RedirectToAction("Index", "Admin");
                    }
-                   if (user.Role == "Manager")
+                   else if (user.Role == "Manager")
                    {
                         return RedirectToAction("Index", "Manager");
                    }
+
+                    else if (user.Role == "Contributor")
+                    {
+                        return RedirectToAction("Index", "Contributor");
+                    }
                     else
                     {
                         return View("Index");
