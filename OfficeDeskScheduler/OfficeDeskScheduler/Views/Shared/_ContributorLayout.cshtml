@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/reset.css" />
+    <link href="https://www.cssscript.com/demo/sticky.css" rel="stylesheet" type="text/css">
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+          rel="stylesheet" />
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/styled.css" />
+    <title>Smooth Collapsible Sidebar Navigation Example</title>
+    <style type="text/css">
+
+        .active {
+            color: var(--white-color);
+            transition: 0.5s ease;
+        }
+        a {
+    color: #131313 !important;
+    text-decoration: none;
+}
+    </style>
+
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="side-bar">
+        <div class="logo-name-wrapper">
+            <div class="logo-name">
+                <img src="~/Resources/assets/images/logo.png"
+                     class="logo"
+                     alt="logo app"
+                     srcset="" />
+                <span class="logo-name__name">Manager Dashboard</span>
+            </div>
+            <button class="logo-name__button">
+                <i class="bx bx-arrow-from-right logo-name__icon"
+                   id="logo-name__icon"></i>
+            </button>
+            <!-- <i class='bx bx-arrow-from-left'></i> -->
+        </div>
+
+
+
+        <ul class="features-list">
+           @* <li class="features-item inbox active">
+               <a href="/Admin/Team">
+                <span class="features-item-text">Manage Desks</span>
+                <span class="tooltip">Manage Desks</span>
+            </li>
+*@
+            <li class="features-item ">
+                 <a href="/Admin">
+                <span class="features-item-text">Manage Users</span>
+                <span class="tooltip">Manage Users</span>
+            </li>
+
+            <li class="features-item active">
+               <a href="/Admin/Team">
+                <span class="features-item-text">Manage Teams</span>
+                <span class="tooltip">Manage Teams</span>
+                </a> 
+            </li>
+             <li class="features-item active">
+               <a href="/Admin/Desk">
+                <span class="features-item-text">Manage Desks</span>
+                <span class="tooltip">Manage Teams</span>
+                </a> 
+            </li>
+
+        </ul>
+
+
+    </div>
+    <div class="container">
+       
+            @RenderBody()
+
+           
+       
+    </div>
+
+    <!-- CSSScript Demo Page -->
+
+   @* <script type="text/javascript">
+        {
+          let sideBar = document.querySelector('.side-bar');
+          let arrowCollapse = document.querySelector('#logo-name__icon');
+          sideBar.onclick = () => {
+            sideBar.classList.toggle('collapse');
+            arrowCollapse.classList.toggle('collapse');
+            if (arrowCollapse.classList.contains('collapse')) {
+              arrowCollapse.classList =
+                'bx bx-arrow-from-left logo-name__icon collapse';
+            } else {
+              arrowCollapse.classList = 'bx bx-arrow-from-right logo-name__icon';
+            }
+          };
+        }
+    </script>*@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+
+</html>
