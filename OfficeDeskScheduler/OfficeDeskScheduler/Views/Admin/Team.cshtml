@@ -14,45 +14,54 @@
     Layout = "_AdminLayout";
 }
 
-<p>
-    @Html.ActionLink("Create New", "TeamCreate")
+
+<p class="">
+    <a type="buton" href="Admin/TeamCreate" class="btn btn-create">+ Create</a>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ManagerId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TeamName)
-        </th>
-       
-        <th></th>
-    </tr>
+<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-expanded-width u-table u-table-responsive u-table-1">
+        <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ManagerId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeamName)
-            </td>
-           
-            <td>
-                @Html.ActionLink("Edit", "TeamEdit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "TeamDetails", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "TeamDelete", new { id = item.Id })
-            </td>
-        </tr>
-    }
+            </colgroup>
+            <thead class="u-custom-font u-font-courier-new u-palette-4-base u-table-header u-table-header-1">
+                <tr style="height: 58px;">
+                    <th class="u-table-cell">Id </th>
+                    <th class="u-table-cell">Manager Id </th>
+                    <th class="u-table-cell">Team Name </th>
+                    <th class="u-table-cell">Actions </th>
 
-</table>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tbody class="u-table-body">
+                    <tr style="height: 55px;">
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Id</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.ManagerId</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.TeamName</td>
+
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
+                            @Html.ActionLink("Edit", "TeamEdit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "TeamDetails", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "TeamDelete", new { id = item.Id })
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            }
+
+        </table>
+    </div>
+</div>
+
+
 
 

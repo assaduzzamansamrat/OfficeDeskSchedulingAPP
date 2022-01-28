@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>*@
     <link rel="stylesheet" href="~/reset.css" />
     <link href="https://www.cssscript.com/demo/sticky.css" rel="stylesheet" type="text/css">
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
@@ -32,6 +35,8 @@
 .menu-Item{
     color:#fff !important;
 }
+
+
     </style>
 
      <meta charset="utf-8">
@@ -39,70 +44,67 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-   <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
+  <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
 <link rel="stylesheet" href="~/css/Home.css" media="screen">
 </head>
 <body>
-    <nav class="navbar navbar-light" style="background-color: #0e4872;">
-  <!-- Navbar content -->
-  <h4 class="main-header">Admin Dashboard</h4>
-    </nav>
-    <div class="side-bar">
-      
-        <ul class="features-list">
+    <div class="row">
+         <nav class="navbar navbar-light col-md-12" style="background-color: #0e4872;margin-bottom:0px!important">             
+         <h4 class="main-header">Admin Dashboard</h4>          
+         </nav>
+         <div class="col-md-12" style="height:100vh !important;">
+             <!-- Navbar content -->
+     
+            <div class="side-bar col-md-2">
+        
+                <ul class="features-list">
              
-            <li class="features-item">
-                 <a href="/Admin" class="menu-Item">
-                <span class="features-item-text">Manage Users</span>
-                <span class="tooltip">Manage Users</span>
-                 </a> 
-            </li>
+                    <li class="features-item">
+                            <a href="/Admin" class="menu-Item">
+                        <span class="features-item-text">Manage Users</span>
+                        <span class="tooltip">Manage Users</span>
+                            </a> 
+                    </li>
 
-            <li class="features-item active">
-               <a href="/Admin/Team" class="menu-Item">
-                <span class="features-item-text">Manage Teams</span>
-                <span class="tooltip">Manage Teams</span>
-                </a> 
-            </li>
-             <li class="features-item active">
-               <a href="/Admin/Desk" class="menu-Item">
-                <span class="features-item-text">Manage Desks</span>
-                <span class="tooltip">Manage Teams</span>
-                </a> 
-            </li>
+                    <li class="features-item active">
+                        <a href="/Admin/Team" class="menu-Item">
+                        <span class="features-item-text">Manage Teams</span>
+                        <span class="tooltip">Manage Teams</span>
+                        </a> 
+                    </li>
+                        <li class="features-item active">
+                        <a href="/Admin/Desk" class="menu-Item">
+                        <span class="features-item-text">Manage Desks</span>
+                        <span class="tooltip">Manage Teams</span>
+                        </a> 
+                    </li>
 
-        </ul>
+                </ul>
 
 
-    </div>
-    <div class="container">
+            </div>
+
+             <div class="container col-md-8">
        <!-- Just an image -->
-
+      <a style="font-size: 25px;" onclick="ShowNavBar();"><i class="fas fa-bars"></i></a>
             @RenderBody()
 
            
        
     </div>
 
+
+         </div>
+
+    </div>
+   
+     
+      
+  
+   
     <!-- CSSScript Demo Page -->
 
-   @* <script type="text/javascript">
-        {
-          let sideBar = document.querySelector('.side-bar');
-          let arrowCollapse = document.querySelector('#logo-name__icon');
-          sideBar.onclick = () => {
-            sideBar.classList.toggle('collapse');
-            arrowCollapse.classList.toggle('collapse');
-            if (arrowCollapse.classList.contains('collapse')) {
-              arrowCollapse.classList =
-                'bx bx-arrow-from-left logo-name__icon collapse';
-            } else {
-              arrowCollapse.classList = 'bx bx-arrow-from-right logo-name__icon';
-            }
-          };
-        }
-    </script>*@
+    
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

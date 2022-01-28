@@ -11,51 +11,56 @@
     Layout = "_AdminLayout";
 }
 
-<p>
-    @Html.ActionLink("Create New", "DeskCreate")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DeskNumber)
-        </th>
-         <th>
-            @Html.DisplayNameFor(model => model.EquipmentDetails)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DeskType)
-        </th>
-       
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeskNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EquipmentDetails)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeskType)
-            </td>
-           
-            <td>
-                @Html.ActionLink("Edit", "DeskEdit", new { id = item.Id }) |
+
+<p class="">
+    <a type="buton" href="Admin/DeskCreate" class="btn btn-create">+ Create</a>
+</p>
+<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-expanded-width u-table u-table-responsive u-table-1">
+        <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+                <col width="15%">
+                <col width="15%">
+                <col width="30%">
+                <col width="20%">
+                 <col width="20%">
+               
+            </colgroup>
+            <thead class="u-custom-font u-font-courier-new u-palette-4-base u-table-header u-table-header-1">
+                <tr style="height: 58px;">
+                    <th class="u-table-cell">Id </th>
+                    <th class="u-table-cell">Desk Number </th>
+                    <th class="u-table-cell">Equipment Details </th>
+                    <th class="u-table-cell">DeskType </th>
+                     <th class="u-table-cell">Actions </th>
+                    
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tbody class="u-table-body">
+                    <tr style="height: 55px;">
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Id</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.DeskNumber</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.EquipmentDetails</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.DeskType</td>
+                       
+                          <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
+                 @Html.ActionLink("Edit", "DeskEdit", new { id = item.Id }) |
                 @Html.ActionLink("Details", "DeskDetails", new { id = item.Id }) |
                 @Html.ActionLink("Delete", "DeskDelete", new { id = item.Id })
             </td>
-        </tr>
-    }
+                    </tr>
 
-</table>
+                </tbody>
+
+            }
+
+        </table>
+    </div>
+</div>
 
 
