@@ -24,15 +24,30 @@ body {
   background-color: #fafafa;
 }
 
-.lead { font-size: 1.5rem; font-weight: 300; }
+.main-header {
+    color: #fff;
+    text-align: center;
+}
+
+.btn-create {
+    color: #fff;
+    background-color: #2cccc4;
+    border-color: #1eaca5;
+}
+
+.lead {
+    font-size: 1.5rem;
+    font-weight: 300;
+}
 .container {  max-width: 960px; color: #000; }
 
 .side-bar {
-    width: 23.2rem;
+    margin-top: 71px;
+    width: 15.2rem;
     height: 100%;
     padding: 2.1rem 1.2rem;
-    background-color: #1392a6;
-    position: fixed;
+    background-color: #005e74;
+    position: absolute;
     transition: all 0.5s ease;
     top: 0;
 }

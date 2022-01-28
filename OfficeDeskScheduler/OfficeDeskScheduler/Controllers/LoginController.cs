@@ -49,7 +49,7 @@ namespace OfficeDeskScheduler.Controllers
                         return RedirectToAction("Index", "Manager");
                    }
 
-                    else if (user.Role == "Contributor")
+                   else if (user.Role == "Contributor")
                     {
                         return RedirectToAction("Index", "Contributor");
                     }

@@ -12,7 +12,15 @@
     <link rel="stylesheet" href="~/styled.css" />
     <title>Smooth Collapsible Sidebar Navigation Example</title>
     <style type="text/css">
+        @@media (min-width: 768px){
+            .navbar {
+                border-radius: unset !important;
+            }
+        }
 
+          .navbar {
+                border-radius: unset !important;
+            }
         .active {
             color: var(--white-color);
             transition: 0.5s ease;
@@ -21,6 +29,9 @@
     color: #131313 !important;
     text-decoration: none;
 }
+.menu-Item{
+    color:#fff !important;
+}
     </style>
 
      <meta charset="utf-8">
@@ -28,48 +39,34 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+   <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
+<link rel="stylesheet" href="~/css/Home.css" media="screen">
 </head>
 <body>
-
+    <nav class="navbar navbar-light" style="background-color: #0e4872;">
+  <!-- Navbar content -->
+  <h4 class="main-header">Admin Dashboard</h4>
+    </nav>
     <div class="side-bar">
-        <div class="logo-name-wrapper">
-            <div class="logo-name">
-                <img src="~/Resources/assets/images/logo.png"
-                     class="logo"
-                     alt="logo app"
-                     srcset="" />
-                <span class="logo-name__name">Admin Dashboard</span>
-            </div>
-            <button class="logo-name__button">
-                <i class="bx bx-arrow-from-right logo-name__icon"
-                   id="logo-name__icon"></i>
-            </button>
-            <!-- <i class='bx bx-arrow-from-left'></i> -->
-        </div>
-
-
-
+      
         <ul class="features-list">
-           @* <li class="features-item inbox active">
-               <a href="/Admin/Team">
-                <span class="features-item-text">Manage Desks</span>
-                <span class="tooltip">Manage Desks</span>
-            </li>
-*@
-            <li class="features-item ">
-                 <a href="/Admin">
+             
+            <li class="features-item">
+                 <a href="/Admin" class="menu-Item">
                 <span class="features-item-text">Manage Users</span>
                 <span class="tooltip">Manage Users</span>
+                 </a> 
             </li>
 
             <li class="features-item active">
-               <a href="/Admin/Team">
+               <a href="/Admin/Team" class="menu-Item">
                 <span class="features-item-text">Manage Teams</span>
                 <span class="tooltip">Manage Teams</span>
                 </a> 
             </li>
              <li class="features-item active">
-               <a href="/Admin/Desk">
+               <a href="/Admin/Desk" class="menu-Item">
                 <span class="features-item-text">Manage Desks</span>
                 <span class="tooltip">Manage Teams</span>
                 </a> 
@@ -80,7 +77,8 @@
 
     </div>
     <div class="container">
-       
+       <!-- Just an image -->
+
             @RenderBody()
 
            

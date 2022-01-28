@@ -5,58 +5,58 @@
 @model IEnumerable<Services.EntityModels.User>
 
 @{
-      Layout = "_AdminLayout";
+    Layout = "_AdminLayout";
 }
 
- <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmailAddress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContactNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Role)
-            </th>
-            
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model){
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmailAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContactNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Role)
-            </td>
-          
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+<p class="">
+    <a type="buton" href="Admin/Create" class="btn btn-create">+ Create</a>
+</p>
+<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-expanded-width u-table u-table-responsive u-table-1">
+        <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+                <col width="15%">
+                <col width="15%">
+                <col width="15%">
+                <col width="15%">
+                <col width="15%">
+                <col width="25%">
+            </colgroup>
+            <thead class="u-custom-font u-font-courier-new u-palette-4-base u-table-header u-table-header-1">
+                <tr style="height: 58px;">
+                    <th class="u-table-cell">FirstName </th>
+                    <th class="u-table-cell">LastName </th>
+                    <th class="u-table-cell">EmailAddress </th>
+                    <th class="u-table-cell">ContactNumber </th>
+                    <th class="u-table-cell">Role</th>
+                    <th class="u-table-cell">Actions</th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tbody class="u-table-body">
+                    <tr style="height: 55px;">
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.FirstName</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.LastName</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.EmailAddress</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.ContactNumber</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Role</td>
+                          <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id , @class="btn btn-primary"}) |
                 @Html.ActionLink("Details", "Details", new { id=item.Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id=item.Id })
             </td>
-        </tr>
-    }
-    
-    </table>
- 
+                    </tr>
+
+                </tbody>
+
+            }
+
+        </table>
+    </div>
+</div>
+
+
+
