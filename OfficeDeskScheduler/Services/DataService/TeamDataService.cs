@@ -31,6 +31,21 @@ namespace Services.DataService
 
         }
 
+        public List<Team> GetAllByManagerId(long MaagerId)
+        {
+            try
+            {
+
+                return context.Teams.Where(x=>x.ManagerId == MaagerId).ToList();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
         public bool CreateNewTeam(Team team)
         {
          

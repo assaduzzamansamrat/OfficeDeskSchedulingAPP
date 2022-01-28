@@ -321,5 +321,10 @@ namespace OfficeDeskScheduler.Controllers
             }
         }
 
+        public async Task<IActionResult> Map()
+        {
+            return View();
+        }
+
     }
 }

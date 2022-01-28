@@ -6,3 +6,65 @@
 @{
     Layout = "_ManagerLayout";
 }
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model IEnumerable<Services.EntityModels.Team>
+
+
+<p class="">
+    <a type="buton" href="Admin/TeamCreate" class="btn btn-create">+ Create</a>
+</p>
+<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-expanded-width u-table u-table-responsive u-table-1">
+        <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+
+            </colgroup>
+            <thead class="u-custom-font u-font-courier-new u-palette-4-base u-table-header u-table-header-1">
+                <tr style="height: 58px;">
+                    <th class="u-table-cell">Id </th>
+                    <th class="u-table-cell">Manager Id </th>
+                    <th class="u-table-cell">Team Name </th>
+                    <th class="u-table-cell">Actions </th>
+
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tbody class="u-table-body">
+                    <tr style="height: 55px;">
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Id</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.ManagerId</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.TeamName</td>
+
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
+                            @Html.ActionLink("Invite", "TeamEdit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "TeamDetails", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "TeamDelete", new { id = item.Id })
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            }
+
+        </table>
+    </div>
+</div>
+
+
+
+
+
