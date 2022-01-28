@@ -1,0 +1,66 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    Layout = "_ManagerLayout";
+}
+
+
+@model IEnumerable<Services.EntityModels.DeskBooking>
+
+<p class="">
+    <a type="buton" href="/Manager/BookingCreate" class="btn btn-create">+ Create</a>
+</p>
+<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-expanded-width u-table u-table-responsive u-table-1">
+        <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+                <col width="10%">
+                <col width="10%">
+                <col width="15%">
+                <col width="15%">
+                <col width="15%">
+                <col width="15%">
+                 <col width="20%">
+               
+            </colgroup>
+            <thead class="u-custom-font u-font-courier-new u-palette-4-base u-table-header u-table-header-1">
+                <tr style="height: 58px;">
+                    <th class="u-table-cell">Id </th>
+                    <th class="u-table-cell">Desk Number </th>
+                    <th class="u-table-cell">Start Date & Time </th>
+                    <th class="u-table-cell">End Date & Time </th>
+                     <th class="u-table-cell">Assigned Contributor </th>
+                     <th class="u-table-cell">Location </th>
+                     <th class="u-table-cell">Location </th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tbody class="u-table-body">
+                    <tr style="height: 55px;">
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Id</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.DeskId</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.StartDateTime</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.EndDateTime</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.AssignedContributor</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Location</td>
+                       
+                          <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
+                 @Html.ActionLink("Edit", "DeskEdit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "DeskDetails", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeskDelete", new { id = item.Id })
+            </td>
+                    </tr>
+
+                </tbody>
+
+            }
+
+        </table>
+    </div>
+</div>

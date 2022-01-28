@@ -13,6 +13,7 @@ builder.Services.AddScoped<LoginDataService, LoginDataService>();
 builder.Services.AddScoped<UserDataService, UserDataService>();
 builder.Services.AddScoped<TeamDataService, TeamDataService>();
 builder.Services.AddScoped<DeskDataService, DeskDataService>();
+builder.Services.AddScoped<DeskBookingDataService, DeskBookingDataService>();
 
 var app = builder.Build();
 
