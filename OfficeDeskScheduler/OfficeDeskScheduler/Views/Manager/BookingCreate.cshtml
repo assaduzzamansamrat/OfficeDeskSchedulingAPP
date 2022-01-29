@@ -4,9 +4,7 @@
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-    Layout = "_ManagerLayout";
-}
+
 @model Services.EntityModels.DeskBooking
 
 
@@ -153,20 +151,20 @@
     <h3 class="h3 header">Please Provide Informations To Proceed</h3>
     <div class="row">
         <div class="col-sm-12">
-            <!-- Horizontal material form -->
-            <form action="~/Manager/BookingCreate" method="post">
-
+           
                 <div class="login-container">
                     <div class="form-row">
+                         <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <span class="req-asterisk">*</span>
+                                <input type="text" class="form-control required" name="DeskNumber" id="DeskNumber" placeholder="Desk Number" readonly="readonly" value='@ViewBag.DeskNumber'></input>
+                            </div>
+                        </div>
+
                           <div class="col-sm-12">
                             <div class="md-form mt-0">
-                                <div class="dropdown" style="margin-left: 20px;">                                  
-                                    <select name="DeskId" id="DeskId">
-                                        <option value="1">T124</option>
-                                        <option value="2">T455</option>
-                                 
-                                     </select>
-                                </div>
+                                <span class="req-asterisk">*</span>
+                                <input type="text" class="form-control required" name="DeskId" id="DeskId" placeholder="Desk Id" readonly="readonly" value='@ViewBag.DeskId'></input>
                             </div>
                         </div>
 
@@ -202,29 +200,26 @@
                             </div>
                         </div>
                          
-                       
+                        <div class="col-sm-12">
+                            <div class="md-form mt-0">                            
+                                <input type="text" class="form-control required" name="EquipmentDetails" id="EquipmentDetails" placeholder="Equipment Details" readonly="readonly" value='@ViewBag.EquipmentDetails'></input>
+                            </div>
+                        </div>
 
-                         <div class="form-row">
-                        <div class="col-sm-10">
-                        </div>
-                        <div class="col-sm-11">
-                        </div>
-                        <div class="col-sm-1">
-                            <input type="submit" class="btn btn-success success-btn btn-sm"  value="Submit" />
-                        </div>
+                       
                     </div>
 
                     </div>
                    
                 </div>
 
-            </form>
+           
             <!-- Horizontal material form -->
 
 
             <div class="col-sm-1"></div>
         </div>
     </div>
-</div>
+
 
 

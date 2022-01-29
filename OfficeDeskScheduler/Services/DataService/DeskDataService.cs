@@ -61,6 +61,21 @@ namespace Services.DataService
             }
 
         }
+        public Desk GetDeskByDeskNumber(string deskNumber)
+        {
+            try
+            {
+                return context.Desks.FirstOrDefault(d => d.DeskNumber == deskNumber);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+
 
         public bool UpdateDesk(Desk _desk)
         {

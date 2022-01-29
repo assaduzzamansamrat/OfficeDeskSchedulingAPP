@@ -29,6 +29,11 @@ namespace OfficeDeskScheduler.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> BookFromMap()
+        {
+            return View();
+        }
         public async Task<IActionResult> Booking()
         {
             long managerId = 2;
@@ -47,6 +52,15 @@ namespace OfficeDeskScheduler.Controllers
             deskBooking.BookedBy = 2;
             deskBookingDataService.CreateNewDeskBooking(deskBooking);
             return RedirectToAction("Booking", "Manager");
+        }
+
+        public async Task<IActionResult> GetBookingForm(string DeskNumber)
+        {
+            Desk desk = deskDataService.GetDeskByDeskNumber(DeskNumber);
+            ViewBag.DeskNumber = DeskNumber;
+            ViewBag.DeskId = desk.Id;
+            ViewBag.EquipmentDetails = desk.EquipmentDetails;
+            return PartialView("~/Views/Manager/BookingCreate.cshtml");
         }
 
 
