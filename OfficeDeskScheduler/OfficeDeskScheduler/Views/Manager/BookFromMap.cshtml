@@ -170,7 +170,7 @@
         text-decoration: none
     }
 
-    .div-T204-gray {
+    .div-T204-gray{
         width: 68px !important;
         margin-left: -13px;
         margin-top: -14px;
@@ -178,12 +178,12 @@
         border: 5px solid gray;
     }
 
-    .div-T204-normal {
+    .div-T204-normal{
          width: 68px !important;
         margin-left: -13px;
         margin-top: -14px;
         height: 70px !important;
-        border: 5px solid gray;
+       
     }
 
     .spn-T204 {
@@ -274,10 +274,10 @@
     <div style="position:absolute;left:593.92px;top:73.40px" class="cls_003"><span class="cls_003">L</span></div>
     <div style="position:absolute;left:428.92px;top:78.68px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:576.64px;top:78.20px" class="cls_004"><span class="cls_004">2</span></div>
-    <div style="position:absolute;left:461.08px;top:88.40px" class="cls_005 "><span class="cls_005 spn-T201">T201</span></div>
+    <div style="position:absolute;left:461.08px;top:88.40px" id="T201" class="cls_005 div-T201-normal"><span class="cls_005 spn-T201">T201</span></div>
     <div style="position:absolute;left:531.04px;top:88.40px" class="cls_005 "><span class="cls_005 spn-T202">T202</span></div>
     <div style="position:absolute;left:609.88px;top:87.44px" class="cls_005 "><span class="cls_005 spn-T203">T203</span></div>
-    <div style="position:absolute;left:672.28px;top:89.24px" id="T204" class="cls_005" desk-number="T204" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T204")'><span class="cls_005 spn-T204" >T204</span></div>
+    <div style="position:absolute;left:672.28px;top:89.24px" id="T204" class="div-T204-normal cls_005" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T204")'><span class="cls_005 spn-T204" >T204</span></div>
     <div style="position:absolute;left:389.20px;top:135.80px" class="cls_002"><span class="cls_002">UP</span></div>
     <div style="position:absolute;left:340.60px;top:163.52px" class="cls_006"><span class="cls_006">S</span><span class="cls_010">TAIRS</span><span class="cls_006">1</span></div>
     <div style="position:absolute;left:357.04px;top:180.20px" class="cls_006"><span class="cls_006">121</span></div>
@@ -461,8 +461,23 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $("#T204").removeClass("div-T202-normal");
-        $("#T204").addClass("div-T202-normal");
+       $.ajax({
+        type: "GET",       
+        url: "/Manager/GetAllBookedDeskList/",
+
+        success: function (result) {
+            debugger;
+            for(var i=0;i<= result.length;i++)
+            {
+                var desk_number = result[i].deskNumber;
+                 $("#"+desk_number).addClass("div-"+desk_number+"-gray");
+                 $("#"+desk_number).removeClass("div-"+desk_number+"-normal");
+            }
+            $("#modalBody").html(viewHTML);
+        },
+        error: function (errorData) { onError(errorData); }
+    });
+       
     });
 
     function MakeBooking(deskNumber)

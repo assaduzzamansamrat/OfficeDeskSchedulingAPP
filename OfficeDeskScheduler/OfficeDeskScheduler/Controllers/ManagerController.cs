@@ -63,6 +63,18 @@ namespace OfficeDeskScheduler.Controllers
             return PartialView("~/Views/Manager/BookingCreate.cshtml");
         }
 
+        public async Task<IActionResult> GetAllBookedDeskList()
+        {
+            List<DeskBooking> deskBooking = deskDataService.GetallBookedDesk();
+            List<Desk> bookedDeskList = new List<Desk>();
+
+            foreach (var item in deskBooking)
+            {
+                Desk desk = deskDataService.GetDeskByID(item.DeskId);
+                bookedDeskList.Add(desk);
+            }
+            return Json(bookedDeskList);
+        }
 
     }
 }

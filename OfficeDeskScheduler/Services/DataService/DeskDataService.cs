@@ -75,7 +75,18 @@ namespace Services.DataService
 
         }
 
+        public List<DeskBooking> GetallBookedDesk()
+        {
+            try
+            {
+                return context.DeskBookings.ToList();
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
 
         public bool UpdateDesk(Desk _desk)
         {
