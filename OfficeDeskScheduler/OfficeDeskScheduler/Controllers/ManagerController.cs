@@ -20,7 +20,7 @@ namespace OfficeDeskScheduler.Controllers
         }
         public IActionResult Index()
         {
-            long managerId = 2;
+            long managerId = 4;
             List<Team> teamList = teamDataService.GetAllByManagerId(managerId);
             return View(teamList);
         }
