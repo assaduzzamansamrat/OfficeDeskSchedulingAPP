@@ -136,7 +136,9 @@ namespace OfficeDeskScheduler.Controllers
 
         public async Task<IActionResult> TeamCreate()
         {
-            return View();
+            List<User> managers = new List<User>();
+            managers = userDataService.GetAllManagers();
+            return View(managers);
         }
 
         [HttpPost]
@@ -162,8 +164,13 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
+                List<User> managers = new List<User>();
+                managers = userDataService.GetAllManagers();
                 Team team = teamDataService.GetTeamByID(Id);
-                return View(team);
+                OperationModel opratonModel = new OperationModel();
+                opratonModel.User = managers;
+                opratonModel.Team = team;
+                return View(opratonModel);
             }
             catch (Exception ex)
             {

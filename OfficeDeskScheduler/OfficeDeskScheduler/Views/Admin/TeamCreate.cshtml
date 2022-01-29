@@ -7,6 +7,7 @@
     Layout = "_AdminLayout";
 }
 
+@model IEnumerable<Services.EntityModels.User>
 <style type="text/css">
 
     body {
@@ -171,37 +172,40 @@
                         <div class="col-sm-12">
                             <div class="md-form mt-0">
                                 <div class="dropdown" style="margin-left: 20px;">
-                                   @* <button class="btn btn-primary dropdown-toggle" type="button" name="ManagerId" id="ManagerId" placeholder="ManagerId" data-toggle="dropdown">
+                                    @* <button class="btn btn-primary dropdown-toggle" type="button" name="ManagerId" id="ManagerId" placeholder="ManagerId" data-toggle="dropdown">
                                         Dropdown Example
                                         <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
+                                        </button>
+                                        <ul class="dropdown-menu">
                                         <li>Manager one</li>
                                         <li>Manager two</li>
                                         <li>Manager three</li>
-                                    </ul>*@
+                                        </ul>*@
                                     <select name="ManagerId" id="ManagerId">
-                                        <option value="1">Manager 1</option>
-                                        <option value="2">Manager 2</option>
-                                        <option value="3">Manager 3</option>
-                                        <option value="4">Manager 4</option>
-                                     </select>
+                                       
+                                            @foreach (var item in Model)
+                                            {
+                                                <option value="@item.Id">@item.LastName</option>
+                                            }
+
+
+                                    </select>
                                 </div>
                             </div>
                         </div>
 
-                         <div class="form-row">
-                        <div class="col-sm-10">
+                        <div class="form-row">
+                            <div class="col-sm-10">
+                            </div>
+                            <div class="col-sm-11">
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="submit" class="btn btn-success success-btn btn-sm" value="Submit" />
+                            </div>
                         </div>
-                        <div class="col-sm-11">
-                        </div>
-                        <div class="col-sm-1">
-                            <input type="submit" class="btn btn-success success-btn btn-sm"  value="Submit" />
-                        </div>
-                    </div>
 
                     </div>
-                   
+
                 </div>
 
             </form>

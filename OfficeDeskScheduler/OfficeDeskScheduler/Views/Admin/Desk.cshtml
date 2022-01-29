@@ -14,7 +14,7 @@
 
 
 <p class="">
-    <a type="buton" href="Admin/DeskCreate" class="btn btn-create">+ Create</a>
+    <a type="buton" href="~/Admin/DeskCreate" class="btn btn-create">+ Create</a>
 </p>
 <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
     <div class="u-expanded-width u-table u-table-responsive u-table-1">
@@ -24,13 +24,14 @@
                 <col width="15%">
                 <col width="30%">
                 <col width="20%">
-                 <col width="20%">
+                <col width="20%">
                
             </colgroup>
             <thead class="u-custom-font u-font-courier-new u-palette-4-base u-table-header u-table-header-1">
                 <tr style="height: 58px;">
-                    <th class="u-table-cell">Id </th>
+                   
                     <th class="u-table-cell">Desk Number </th>
+                     <th class="u-table-cell">Number Of  seats </th>
                     <th class="u-table-cell">Equipment Details </th>
                     <th class="u-table-cell">DeskType </th>
                      <th class="u-table-cell">Actions </th>
@@ -43,8 +44,9 @@
             {
                 <tbody class="u-table-body">
                     <tr style="height: 55px;">
-                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Id</td>
+                       
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.DeskNumber</td>
+                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.NumberOfSeats</td>
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.EquipmentDetails</td>
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.DeskType</td>
                        

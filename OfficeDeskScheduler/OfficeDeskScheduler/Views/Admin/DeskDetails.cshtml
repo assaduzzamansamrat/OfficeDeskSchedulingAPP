@@ -11,40 +11,47 @@
 }
 
 
-    <div>
-        <h4>User</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.DeskNumber)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.DeskNumber)
-            </dd>  
-            
-             <dt>
-                @Html.DisplayNameFor(model => model.EquipmentDetails)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.EquipmentDetails)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.DeskType)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.DeskType)
-            </dd>
-    
-           
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "TeamEdit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Desk")
-    </p>
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeskNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeskNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EquipmentDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EquipmentDetails)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfSeats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfSeats)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeskType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeskType)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "TeamEdit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Desk")
+</p>
 
 

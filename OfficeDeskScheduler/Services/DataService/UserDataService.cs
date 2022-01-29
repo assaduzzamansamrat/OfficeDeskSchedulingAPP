@@ -31,7 +31,21 @@ namespace Services.DataService
             }
 
         }
+        public List<User> GetAllManagers()
+        {
+            try
+            {
 
+                return context.Users.Where(x => x.Role == "Manager").ToList();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
         public List<User> GetAllActiveUsersByID(long id)
         {
             try

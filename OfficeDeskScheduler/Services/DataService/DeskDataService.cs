@@ -76,7 +76,9 @@ namespace Services.DataService
                         desk.EditedDate = DateTime.Now;
                         desk.DeskNumber = _desk.DeskNumber;
                         desk.DeskType = _desk.DeskType;
-                      
+                        desk.NumberOfSeats = _desk.NumberOfSeats;
+
+
                         context.SaveChanges();
                         return true;
                     }

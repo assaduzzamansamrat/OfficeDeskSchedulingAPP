@@ -14,6 +14,7 @@ namespace Services.EntityModels
         public long Id { get; set; }
         public string? DeskNumber { get; set; }
         public string? DeskType { get; set; }
+        public int NumberOfSeats { get; set; }       
         public DateTime? CreatedDate { get; set; }
         public long CreatedBy { get; set; }
         public DateTime? EditedDate { get; set; }
