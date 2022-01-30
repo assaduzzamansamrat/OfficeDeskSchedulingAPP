@@ -53,14 +53,43 @@
         text-decoration: none
     }
 
-    div.cls_005 {
+    /* div.cls_005 {
+                        font-family: "Calibri",serif;
+                        font-size: 10.4px;
+                        color: rgb(0,0,0);
+                        font-weight: normal;
+                        font-style: normal;
+                        text-decoration: none
+                    }
+                */
+
+    span.cls_005 {
         font-family: "Calibri",serif;
         font-size: 10.4px;
         color: rgb(0,0,0);
         font-weight: normal;
         font-style: normal;
-        text-decoration: none
+        text-decoration: none;
+        padding: 1px;
+        border: 5px solid #30b820;
+        margin-left: -19px;
+        cursor: pointer;
     }
+
+    span.cls_005_gray {
+        font-family: "Calibri",serif;
+        font-size: 10.4px;
+        color: rgb(0,0,0);
+        font-weight: normal;
+        font-style: normal;
+        text-decoration: none;
+        padding: 1px;
+        border: 5px solid #9e9e9e;
+        margin-left: -19px;
+       cursor: pointer;
+    }
+
+
 
     span.cls_002 {
         font-family: Arial,serif;
@@ -170,107 +199,7 @@
         text-decoration: none
     }
 
-    .div-T204-gray {
-        width: 68px !important;
-        margin-left: -13px;
-        margin-top: -14px;
-        height: 70px !important;
-        border: 5px solid gray;
-    }
-
-    .div-T204-normal {
-        width: 68px !important;
-        margin-left: -13px;
-        margin-top: -14px;
-        height: 70px !important;
-    }
-
-    .spn-T204 {
-        position: absolute;
-        margin-left: 10px;
-        margin-top: 9px;
-    }
-
-    .div-T203-gray {
-        position: absolute;
-        left: 609.88px;
-        top: 87.44px;
-        width: 53px;
-        height: 67px;
-        margin-left: -33px;
-        margin-top: -9px;
-        border: 5px solid gray;
-    }
-
-    .div-T203-normal {
-        position: absolute;
-        left: 609.88px;
-        top: 87.44px;
-        width: 53px;
-        height: 67px;
-        margin-left: -33px;
-        margin-top: -9px;
-    }
-
-    .spn-T203 {
-        position: absolute;
-        margin-left: 28px;
-        ;
-        margin-top: 11px;
-    }
-
-    .div-T202-gray {
-        position: absolute;
-        left: 531.04px;
-        top: 88.40px;
-        width: 55px;
-        margin-left: -9px;
-        margin-top: -10px;
-        height: 67px;
-        border: 5px solid gray;
-    }
-
-    .div-T202-normal {
-        position: absolute;
-        width: 55px;
-        margin-left: -9px;
-        margin-top: -10px;
-        height: 67px;
-    }
-
-    .spn-T202 {
-        position: absolute;
-        margin-left: 3px;
-        margin-top: 11px;
-    }
-
-    .div-T201-gray {
-        position: absolute;
-        left: 461.08px;
-        top: 88.40px;
-        width: 68px;
-        height: 66px;
-        margin-top: -9px;
-        margin-left: -32px;
-        border: 5px solid gray;
-    }
-
-    .div-T201-normal {
-        position: absolute;
-        left: 461.08px;
-        top: 88.40px;
-        width: 68px;
-        height: 66px;
-        margin-top: -9px;
-        margin-left: -32px;
-    }
-
-    .spn-T201 {
-        position: absolute;
-        margin-top: 10px;
-        margin-left: 24px;
-    }
-
+    
 </style>
 <script type="text/javascript" src="199fe278-80b4-11ec-a980-0cc47a792c0a_id_199fe278-80b4-11ec-a980-0cc47a792c0a_files/wz_jsgraphics.js"></script>
 
@@ -281,25 +210,25 @@
     <div style="position:absolute;left:593.92px;top:73.40px" class="cls_003"><span class="cls_003">L</span></div>
     <div style="position:absolute;left:428.92px;top:78.68px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:576.64px;top:78.20px" class="cls_004"><span class="cls_004">2</span></div>
-    <div style="position:absolute;left:461.08px;top:88.40px" id="T201" class="cls_005 div-T201-normal" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T201")'><span class="cls_005 spn-T201">T201</span></div>
-    <div style="position:absolute;left:531.04px;top:88.40px" class="cls_005 div-T202-normal" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T202")'><span class="cls_005 spn-T202">T202</span></div>
-    <div style="position:absolute;left:609.88px;top:87.44px" class="cls_005 div-T203-normal" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T203")'><span class="cls_005 spn-T203">T203</span></div>
-    <div style="position:absolute;left:672.28px;top:89.24px" id="T204" class="div-T204-normal cls_005" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T204")'><span class="cls_005 spn-T204">T204</span></div>
+    <div style="position:absolute;left:461.08px;top:88.40px" class="cls_005" id="T201" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T201");'><span class="cls_005">T201</span></div>
+    <div style="position:absolute;left:531.04px;top:88.40px" class="cls_005" id="T202" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T202");'><span class="cls_005">T202</span></div>
+    <div style="position:absolute;left:609.88px;top:87.44px" class="cls_005" id="T203" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T203");'><span class="cls_005">T203</span></div>
+    <div style="position:absolute;left:672.28px;top:89.24px" class="cls_005" id="T204" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T204");'><span class="cls_005">T204</span></div>
     <div style="position:absolute;left:389.20px;top:135.80px" class="cls_002"><span class="cls_002">UP</span></div>
     <div style="position:absolute;left:340.60px;top:163.52px" class="cls_006"><span class="cls_006">S</span><span class="cls_010">TAIRS</span><span class="cls_006">1</span></div>
     <div style="position:absolute;left:357.04px;top:180.20px" class="cls_006"><span class="cls_006">121</span></div>
     <div style="position:absolute;left:601.36px;top:191.24px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:656.32px;top:191.24px" class="cls_004"><span class="cls_004">2</span></div>
-    <div style="position:absolute;left:630.28px;top:192.32px" class="cls_005"><span class="cls_005">T205</span></div>
-    <div style="position:absolute;left:685.24px;top:192.32px" class="cls_005"><span class="cls_005">T206</span></div>
+    <div style="position:absolute;left:630.28px;top:192.32px" class="cls_005" id="T205" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T205");'><span class="cls_005">T205</span></div>
+    <div style="position:absolute;left:685.24px;top:192.32px" class="cls_005" id="T206" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T206");'><span class="cls_005">T206</span></div>
     <div style="position:absolute;left:323.44px;top:238.40px" class="cls_010"><span class="cls_010">ELEV.</span></div>
     <div style="position:absolute;left:615.64px;top:247.64px" class="cls_008"><span class="cls_008">AA</span></div>
     <div style="position:absolute;left:670.60px;top:247.64px" class="cls_008"><span class="cls_008">AA</span></div>
     <div style="position:absolute;left:330.04px;top:254.96px" class="cls_006"><span class="cls_006">130</span></div>
     <div style="position:absolute;left:451.24px;top:269.96px" class="cls_006"><span class="cls_006">MEETING</span></div>
     <div style="position:absolute;left:149.44px;top:277.52px" class="cls_006"><span class="cls_006">MEETING</span></div>
-    <div style="position:absolute;left:630.28px;top:280.52px" class="cls_005"><span class="cls_005">T207</span></div>
-    <div style="position:absolute;left:685.24px;top:280.52px" class="cls_005"><span class="cls_005">T208</span></div>
+    <div style="position:absolute;left:630.28px;top:280.52px" class="cls_005" id="T207" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T207");'><span class="cls_005">T207</span></div>
+    <div style="position:absolute;left:685.24px;top:280.52px" class="cls_005" id="T208" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T208");'><span class="cls_005">T208</span></div>
     <div style="position:absolute;left:460.00px;top:283.52px" class="cls_010"><span class="cls_010">ROOM</span></div>
     <div style="position:absolute;left:158.20px;top:291.08px" class="cls_010"><span class="cls_010">ROOM</span></div>
     <div style="position:absolute;left:468.40px;top:300.44px" class="cls_006"><span class="cls_006">119</span></div>
@@ -308,8 +237,8 @@
     <div style="position:absolute;left:255.64px;top:322.52px" class="cls_006"><span class="cls_006">109</span></div>
     <div style="position:absolute;left:601.36px;top:329.84px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:656.32px;top:329.84px" class="cls_004"><span class="cls_004">2</span></div>
-    <div style="position:absolute;left:630.28px;top:330.92px" class="cls_005"><span class="cls_005">T209</span></div>
-    <div style="position:absolute;left:685.24px;top:330.92px" class="cls_005"><span class="cls_005">T210</span></div>
+    <div style="position:absolute;left:630.28px;top:330.92px" class="cls_005" id="T209" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T209");'><span class="cls_005">T209</span></div>
+    <div style="position:absolute;left:685.24px;top:330.92px" class="cls_005" id="T210" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T210");'><span class="cls_005">T210</span></div>
     <div style="position:absolute;left:442.96px;top:342.20px" class="cls_006"><span class="cls_006">MEETING</span></div>
     <div style="position:absolute;left:342.40px;top:354.80px" class="cls_010"><span class="cls_010">VAULT</span></div>
     <div style="position:absolute;left:451.72px;top:355.76px" class="cls_006"><span class="cls_006">ROOM</span></div>
@@ -320,8 +249,8 @@
     <div style="position:absolute;left:184.36px;top:384.20px" class="cls_006"><span class="cls_006">ROOM</span></div>
     <div style="position:absolute;left:463.12px;top:401.96px" class="cls_007"><span class="cls_007">54DIA</span></div>
     <div style="position:absolute;left:461.80px;top:412.16px" class="cls_006"><span class="cls_006">118</span></div>
-    <div style="position:absolute;left:630.28px;top:419.12px" class="cls_005"><span class="cls_005">T211</span></div>
-    <div style="position:absolute;left:685.24px;top:419.12px" class="cls_005"><span class="cls_005">T212</span></div>
+    <div style="position:absolute;left:630.28px;top:419.12px" class="cls_005" id="T211" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T211");'><span class="cls_005">T211</span></div>
+    <div style="position:absolute;left:685.24px;top:419.12px" class="cls_005" id="T212" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T212");'><span class="cls_005">T212</span></div>
     <div style="position:absolute;left:197.20px;top:432.56px" class="cls_007"><span class="cls_007">36X72</span></div>
     <div style="position:absolute;left:46.00px;top:452.12px" class="cls_006"><span class="cls_006">LIG</span><span class="cls_010">HTWE</span><span class="cls_006">LL</span></div>
     <div style="position:absolute;left:191.32px;top:457.16px" class="cls_006"><span class="cls_006">107</span></div>
@@ -330,8 +259,8 @@
     <div style="position:absolute;left:340.36px;top:463.04px" class="cls_006"><span class="cls_006">E</span><span class="cls_010">NCLAV</span><span class="cls_006">E</span></div>
     <div style="position:absolute;left:448.96px;top:462.20px" class="cls_006"><span class="cls_006">K</span><span class="cls_010">ITCHE</span><span class="cls_006">N</span></div>
     <div style="position:absolute;left:71.68px;top:468.68px" class="cls_006"><span class="cls_006">129</span></div>
-    <div style="position:absolute;left:630.28px;top:469.40px" class="cls_005"><span class="cls_005">T213</span></div>
-    <div style="position:absolute;left:685.24px;top:469.40px" class="cls_005"><span class="cls_005">T214</span></div>
+    <div style="position:absolute;left:630.28px;top:469.40px" class="cls_005" id="T213" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T213");'><span class="cls_005">T213</span></div>
+    <div style="position:absolute;left:685.24px;top:469.40px" class="cls_005" id="T214" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T214");'><span class="cls_005">T214</span></div>
     <div style="position:absolute;left:174.04px;top:476.36px" class="cls_006"><span class="cls_006">MEETING</span></div>
     <div style="position:absolute;left:358.24px;top:479.60px" class="cls_006"><span class="cls_006">123</span></div>
     <div style="position:absolute;left:464.92px;top:478.76px" class="cls_006"><span class="cls_006">122</span></div>
@@ -340,8 +269,8 @@
     <div style="position:absolute;left:670.60px;top:524.84px" class="cls_008"><span class="cls_008">AA</span></div>
     <div style="position:absolute;left:197.32px;top:537.20px" class="cls_007"><span class="cls_007">36X72</span></div>
     <div style="position:absolute;left:306.64px;top:553.04px" class="cls_006"><span class="cls_006">OPENOFFICE</span></div>
-    <div style="position:absolute;left:630.28px;top:557.72px" class="cls_005"><span class="cls_005">T215</span></div>
-    <div style="position:absolute;left:685.24px;top:557.72px" class="cls_005"><span class="cls_005">T216</span></div>
+    <div style="position:absolute;left:630.28px;top:557.72px" class="cls_005" id="T215" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T215");'><span class="cls_005">T215</span></div>
+    <div style="position:absolute;left:685.24px;top:557.72px" class="cls_005" id="T216" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T216");'><span class="cls_005">T216</span></div>
     <div style="position:absolute;left:191.20px;top:563.12px" class="cls_006"><span class="cls_006">108</span></div>
     <div style="position:absolute;left:331.00px;top:566.48px" class="cls_006"><span class="cls_006">AREA</span></div>
     <div style="position:absolute;left:337.12px;top:583.52px" class="cls_006"><span class="cls_006">114</span></div>
@@ -352,12 +281,12 @@
     <div style="position:absolute;left:465.76px;top:618.20px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:516.28px;top:618.20px" class="cls_004"><span class="cls_004">1</span></div>
     <div style="position:absolute;left:145.00px;top:622.88px" class="cls_006"><span class="cls_006">110</span></div>
-    <div style="position:absolute;left:658.24px;top:634.76px" class="cls_005"><span class="cls_005">T237</span></div>
-    <div style="position:absolute;left:303.88px;top:649.04px" class="cls_005"><span class="cls_005">T217</span></div>
-    <div style="position:absolute;left:391.60px;top:649.04px" class="cls_005"><span class="cls_005">T218</span></div>
-    <div style="position:absolute;left:462.52px;top:649.04px" class="cls_005"><span class="cls_005">T221</span></div>
-    <div style="position:absolute;left:550.24px;top:649.04px" class="cls_005"><span class="cls_005">T222</span></div>
-    <div style="position:absolute;left:658.24px;top:655.40px" class="cls_005"><span class="cls_005">T238</span></div>
+    <div style="position:absolute;left:658.24px;top:634.76px" class="cls_005" id="T237" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T237");'><span class="cls_005">T237</span></div>
+    <div style="position:absolute;left:303.88px;top:649.04px" class="cls_005" id="T217" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T217");'><span class="cls_005">T217</span></div>
+    <div style="position:absolute;left:391.60px;top:649.04px" class="cls_005" id="T218" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T218");'><span class="cls_005">T218</span></div>
+    <div style="position:absolute;left:462.52px;top:649.04px" class="cls_005" id="T221" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T221");'><span class="cls_005">T221</span></div>
+    <div style="position:absolute;left:550.24px;top:649.04px" class="cls_005" id="T222" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T222");'><span class="cls_005">T222</span></div>
+    <div style="position:absolute;left:658.24px;top:655.40px" class="cls_005" id="T238" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T238");'><span class="cls_005">T238</span></div>
     <div style="position:absolute;left:388.12px;top:668.36px" class="cls_003"><span class="cls_003">L</span></div>
     <div style="position:absolute;left:405.76px;top:668.36px" class="cls_003"><span class="cls_003">L</span></div>
     <div style="position:absolute;left:546.76px;top:668.36px" class="cls_003"><span class="cls_003">L</span></div>
@@ -365,32 +294,32 @@
     <div style="position:absolute;left:307.12px;top:673.16px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:465.76px;top:673.16px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:38.68px;top:704.72px" class="cls_006"><span class="cls_006">S</span><span class="cls_010">HOWE</span><span class="cls_006">R</span></div>
-    <div style="position:absolute;left:303.88px;top:704.00px" class="cls_005"><span class="cls_005">T219</span></div>
-    <div style="position:absolute;left:391.60px;top:704.00px" class="cls_005"><span class="cls_005">T220</span></div>
-    <div style="position:absolute;left:462.52px;top:704.00px" class="cls_005"><span class="cls_005">T223</span></div>
-    <div style="position:absolute;left:550.24px;top:704.00px" class="cls_005"><span class="cls_005">T224</span></div>
+    <div style="position:absolute;left:303.88px;top:704.00px" class="cls_005" id="T219" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T219");'><span class="cls_005">T219</span></div>
+    <div style="position:absolute;left:391.60px;top:704.00px" class="cls_005" id="T220" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T220");'><span class="cls_005">T220</span></div>
+    <div style="position:absolute;left:462.52px;top:704.00px" class="cls_005" id="T223" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T223");'><span class="cls_005">T223</span></div>
+    <div style="position:absolute;left:550.24px;top:704.00px" class="cls_005" id="T224" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T224");'><span class="cls_005">T224</span></div>
     <div style="position:absolute;left:98.32px;top:714.92px" class="cls_006"><span class="cls_006">W</span><span class="cls_010">OMEN</span><span class="cls_006">S</span></div>
     <div style="position:absolute;left:209.68px;top:714.92px" class="cls_010"><span class="cls_010">MENS</span></div>
     <div style="position:absolute;left:56.44px;top:721.28px" class="cls_006"><span class="cls_006">111</span></div>
     <div style="position:absolute;left:115.48px;top:731.48px" class="cls_006"><span class="cls_006">112</span></div>
     <div style="position:absolute;left:216.76px;top:731.48px" class="cls_006"><span class="cls_006">113</span></div>
-    <div style="position:absolute;left:658.24px;top:746.36px" class="cls_005"><span class="cls_005">T239</span></div>
+    <div style="position:absolute;left:658.24px;top:746.36px" class="cls_005" id="T239" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T239");'><span class="cls_005">T239</span></div>
     <div style="position:absolute;left:307.12px;top:763.28px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:357.76px;top:763.28px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:466.36px;top:763.28px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:516.88px;top:763.28px" class="cls_004"><span class="cls_004">2</span></div>
-    <div style="position:absolute;left:658.24px;top:765.44px" class="cls_005"><span class="cls_005">T240</span></div>
-    <div style="position:absolute;left:303.88px;top:794.12px" class="cls_005"><span class="cls_005">T225</span></div>
-    <div style="position:absolute;left:391.60px;top:794.12px" class="cls_005"><span class="cls_005">T226</span></div>
-    <div style="position:absolute;left:463.12px;top:794.12px" class="cls_005"><span class="cls_005">T231</span></div>
-    <div style="position:absolute;left:550.84px;top:794.12px" class="cls_005"><span class="cls_005">T232</span></div>
+    <div style="position:absolute;left:658.24px;top:765.44px" class="cls_005" id="T240" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T240");'><span class="cls_005">T240</span></div>
+    <div style="position:absolute;left:303.88px;top:794.12px" class="cls_005" id="T225" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T225");'><span class="cls_005">T225</span></div>
+    <div style="position:absolute;left:391.60px;top:794.12px" class="cls_005" id="T226" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T226");'><span class="cls_005">T226</span></div>
+    <div style="position:absolute;left:463.12px;top:794.12px" class="cls_005" id="T231" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T231");'><span class="cls_005">T231</span></div>
+    <div style="position:absolute;left:550.84px;top:794.12px" class="cls_005" id="T232" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T232");'><span class="cls_005">T232</span></div>
     <div style="position:absolute;left:307.12px;top:818.24px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:466.36px;top:818.24px" class="cls_004"><span class="cls_004">2</span></div>
-    <div style="position:absolute;left:303.88px;top:849.08px" class="cls_005"><span class="cls_005">T227</span></div>
-    <div style="position:absolute;left:391.60px;top:849.08px" class="cls_005"><span class="cls_005">T228</span></div>
-    <div style="position:absolute;left:463.12px;top:849.08px" class="cls_005"><span class="cls_005">T233</span></div>
-    <div style="position:absolute;left:550.84px;top:849.08px" class="cls_005"><span class="cls_005">T234</span></div>
-    <div style="position:absolute;left:658.24px;top:854.60px" class="cls_005"><span class="cls_005">T241</span></div>
+    <div style="position:absolute;left:303.88px;top:849.08px" class="cls_005" id="T227" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T227");'><span class="cls_005">T227</span></div>
+    <div style="position:absolute;left:391.60px;top:849.08px" class="cls_005" id="T228" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T228");'><span class="cls_005">T228</span></div>
+    <div style="position:absolute;left:463.12px;top:849.08px" class="cls_005" id="T233" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T233");'><span class="cls_005">T233</span></div>
+    <div style="position:absolute;left:550.84px;top:849.08px" class="cls_005" id="T234" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T234");'><span class="cls_005">T234</span></div>
+    <div style="position:absolute;left:658.24px;top:854.60px" class="cls_005" id="T241" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T241");'><span class="cls_005">T241</span></div>
     <div style="position:absolute;left:388.12px;top:868.52px" class="cls_003"><span class="cls_003">L</span></div>
     <div style="position:absolute;left:405.64px;top:868.52px" class="cls_003"><span class="cls_003">L</span></div>
     <div style="position:absolute;left:547.36px;top:868.52px" class="cls_003"><span class="cls_003">L</span></div>
@@ -399,22 +328,22 @@
     <div style="position:absolute;left:466.36px;top:873.32px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:99.40px;top:880.88px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:154.36px;top:880.88px" class="cls_004"><span class="cls_004">2</span></div>
-    <div style="position:absolute;left:658.24px;top:874.76px" class="cls_005"><span class="cls_005">T242</span></div>
+    <div style="position:absolute;left:658.24px;top:874.76px" class="cls_005" id="T242" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T242");'><span class="cls_005">T242</span></div>
     <div style="position:absolute;left:135.52px;top:886.64px" class="cls_008"><span class="cls_008">AA</span></div>
     <div style="position:absolute;left:190.48px;top:886.64px" class="cls_008"><span class="cls_008">AA</span></div>
-    <div style="position:absolute;left:303.88px;top:904.04px" class="cls_005"><span class="cls_005">T229</span></div>
-    <div style="position:absolute;left:391.60px;top:904.04px" class="cls_005"><span class="cls_005">T230</span></div>
-    <div style="position:absolute;left:463.12px;top:904.04px" class="cls_005"><span class="cls_005">T235</span></div>
-    <div style="position:absolute;left:550.84px;top:904.04px" class="cls_005"><span class="cls_005">T236</span></div>
-    <div style="position:absolute;left:103.36px;top:914.36px" class="cls_005"><span class="cls_005">T244</span></div>
-    <div style="position:absolute;left:158.92px;top:914.72px" class="cls_005"><span class="cls_005">T245</span></div>
-    <div style="position:absolute;left:658.24px;top:962.84px" class="cls_005"><span class="cls_005">T243</span></div>
+    <div style="position:absolute;left:303.88px;top:904.04px" class="cls_005" id="T229" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T229");'><span class="cls_005">T229</span></div>
+    <div style="position:absolute;left:391.60px;top:904.04px" class="cls_005" id="T230" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T230");'><span class="cls_005">T230</span></div>
+    <div style="position:absolute;left:463.12px;top:904.04px" class="cls_005" id="T235" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T235");'><span class="cls_005">T235</span></div>
+    <div style="position:absolute;left:550.84px;top:904.04px" class="cls_005" id="T236" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T236");'><span class="cls_005">T236</span></div>
+    <div style="position:absolute;left:103.36px;top:914.36px" class="cls_005" id="T244" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T244");'><span class="cls_005">T244</span></div>
+    <div style="position:absolute;left:158.92px;top:914.72px" class="cls_005" id="T245" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T245");'><span class="cls_005">T245</span></div>
+    <div style="position:absolute;left:658.24px;top:962.84px" class="cls_005" id="T243" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T243");'><span class="cls_005">T243</span></div>
     <div style="position:absolute;left:125.68px;top:980.72px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:176.32px;top:980.72px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:281.32px;top:980.96px" class="cls_004"><span class="cls_004">2</span></div>
-    <div style="position:absolute;left:122.44px;top:1011.44px" class="cls_005"><span class="cls_005">T246</span></div>
-    <div style="position:absolute;left:210.16px;top:1011.44px" class="cls_005"><span class="cls_005">T247</span></div>
-    <div style="position:absolute;left:278.08px;top:1011.80px" class="cls_005"><span class="cls_005">T250</span></div>
+    <div style="position:absolute;left:122.44px;top:1011.44px" class="cls_005" id="T246" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T246");'><span class="cls_005">T246</span></div>
+    <div style="position:absolute;left:210.16px;top:1011.44px" class="cls_005" id="T247" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T247");'><span class="cls_005">T247</span></div>
+    <div style="position:absolute;left:278.08px;top:1011.80px" class="cls_005" id="T250" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T250");'><span class="cls_005">T250</span></div>
     <div style="position:absolute;left:361.48px;top:1022.36px" class="cls_006"><span class="cls_006">SERVICE</span></div>
     <div style="position:absolute;left:125.68px;top:1035.68px" class="cls_004"><span class="cls_004">2</span></div>
     <div style="position:absolute;left:281.32px;top:1035.92px" class="cls_004"><span class="cls_004">2</span></div>
@@ -424,9 +353,9 @@
     <div style="position:absolute;left:377.44px;top:1052.84px" class="cls_006"><span class="cls_006">115</span></div>
     <div style="position:absolute;left:491.80px;top:1052.84px" class="cls_006"><span class="cls_006">116</span></div>
     <div style="position:absolute;left:640.48px;top:1058.36px" class="cls_006"><span class="cls_006">117</span></div>
-    <div style="position:absolute;left:122.44px;top:1066.52px" class="cls_005"><span class="cls_005">T248</span></div>
-    <div style="position:absolute;left:210.16px;top:1066.52px" class="cls_005"><span class="cls_005">T249</span></div>
-    <div style="position:absolute;left:278.08px;top:1066.76px" class="cls_005"><span class="cls_005">T251</span></div>
+    <div style="position:absolute;left:122.44px;top:1066.52px" class="cls_005" id="T248" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T248");'><span class="cls_005">T248</span></div>
+    <div style="position:absolute;left:210.16px;top:1066.52px" class="cls_005" id="T249" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T249");'><span class="cls_005">T249</span></div>
+    <div style="position:absolute;left:278.08px;top:1066.76px" class="cls_005" id="T251" data-toggle="modal" data-target="#BookingModal" onclick='MakeBooking("T251");'><span class="cls_005">T251</span></div>
     <div style="position:absolute;left:642.28px;top:1067.24px" class="cls_002"><span class="cls_002">UP</span></div>
     <div style="position:absolute;left:193.48px;top:1085.84px" class="cls_003"><span class="cls_003">L</span></div>
     <div style="position:absolute;left:185.56px;top:1094.60px" class="cls_004"><span class="cls_004">06</span></div>
@@ -449,7 +378,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Enter details for booking</h4>
+                <h4 class="modal-title showforbooking">Enter details for booking</h4>
+                <h4 class="modal-title showforerror">Information</h4>
             </div>
             <!-- Horizontal material form -->
             <form action="~/Manager/BookingCreate" method="post">
@@ -459,7 +389,7 @@
                 <div class="modal-footer">
 
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="submit" class="btn btn-success showforbooking">Save</button>
                 </div>
             </form>
         </div>
@@ -477,8 +407,8 @@
             for(var i=0;i< result.length;i++)
             {
                 var desk_number = result[i].deskNumber;
-                 $("#"+desk_number).addClass("div-"+desk_number+"-gray");
-                 $("#"+desk_number).removeClass("div-"+desk_number+"-normal");
+                 $("#"+desk_number).find("span").addClass("cls_005_gray");
+                 $("#"+desk_number).find("span").removeClass("cls_005");
             }
 
         },
@@ -487,19 +417,37 @@
 
     });
 
+    //$("span.cls_005").click(function(){
+    //    alert("hi");
+    //})
+
     function MakeBooking(deskNumber)
     {
+        var className = $("#"+deskNumber).find("span").attr("class");
+        if( className == "cls_005_gray"){
+             
+             $(".showforerror").css("display","block");
+             $(".showforbooking").css("display","none");
+             $("#modalBody").html("");
+             $("#modalBody").html("<p>This desk is booked now.</p>");
+             return false;
+        }
+        else{
+             $(".showforerror").css("display","none");
+             $(".showforbooking").css("display","inline-block");
+             $.ajax({
+                type: "GET",
+                data:{DeskNumber:deskNumber},
+                url: "/Manager/GetBookingForm/",
 
-        $.ajax({
-        type: "GET",
-        data:{DeskNumber:deskNumber},
-        url: "/Manager/GetBookingForm/",
+                success: function (viewHTML) {
+                    $("#modalBody").html("");
+                    $("#modalBody").html(viewHTML);
+                },
+                error: function (errorData) { onError(errorData); }
+            });
+        }
 
-        success: function (viewHTML) {
-            $("#modalBody").html(viewHTML);
-        },
-        error: function (errorData) { onError(errorData); }
-    });
     }
 </script>
 
