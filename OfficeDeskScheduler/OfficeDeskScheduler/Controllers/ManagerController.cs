@@ -11,6 +11,9 @@ namespace OfficeDeskScheduler.Controllers
         private readonly TeamDataService teamDataService;
         private readonly DeskDataService deskDataService;
         private readonly DeskBookingDataService deskBookingDataService;
+        const string SessionEmail = "_Email";
+        const string SessionUserId = "_UserId";
+        const string SessionUserRole = "_UserRole";
         public ManagerController(UserDataService _userDataService, TeamDataService _teamDataService, DeskDataService _deskDataService, DeskBookingDataService _deskBookingDataService)
         {
             userDataService = _userDataService;
@@ -38,6 +41,15 @@ namespace OfficeDeskScheduler.Controllers
                 throw ex;
             }
 
+        }
+
+        public async Task<IActionResult> AddContributor(DeskBooking deskBooking)
+        {
+            
+            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);          
+            deskBooking.BookedBy = userId;
+            deskBookingDataService.CreateNewDeskBooking(deskBooking);
+            return RedirectToAction("Booking", "Manager");
         }
 
 

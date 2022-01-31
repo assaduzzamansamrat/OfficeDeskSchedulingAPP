@@ -16,7 +16,8 @@ namespace Services.EntityModels
         public long AssignedContributor { get; set; }
         public string? Map { get; set; }
         public string? Location { get; set; }
-        
+        public long TeamId { get; set; }
+
 
     }
 }
