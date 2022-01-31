@@ -8,6 +8,9 @@ namespace OfficeDeskScheduler.Controllers
     public class LoginController : Controller
     {
         LoginDataService loginDomainService;
+        const string SessionEmail = "_Email";
+        const string SessionUserId = "_UserId";
+        const string SessionUserRole = "_UserRole";
         public LoginController(LoginDataService _LoginDomainService)
         {
             loginDomainService = _LoginDomainService;
@@ -32,15 +35,12 @@ namespace OfficeDeskScheduler.Controllers
                 user = loginDomainService.AuthenticateAndGetUserByEmailAndPassword(login.UserName, login.Password);
                 if (user != null)
                 {
-                    //HttpContext.Session.SetString("UserName") = user.EmailAddress;
-                    //HttpContext.Session.SetString("UserId") = user.Id;
-                    //HttpContext.Session.SetString("Role")["Role"] = user.Role;
-                    //HttpContext.Session.SetString("WallPaper")["WallPaper"] = user.Wallpaper;
-                    //HttpContext.Session.SetString("UserProfileImage")["UserProfileImage"] = user.ImagePath;
-                    //HttpContext.Session.SetString("UserFullName")["UserFullName"] = user.FirstName + " " + user.LastName;
-                    // Set Role For Authorization
-                   // SetRoleForAuthorization(user, login);
-                   if(user.Role == "Admin")
+
+                    HttpContext.Session.SetString(SessionEmail, user.EmailAddress);
+                    HttpContext.Session.SetInt32(SessionUserId,(int)user.Id);
+                    HttpContext.Session.SetString(SessionUserRole, user.Role);
+                    
+                    if (user.Role == "Admin")
                    {
                         return RedirectToAction("Index", "Admin");
                    }
