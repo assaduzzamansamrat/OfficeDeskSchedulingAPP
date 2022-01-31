@@ -31,6 +31,8 @@ namespace Services.DataService
 
         }
 
+
+
         public List<Team> GetAllByManagerId(long MaagerId)
         {
             try
@@ -81,23 +83,26 @@ namespace Services.DataService
         {
             try
             {
+                // Taking All desks From the table 
                 List<Desk> deskList = new List<Desk>();
                 List<Desk> deskListToRemove = new List<Desk>();
                 Team team = context.Teams.Where(x=> x.Id == teamId).FirstOrDefault();
                 deskList = context.Desks.ToList();
                 if (team != null)
                 {
+                    // making an array from comma seperated string 
                     var array = team.EquipmentDetails.Split(',');
                     if (array != null && array.Length > 0)
                     {
                         foreach (var item in array)
                         {
-                                                  
+                            // Takaing data that does not contain those equipments                       
                             deskListToRemove = context.Desks.Where(x =>! x.EquipmentDetails.Contains(item)).ToList();
                             if(deskListToRemove != null)
                             {
                                 foreach(var items in deskListToRemove)
                                 {
+                                    // removeing those data from out main list
                                    deskList.Remove(items);
                                 }
                                 

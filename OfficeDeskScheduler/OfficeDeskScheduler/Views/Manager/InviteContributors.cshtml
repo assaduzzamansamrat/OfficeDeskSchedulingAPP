@@ -1,0 +1,184 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model Services.EntityModels.OperationModel
+
+
+
+<style type="text/css">
+
+    body {
+        overflow-x: hidden;
+        font-family: sans-serif !important;
+    }
+
+    .main-panel {
+        margin-top: 5%;
+        margin-bottom: 5%;
+        margin-left: 1%;
+        margin-right: -6%;
+        border-radius: 25px;
+    }
+
+    .img-thumbnail {
+        padding: 0px;
+        background-color: #fff;
+        max-width: 100%;
+        height: auto;
+        border: none;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        min-height: 650px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .passwordlength {
+        color: red;
+        font-weight: 300;
+        font-size: 13px;
+        display: none;
+    }
+
+    .passwordmatch {
+        color: red;
+        font-weight: 300;
+        font-size: 13px;
+        display: none;
+    }
+
+    .no-padding {
+        padding: 0px !important;
+    }
+
+    .container-fluid {
+        margin-left: 43px;
+        padding-right: 100px;
+    }
+
+    .header {
+        padding-top: 20px;
+        padding-bottom: 15px;
+        text-align: center;
+        color: #15c2de;
+    }
+
+    .top-left {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+        color: white;
+        font-family: open-sans;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .email-message {
+        color: red;
+        font-weight: 300;
+        font-size: 13px;
+        display: none;
+    }
+    /* Centered text */
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ffff;
+    }
+
+    .required-sign-left {
+        padding-left: 45px;
+        padding-top: 14px;
+        color: #ff0000;
+    }
+
+    .required-sign-right {
+        overflow: hidden;
+        display: block;
+        position: absolute;
+        padding-left: -6px;
+        padding-top: 13px;
+        margin-left: -26px;
+        color: #ff0000;
+    }
+
+    .required-field {
+        border-bottom: 1px solid red !important;
+    }
+
+    .login-container {
+        padding-left: 40px;
+    }
+
+    .form-row > .col, .form-row > [class*=col-] {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .form-control {
+        float: right;
+        width: calc(100% - 20px);
+    }
+
+    span.req-asterisk {
+        width: 20px;
+        float: left;
+        color: red;
+        padding-top: 15px;
+        display: block;
+    }
+
+    body.blue {
+        background-color: #019494;
+    }
+
+    body.magenta {
+        background-color: #FF00FF;
+    }
+
+    .col-sm-12 {
+        margin-bottom: 15px;
+    }
+
+</style>
+
+<div class="col-sm-12">
+    <h3 class="h3 header">Please Provide Informations To Proceed</h3>
+    <div class="row">
+        <form action="~/Manager/InviteContributors" method="post">
+            <div class="col-sm-12">
+                <div class="md-form mt-0">
+                    <span class="req-asterisk">*</span>
+                    <input type="text" value='@ViewBag.TeamId' class="form-control required" name="TeamAndContributorMapper.TeamId" id="TeamAndContributorMapper.TeamId" readonly="readonly" placeholder="Team Id">
+                </div>
+            </div>
+            <div class="col-sm-12">
+
+                <div class="md-form mt-0">
+                    <div class="dropdown" style="margin-left: 20px;">
+                        <select name="TeamAndContributorMapper.ContributorId" id="TeamAndContributorMapper.ContributorId">
+                            @foreach (var item in Model.User)
+                            {
+                                <option value="@item.Id">@item.FirstName @item.LastName</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Horizontal material form -->
+                <button type="submit" class="btn btn-primary">Invite to this team</button>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

@@ -23,8 +23,8 @@ namespace OfficeDeskScheduler.Controllers
         }
         public IActionResult Index()
         {
-            long managerId = 4;
-            List<Team> teamList = teamDataService.GetAllByManagerId(managerId);
+            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
+            List<Team> teamList = teamDataService.GetAllByManagerId(userId);
             return View(teamList);
         }
 
@@ -49,14 +49,33 @@ namespace OfficeDeskScheduler.Controllers
             desk = teamDataService.AutoBookDesks(Id);
             return Json(desk);
         }
-
-        public async Task<IActionResult> AddContributor(DeskBooking deskBooking)
+        [HttpGet]
+        public async Task<IActionResult> InviteContributors(long Id)
         {
-            
-            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);          
-            deskBooking.BookedBy = userId;
-            deskBookingDataService.CreateNewDeskBooking(deskBooking);
+            OperationModel operationModel = new OperationModel();
+            ViewBag.TeamId = Id;
+            List<User> users = userDataService.GetAllContributors();
+            operationModel.User = users;
+            return View(operationModel);
+           
+        }
+        [HttpPost]
+        public async Task<IActionResult> InviteContributors(TeamAndContributorMapper teamAndContributorMapper)
+        {
+
+            User contributorDetails = userDataService.GetUserByID(teamAndContributorMapper.ContributorId);
+            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
+            User managerDetails = userDataService.GetUserByID(userId);           
+            teamAndContributorMapper.ContributorId = contributorDetails.Id;
+            teamAndContributorMapper.ContributorName = contributorDetails.LastName + " " + contributorDetails.LastName;
+            teamAndContributorMapper.ManagerId = managerDetails.Id;
+            teamAndContributorMapper.ManagerName = managerDetails.LastName + " " + managerDetails.LastName;
+            teamAndContributorMapper.IsInvaitationAccept = false;
+            teamAndContributorMapper.ChoosedDeskId = 0;
+            teamAndContributorMapper.TeamId = teamAndContributorMapper.TeamId;
+            deskBookingDataService.InviteContributors(teamAndContributorMapper);
             return RedirectToAction("Booking", "Manager");
+
         }
 
 
@@ -71,8 +90,8 @@ namespace OfficeDeskScheduler.Controllers
         }
         public async Task<IActionResult> Booking()
         {
-            long managerId = 2;
-            List<DeskBooking> booking = deskBookingDataService.GetAll(managerId);
+            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
+            List<DeskBooking> booking = deskBookingDataService.GetAll(userId);
             return View(booking);
         }
         [HttpGet]
@@ -84,7 +103,7 @@ namespace OfficeDeskScheduler.Controllers
         [HttpPost]
         public async Task<IActionResult> BookingCreate(DeskBooking deskBooking)
         {
-            deskBooking.BookedBy = 2;
+            deskBooking.BookedBy = (long)HttpContext.Session.GetInt32(SessionUserId);
             deskBookingDataService.CreateNewDeskBooking(deskBooking);
             return RedirectToAction("Booking", "Manager");
         }

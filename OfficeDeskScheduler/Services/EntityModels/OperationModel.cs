@@ -12,5 +12,6 @@ namespace Services.EntityModels
         public List<User>? User { get; set; } = null;
         public Desk? Desk { get; set; } = null;
         public DeskBooking? DeskBooking { get; set; } = null;
+        public TeamAndContributorMapper? TeamAndContributorMapper { get; set; } = null;
     }
 }

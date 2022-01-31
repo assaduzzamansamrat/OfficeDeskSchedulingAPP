@@ -31,6 +31,21 @@ namespace Services.DataService
 
         }
 
+        public bool InviteContributors(TeamAndContributorMapper teamAndContributorMapper)
+        {
+            try
+            {
+                context.TeamAndContributorMappers.Add(teamAndContributorMapper);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public bool CreateNewDeskBooking(DeskBooking deskBooking)
         {
          

@@ -46,6 +46,22 @@ namespace Services.DataService
             }
 
         }
+
+        public List<User> GetAllContributors()
+        {
+            try
+            {
+
+                return context.Users.Where(x => x.Role == "Contributor").ToList();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
         public List<User> GetAllActiveUsersByID(long id)
         {
             try
