@@ -22,8 +22,8 @@ namespace Services
         public DbSet<Team> Teams { get; set; }
         public DbSet<Desk> Desks { get; set; }
         public DbSet<DeskBooking> DeskBookings { get; set; }
+        public DbSet<TeamAndContributorMapper> TeamAndContributorMappers { get; set; }
 
-        
 
 
     }
