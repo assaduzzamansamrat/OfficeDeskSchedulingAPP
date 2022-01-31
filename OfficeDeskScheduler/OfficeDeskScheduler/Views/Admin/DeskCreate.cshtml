@@ -146,6 +146,8 @@
 
 </style>
 
+
+
 <div class="col-sm-12">
     <h3 class="h3 header">Please Provide Informations To Proceed</h3>
     <div class="row">
@@ -161,11 +163,24 @@
                                 <input type="text" class="form-control required" name="DeskNumber" id="DeskNumber" placeholder="Desk Number">
                             </div>
                         </div>
-
+                         <div class="col-sm-12">
+                            <div class="md-form mt-0">
+                                <div class="dropdown" style="margin-left: 20px;">
+                                  
+                                    <select name="Equipments" id="Equipments">
+                                        <option value="Desktop">Desktop</option>
+                                        <option value="Laptop">Laptop</option>
+                                        <option value="Printer">Printer</option>
+                                 
+                                     </select>
+                                     <button type="button" calss="btn btn-primary" onclick="AddEquipment();"> Add Equipment</button>
+                                </div>
+                            </div>
+                        </div>
                          <div class="col-sm-12">
                             <div class="md-form mt-0">
                                 <span class="req-asterisk">*</span>
-                                <textarea type="text" class="form-control required" name="EquipmentDetails" id="EquipmentDetails" placeholder="Equipment Details" rows="4" cols="50"></textarea>
+                                <textarea type="text" class="form-control required" name="EquipmentDetails" id="EquipmentDetails" readonly="readonly" placeholder="Equipment Details" rows="4" cols="50"></textarea>
                             </div>
                         </div>
                         @* <div class="col-sm-12">
@@ -177,15 +192,7 @@
                         <div class="col-sm-12">
                             <div class="md-form mt-0">
                                 <div class="dropdown" style="margin-left: 20px;">
-                                   @* <button class="btn btn-primary dropdown-toggle" type="button" name="ManagerId" id="ManagerId" placeholder="ManagerId" data-toggle="dropdown">
-                                        Dropdown Example
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>Manager one</li>
-                                        <li>Manager two</li>
-                                        <li>Manager three</li>
-                                    </ul>*@
+                                  
                                     <select name="DeskType" id="DeskType">
                                         <option value="Meeting Room Desk">Meeting Room Desk</option>
                                         <option value="Normal Desk">Normal Desk</option>
@@ -224,3 +231,22 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    var clickCounter =0;
+    var finalText="";
+    function AddEquipment()
+    {
+       
+        var equipmentValues = $( "#Equipments option:selected" ).text();
+        
+        if(clickCounter==0){
+            finalText = finalText+equipmentValues;
+        }
+        else{
+             finalText = finalText+ "," + equipmentValues;
+        }
+        $("#EquipmentDetails").val("");
+        $("#EquipmentDetails").val(finalText);
+        clickCounter = clickCounter + 1;
+    }
+</script>

@@ -15,6 +15,7 @@ namespace OfficeDeskScheduler.Controllers
 
         public IActionResult Index()
         {
+            
             return View();
         }
 

@@ -77,6 +77,53 @@ namespace Services.DataService
 
         }
 
+        public List<Desk> AutoBookDesks(long teamId)
+        {
+            try
+            {
+                List<Desk> deskList = new List<Desk>();
+                List<Desk> deskListToRemove = new List<Desk>();
+                Team team = context.Teams.Where(x=> x.Id == teamId).FirstOrDefault();
+                deskList = context.Desks.ToList();
+                if (team != null)
+                {
+                    var array = team.EquipmentDetails.Split(',');
+                    if (array != null && array.Length > 0)
+                    {
+                        foreach (var item in array)
+                        {
+                                                  
+                            deskListToRemove = context.Desks.Where(x =>! x.EquipmentDetails.Contains(item)).ToList();
+                            if(deskListToRemove != null)
+                            {
+                                foreach(var items in deskListToRemove)
+                                {
+                                   deskList.Remove(items);
+                                }
+                                
+                            }
+                          
+                        }
+                      
+                    }
+                    if(team.TeamSize >= deskList.Count())
+                    {
+                        return deskList.Take(team.TeamSize).ToList();
+                    }
+                    else
+                    {
+                        return deskList.ToList();
+                    }
+                }
+                return deskList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public bool UpdateTeam(Team _team)
         {
             try

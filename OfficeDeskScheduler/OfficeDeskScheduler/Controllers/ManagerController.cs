@@ -43,6 +43,13 @@ namespace OfficeDeskScheduler.Controllers
 
         }
 
+        public async Task<IActionResult> AutoBookDesks(long Id)
+        {
+            List<Desk> desk = new List<Desk>();
+            desk = teamDataService.AutoBookDesks(Id);
+            return Json(desk);
+        }
+
         public async Task<IActionResult> AddContributor(DeskBooking deskBooking)
         {
             
