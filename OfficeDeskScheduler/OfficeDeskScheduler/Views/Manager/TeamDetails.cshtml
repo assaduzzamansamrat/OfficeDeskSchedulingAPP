@@ -1,13 +1,15 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
 
 @model Services.EntityModels.Team
 
 @{
-    Layout = "_AdminLayout";
+    Layout = "_ManagerLayout";
 }
 
 
@@ -49,8 +51,8 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "TeamEdit", new { id = Model.Id }) |
-        @Html.ActionLink("Back to List", "Team")
+        @Html.ActionLink("Add Contributor", "Add Contributor", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
     </p>
 
 
