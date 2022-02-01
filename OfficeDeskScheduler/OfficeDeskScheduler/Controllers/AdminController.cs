@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OfficeDeskScheduler.HelperClasses;
 using Services.DataService;
 using Services.EntityModels;
 
@@ -19,6 +20,7 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
+                ViewBag.SussessMessage =  NotificationManager.GetSuccessNotificationMessage(this);
                 List<User> usersList = userDataService.GetAll();
                 return View(usersList);
             }
@@ -44,6 +46,7 @@ namespace OfficeDeskScheduler.Controllers
                 {
                     userDataService.CreateNewUser(user);
                 }
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.UserCreateSuccessMessage);
                 return RedirectToAction("Index", "Admin");
             }
             catch (Exception ex)

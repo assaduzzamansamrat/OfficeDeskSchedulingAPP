@@ -4,13 +4,34 @@ namespace OfficeDeskScheduler.HelperClasses
 {
     public static class NotificationManager 
     {
-        private readonly static string TeamCreateSuccessMessage = "Team created successfully.";
+        public  static string TeamCreateSuccessMessage = "Team created successfully.";
+        public  static string UserCreateSuccessMessage = "User created successfully.";
 
-        public static string  GetNotificationMessageByActionName(string actionName)
+
+        public static string  SetSuccessNotificationMessage(Controller controller, string message)
         {
-            if(actionName == "TeamCreate")
+            if(message != "" && message != null) {
+               controller.TempData["successMessage"] = message;
+               return message;
+            }
+            return string.Empty;
+        }
+        public static string SetErrorNotificationMessage(Controller controller, string message)
+        {
+            if (message != "" && message != null)
             {
-                return TeamCreateSuccessMessage;
+                controller.TempData["errorMessage"] = message;
+                return message;
+            }
+            return string.Empty;
+        }
+
+        public static string GetSuccessNotificationMessage(Controller controller)
+        {
+            if ( controller.TempData["successMessage"] != null && controller.TempData["successMessage"].ToString() != "")
+            {
+                string mesage = controller.TempData["successMessage"].ToString();
+                return mesage;
             }
             return string.Empty;
         }
