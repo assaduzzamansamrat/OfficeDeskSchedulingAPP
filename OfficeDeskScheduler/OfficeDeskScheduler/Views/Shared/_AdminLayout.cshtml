@@ -49,13 +49,13 @@
 </head>
 <body>
     <div class="row">
-         <nav class="navbar navbar-light col-md-12" style="background-color: #0e4872;margin-bottom:0px!important">             
+         <nav class="navbar navbar-light col-md-12" style="background-color: #0e4872;margin-bottom:0px!important;z-index: 100000 !important;">             
          <h4 class="main-header">Admin Dashboard</h4>          
          </nav>
-         <div class="col-md-12" style="height:100vh !important;">
+       
              <!-- Navbar content -->
      
-            <div class="side-bar col-md-2">
+            <div class="side-bar col-md-2" style="position:absolute;>
         
                 <ul class="features-list">
              
@@ -92,7 +92,7 @@
 
             </div>
 
-             <div class="container col-md-8">
+             <div class=" col-md-10" style="left: 16%;">
        <!-- Just an image -->
       <a style="font-size: 25px;" onclick="ShowNavBar();"><i class="fas fa-bars"></i></a>
             @RenderBody()
@@ -104,7 +104,7 @@
 
          </div>
 
-    </div>
+    @*</div>*@
    
      
       
