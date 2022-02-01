@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OfficeDeskScheduler.HelperClasses;
 using Services.DataService;
 using Services.EntityModels;
 
@@ -65,7 +66,10 @@ namespace OfficeDeskScheduler.Controllers
         public async Task<IActionResult> InviteContributors(TeamAndContributorMapper teamAndContributorMapper)
         {
             int userExistCount = deskBookingDataService.GetContributorAndTeamdataByTeamIdAndContributorId(teamAndContributorMapper);
-            if(userExistCount<=0)
+            int currentUsercount = deskBookingDataService.GetContributorCountinMapperTableByTeamId(teamAndContributorMapper.TeamId);
+            Team team = teamDataService.GetTeamByID(teamAndContributorMapper.TeamId);
+           
+            if (userExistCount<=0 && currentUsercount < team.TeamSize)
             {
                 User contributorDetails = userDataService.GetUserByID(teamAndContributorMapper.ContributorId);
                 long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
@@ -78,10 +82,22 @@ namespace OfficeDeskScheduler.Controllers
                 teamAndContributorMapper.ChoosedDeskId = 0;
                 teamAndContributorMapper.TeamId = teamAndContributorMapper.TeamId;
                 deskBookingDataService.InviteContributors(teamAndContributorMapper);
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.ContributorInviteSuccessMessage);
                 return RedirectToAction("Booking", "Manager");
             }
+            else if (userExistCount > 0)
+            {
+                NotificationManager.SetErrorNotificationMessage(this, NotificationManager.ContributorExistErrorMessage);
+                return RedirectToAction("Booking", "Manager");
+            }
+            else if (currentUsercount >= team.TeamSize)
+            {
+                NotificationManager.SetErrorNotificationMessage(this, NotificationManager.ContributorSizeErrorMessage);
+                return RedirectToAction("Booking", "Manager");
 
+            }
             return RedirectToAction("Booking", "Manager");
+
         }
 
 

@@ -62,6 +62,22 @@ namespace Services.DataService
             }
         }
 
+        public int GetContributorCountinMapperTableByTeamId(long teamId)
+        {
+            try
+            {
+                int count = 0;
+                count = context.TeamAndContributorMappers.Where(x => x.TeamId == teamId).Count();
+
+                return count;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
 
         public bool CreateNewDeskBooking(DeskBooking deskBooking)
         {

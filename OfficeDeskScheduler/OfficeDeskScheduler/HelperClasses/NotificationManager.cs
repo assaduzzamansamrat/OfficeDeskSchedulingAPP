@@ -6,6 +6,9 @@ namespace OfficeDeskScheduler.HelperClasses
     {
         public  static string TeamCreateSuccessMessage = "Team created successfully.";
         public  static string UserCreateSuccessMessage = "User created successfully.";
+        public static string  ContributorInviteSuccessMessage = "Invite sent successfully.";
+        public static string  ContributorExistErrorMessage = "Already invited to this team.";
+        public static string  ContributorSizeErrorMessage = "Team size exeed. Please increase team size.";
 
 
         public static string  SetSuccessNotificationMessage(Controller controller, string message)
