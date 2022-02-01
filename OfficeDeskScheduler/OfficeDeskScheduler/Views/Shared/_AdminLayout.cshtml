@@ -4,247 +4,249 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
- @* <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>*@
+    @* <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>*@
     <link rel="stylesheet" href="~/reset.css" />
     <link href="https://www.cssscript.com/demo/sticky.css" rel="stylesheet" type="text/css">
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
           rel="stylesheet" />
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="~/styled.css" />
     <title>Smooth Collapsible Sidebar Navigation Example</title>
     <style type="text/css">
-        @@media (min-width: 768px){
+        @@media (min-width: 768px) {
             .navbar {
                 border-radius: unset !important;
             }
         }
 
-          .navbar {
-                border-radius: unset !important;
-            }
+        .navbar {
+            border-radius: unset !important;
+        }
+
         .active {
             color: var(--white-color);
             transition: 0.5s ease;
         }
-        a {
-    color: #131313 !important;
-    text-decoration: none;
-}
-.menu-Item{
-    color:#fff !important;
-}
 
+        a {
+            color: #131313 !important;
+            text-decoration: none;
+        }
+
+        .menu-Item {
+            color: #fff !important;
+        }
 
     </style>
 
-     <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
-<link rel="stylesheet" href="~/css/Home.css" media="screen">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/css/nicepage.css" media="screen">
+    <link rel="stylesheet" href="~/css/Home.css" media="screen">
 </head>
 <body>
     <div class="row">
-         <nav class="navbar navbar-light col-md-12" style="background-color: #0e4872;margin-bottom:0px!important;z-index: 100000 !important;">             
-         <h4 class="main-header">Admin Dashboard</h4>          
-         </nav>
-       
-             <!-- Navbar content -->
-     
-            <div class="side-bar col-md-2" style="position:absolute;>
-        
-                <ul class="features-list">
-             
-                    <li class="features-item">
-                            <a href="/Admin" class="menu-Item">
+        <nav class="navbar navbar-light col-md-12" style="background-color: #0e4872;margin-bottom:0px!important;z-index: 100000 !important;">
+            <h4 class="main-header">Admin Dashboard</h4>
+        </nav>
+
+        <!-- Navbar content -->
+
+        <div class="side-bar col-md-2" style="position:absolute;>
+
+            <ul class="features-list">
+
+                <li class="features-item">
+                    <a href="/Admin" class="menu-Item">
                         <span class="features-item-text">Manage Users</span>
                         <span class="tooltip">Manage Users</span>
-                            </a> 
-                    </li>
+                    </a>
+                </li>
 
-                    <li class="features-item active">
-                        <a href="/Admin/Team" class="menu-Item">
+                <li class="features-item active">
+                    <a href="/Admin/Team" class="menu-Item">
                         <span class="features-item-text">Manage Teams</span>
                         <span class="tooltip">Manage Teams</span>
-                        </a> 
-                    </li>
-                        <li class="features-item active">
-                        <a href="/Admin/Desk" class="menu-Item">
+                    </a>
+                </li>
+                <li class="features-item active">
+                    <a href="/Admin/Desk" class="menu-Item">
                         <span class="features-item-text">Manage Desks</span>
                         <span class="tooltip">Manage Teams</span>
-                        </a> 
-                    </li>
+                    </a>
+                </li>
 
-                     </li>
-                        <li class="features-item active">
-                        <a href="/Admin/Map" class="menu-Item">
+                </li>
+                <li class="features-item active">
+                    <a href="/Admin/Map" class="menu-Item">
                         <span class="features-item-text">Office Map</span>
                         <span class="tooltip">Office Map</span>
-                        </a> 
-                    </li>
+                    </a>
+                </li>
 
-                </ul>
+            </ul>
 
 
-            </div>
+        </div>
 
-             <div class=" col-md-10" style="left: 16%;">
-       <!-- Just an image -->
-      <a style="font-size: 25px;" onclick="ShowNavBar();"><i class="fas fa-bars"></i></a>
+        <div class=" col-md-10" style="left: 16%;">
+            <!-- Just an image -->
+            <a style="font-size: 25px;" onclick="ShowNavBar();"><i class="fas fa-bars"></i></a>
             @RenderBody()
 
-           
-       
+
+
+        </div>
+
+
     </div>
 
-
-         </div>
-
     @*</div>*@
-   
-     
-      
-  
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('input[type=radio][name=Gender]').change(function () {
-            if (this.value == 'Male') {
-                $('body').removeClass('magenta');
-                $('body').addClass('blue');
-            }
-            else if (this.value == 'Female') {
-                $('body').removeClass('blue');
-                $('body').addClass('magenta');
-            }
-        });
 
-        $(".required").focusin(function () {
-            $(this).removeClass("required-field");
-        });
 
-        //Password Strength Check
-        $(".password").keyup(function () {
 
-            // Check Password Input Field By Regular Expression
-            $(".passwordlength").css("display", "none");
-            var pass = $(this).val();
 
-            var strength = 1;
-            var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
-            jQuery.map(arr, function (regexp) {
-                if (pass.match(regexp))
-                    strength++;
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type=radio][name=Gender]').change(function () {
+                if (this.value == 'Male') {
+                    $('body').removeClass('magenta');
+                    $('body').addClass('blue');
+                }
+                else if (this.value == 'Female') {
+                    $('body').removeClass('blue');
+                    $('body').addClass('magenta');
+                }
             });
-            if (strength < 3) {
-                $(this).css("color", "red");
-            }
-            else if (strength >= 3 && strength <= 4) {
-                $(this).css("color", "#c39b07");
-            }
-            else if (strength >= 5) {
-                $(this).css("color", "green");
-            }
 
+            $(".required").focusin(function () {
+                $(this).removeClass("required-field");
+            });
+
+            //Password Strength Check
+            $(".password").keyup(function () {
+
+                // Check Password Input Field By Regular Expression
+                $(".passwordlength").css("display", "none");
+                var pass = $(this).val();
+
+                var strength = 1;
+                var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
+                jQuery.map(arr, function (regexp) {
+                    if (pass.match(regexp))
+                        strength++;
+                });
+                if (strength < 3) {
+                    $(this).css("color", "red");
+                }
+                else if (strength >= 3 && strength <= 4) {
+                    $(this).css("color", "#c39b07");
+                }
+                else if (strength >= 5) {
+                    $(this).css("color", "green");
+                }
+
+            });
+
+            $(".email").keyup(function () {
+                $("#validEmail").css("display", "none");
+                //$("#existEmail").css("display", "block");
+            });
+            $("#ConfirmPassword").keyup(function () {
+                $(".passwordmatch").css("display", "none");
+            });
         });
 
-        $(".email").keyup(function () {
-            $("#validEmail").css("display", "none");
-            //$("#existEmail").css("display", "block");
-        });
-        $("#ConfirmPassword").keyup(function () {
-            $(".passwordmatch").css("display", "none");
-        });
-    });
+        function CommonValidation() {
+            var isValid = true;
+            $(".required").each(function () {
 
-    function CommonValidation() {
-        var isValid = true;
-        $(".required").each(function () {
-
-            // Check Empty Input Fields
-            var value = $(this).val();
-            if (value != null && value != "" && typeof (value) !== undefined) {
-                //do nothing
-            }
-            else {
-                isValid = false;
-                $(this).addClass("required-field");
-            }
-
-
-
-        });
-
-        // Check Email Address
-        $(".email").each(function () {
-
-            // Check Email Input Field By Regular Expression
-            var userinput = $(this).val();
-
-            if (userinput != null && userinput != "" && typeof (userinput) !== undefined) {
-                var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
-
-                if (!pattern.test(userinput)) {
-
+                // Check Empty Input Fields
+                var value = $(this).val();
+                if (value != null && value != "" && typeof (value) !== undefined) {
+                    //do nothing
+                }
+                else {
                     isValid = false;
-                    $("#validEmail").css("display", "block");
-                    //$("#existEmail").css("display", "block");
                     $(this).addClass("required-field");
                 }
-            }
-
-        });
 
 
 
-        //Password Strength Check
-        $(".password-box").each(function () {
-
-            // Check Password Input Field By Regular Expression
-            var pass = $(this).val();
-            var confirmPass = $("#ConfirmPassword").val();
-
-            if (pass != confirmPass) {
-                $(".passwordmatch").css("display", "block");
-            }
-
-            var strength = 1;
-            var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
-            jQuery.map(arr, function (regexp) {
-                if (pass.match(regexp))
-                    strength++;
             });
 
-            if (pass.length <= 6) {
-                // If Password length Is less than 6
-                $(".passwordlength").css("display", "block");
-                isValid = false;
-            }
-            else {
-                $(".passwordlength").css("display", "none");
-            }
-            if (strength < 3) {
-                // if Password Is not Strong
-                isValid = false;
-            }
+            // Check Email Address
+            $(".email").each(function () {
+
+                // Check Email Input Field By Regular Expression
+                var userinput = $(this).val();
+
+                if (userinput != null && userinput != "" && typeof (userinput) !== undefined) {
+                    var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+
+                    if (!pattern.test(userinput)) {
+
+                        isValid = false;
+                        $("#validEmail").css("display", "block");
+                        //$("#existEmail").css("display", "block");
+                        $(this).addClass("required-field");
+                    }
+                }
+
+            });
 
 
-        });
+
+            //Password Strength Check
+            $(".password-box").each(function () {
+
+                // Check Password Input Field By Regular Expression
+                var pass = $(this).val();
+                var confirmPass = $("#ConfirmPassword").val();
+
+                if (pass != confirmPass) {
+                    $(".passwordmatch").css("display", "block");
+                }
+
+                var strength = 1;
+                var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
+                jQuery.map(arr, function (regexp) {
+                    if (pass.match(regexp))
+                        strength++;
+                });
+
+                if (pass.length <= 6) {
+                    // If Password length Is less than 6
+                    $(".passwordlength").css("display", "block");
+                    isValid = false;
+                }
+                else {
+                    $(".passwordlength").css("display", "none");
+                }
+                if (strength < 3) {
+                    // if Password Is not Strong
+                    isValid = false;
+                }
+
+
+            });
 
 
 
-        return isValid;
-    }
-</script>
+            return isValid;
+        }
+    </script>
 
 
-   
+
     <!-- CSSScript Demo Page -->
 
-    
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
