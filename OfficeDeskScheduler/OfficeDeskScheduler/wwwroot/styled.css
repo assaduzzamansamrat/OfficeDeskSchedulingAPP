@@ -42,7 +42,7 @@ body {
 .container {  max-width: 960px; color: #000; }
 
 .side-bar {
-    /*margin-top: 71px;*/
+    margin-top: 3%;
     width: 15.2rem;
     height: 100%;
     padding: 2.1rem 1.2rem;
@@ -50,7 +50,7 @@ body {
     position: absolute;
     transition: all 0.5s ease;
     top: 0;
-    z-index:1000!important;
+    z-index: 1000 !important;
 }
 
 .logo-name-wrapper {
