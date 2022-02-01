@@ -53,7 +53,9 @@ namespace OfficeDeskScheduler.Controllers
         public async Task<IActionResult> InviteContributors(long Id)
         {
             OperationModel operationModel = new OperationModel();
+            Team team = teamDataService.GetTeamByID(Id);
             ViewBag.TeamId = Id;
+            ViewBag.TeamName = team.TeamName;
             List<User> users = userDataService.GetAllContributors();
             operationModel.User = users;
             return View(operationModel);
@@ -62,20 +64,24 @@ namespace OfficeDeskScheduler.Controllers
         [HttpPost]
         public async Task<IActionResult> InviteContributors(TeamAndContributorMapper teamAndContributorMapper)
         {
+            int userExistCount = deskBookingDataService.GetContributorAndTeamdataByTeamIdAndContributorId(teamAndContributorMapper);
+            if(userExistCount<=0)
+            {
+                User contributorDetails = userDataService.GetUserByID(teamAndContributorMapper.ContributorId);
+                long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
+                User managerDetails = userDataService.GetUserByID(userId);
+                teamAndContributorMapper.ContributorId = contributorDetails.Id;
+                teamAndContributorMapper.ContributorName = contributorDetails.LastName + " " + contributorDetails.LastName;
+                teamAndContributorMapper.ManagerId = managerDetails.Id;
+                teamAndContributorMapper.ManagerName = managerDetails.LastName + " " + managerDetails.LastName;
+                teamAndContributorMapper.IsInvaitationAccept = false;
+                teamAndContributorMapper.ChoosedDeskId = 0;
+                teamAndContributorMapper.TeamId = teamAndContributorMapper.TeamId;
+                deskBookingDataService.InviteContributors(teamAndContributorMapper);
+                return RedirectToAction("Booking", "Manager");
+            }
 
-            User contributorDetails = userDataService.GetUserByID(teamAndContributorMapper.ContributorId);
-            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
-            User managerDetails = userDataService.GetUserByID(userId);           
-            teamAndContributorMapper.ContributorId = contributorDetails.Id;
-            teamAndContributorMapper.ContributorName = contributorDetails.LastName + " " + contributorDetails.LastName;
-            teamAndContributorMapper.ManagerId = managerDetails.Id;
-            teamAndContributorMapper.ManagerName = managerDetails.LastName + " " + managerDetails.LastName;
-            teamAndContributorMapper.IsInvaitationAccept = false;
-            teamAndContributorMapper.ChoosedDeskId = 0;
-            teamAndContributorMapper.TeamId = teamAndContributorMapper.TeamId;
-            deskBookingDataService.InviteContributors(teamAndContributorMapper);
             return RedirectToAction("Booking", "Manager");
-
         }
 
 

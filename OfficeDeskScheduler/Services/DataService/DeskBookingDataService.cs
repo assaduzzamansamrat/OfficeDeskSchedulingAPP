@@ -46,6 +46,23 @@ namespace Services.DataService
             }
         }
 
+        public int GetContributorAndTeamdataByTeamIdAndContributorId(TeamAndContributorMapper teamAndContributorMapper)
+        {
+            try
+            {
+                int count = 0;
+                count = context.TeamAndContributorMappers.Where(x => x.TeamId == teamAndContributorMapper.TeamId && x.ContributorId == teamAndContributorMapper.ContributorId).Count();
+
+                return count;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
         public bool CreateNewDeskBooking(DeskBooking deskBooking)
         {
          

@@ -19,6 +19,9 @@ namespace Services.EntityModels
         public bool IsInvaitationAccept { get; set; }
         public long ChoosedDeskId { get; set; }
         public string? ManagerName { get; set; }
+        public string? TeamName { get; set; }
+
+        
 
     }
 }

@@ -86,8 +86,9 @@ namespace Services.DataService
                 // Taking All desks From the table 
                 List<Desk> deskList = new List<Desk>();
                 List<Desk> deskListToRemove = new List<Desk>();
+                string deskType = "NormalDesk";
                 Team team = context.Teams.Where(x=> x.Id == teamId).FirstOrDefault();
-                deskList = context.Desks.ToList();
+                deskList = context.Desks.Where(x=> x.DeskType.Trim().ToLower() == deskType.Trim().ToLower()).ToList();
                 if (team != null)
                 {
                     // making an array from comma seperated string 
@@ -97,7 +98,7 @@ namespace Services.DataService
                         foreach (var item in array)
                         {
                             // Takaing data that does not contain those equipments                       
-                            deskListToRemove = context.Desks.Where(x =>! x.EquipmentDetails.Contains(item)).ToList();
+                            deskListToRemove = context.Desks.Where(x =>! x.EquipmentDetails.Contains(item) && x.DeskType.Trim().ToLower() == deskType.Trim().ToLower()).ToList();
                             if(deskListToRemove != null)
                             {
                                 foreach(var items in deskListToRemove)
