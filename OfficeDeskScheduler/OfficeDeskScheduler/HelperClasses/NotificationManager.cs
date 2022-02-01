@@ -9,6 +9,7 @@ namespace OfficeDeskScheduler.HelperClasses
         public static string  ContributorInviteSuccessMessage = "Invite sent successfully.";
         public static string  ContributorExistErrorMessage = "Already invited to this team.";
         public static string  ContributorSizeErrorMessage = "Team size exeed. Please increase team size.";
+        public static string ContributorAssignSuccessMessage = "user assigned successfully.";
 
 
         public static string  SetSuccessNotificationMessage(Controller controller, string message)
@@ -34,6 +35,16 @@ namespace OfficeDeskScheduler.HelperClasses
             if ( controller.TempData["successMessage"] != null && controller.TempData["successMessage"].ToString() != "")
             {
                 string mesage = controller.TempData["successMessage"].ToString();
+                return mesage;
+            }
+            return string.Empty;
+        }
+
+        public static string GetErrorNotificationMessage(Controller controller)
+        {
+            if (controller.TempData["errorMessage"] != null && controller.TempData["errorMessage"].ToString() != "")
+            {
+                string mesage = controller.TempData["errorMessage"].ToString();
                 return mesage;
             }
             return string.Empty;

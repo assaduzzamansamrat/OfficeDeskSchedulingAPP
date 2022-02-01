@@ -7,9 +7,23 @@
     Layout = "_ManagerLayout";
 }
 
-
+<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <p></p>
 @model IEnumerable<Services.EntityModels.DeskBooking>
+@if (@ViewBag.SuccessMessage != null && @ViewBag.SuccessMessage != "" && @ViewBag.SuccessMessage != string.Empty)
+{
+    <div id="successMessage" class="alert alert-success" role="alert">
+        ViewBag.SuccessMessage
+    </div>
+}
 
+@if (@ViewBag.ErrorMessage != null && @ViewBag.ErrorMessage != "" && @ViewBag.ErrorMessage != string.Empty)
+{
+    <div id="errorMessage" class="alert alert-danger"  role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+</div>
 <p class="">
     @*<a type="buton" href="/Manager/BookingCreate" class="btn btn-create">+ Create</a>*@
 </p>
@@ -23,8 +37,8 @@
                 <col width="15%">
                 <col width="15%">
                 <col width="15%">
-                 <col width="20%">
-               
+                <col width="20%">
+
             </colgroup>
             <thead class="u-custom-font u-font-courier-new u-palette-4-base u-table-header u-table-header-1">
                 <tr style="height: 58px;">
@@ -32,9 +46,9 @@
                     <th class="u-table-cell">Desk Number </th>
                     <th class="u-table-cell">Start Date & Time </th>
                     <th class="u-table-cell">End Date & Time </th>
-                     <th class="u-table-cell">Assigned Contributor </th>
-                     <th class="u-table-cell">Location </th>
-                     <th class="u-table-cell">Action </th>
+                    <th class="u-table-cell">Assigned Contributor </th>
+                    <th class="u-table-cell">Location </th>
+                    <th class="u-table-cell">Action </th>
                 </tr>
             </thead>
 
@@ -49,12 +63,11 @@
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.EndDateTime</td>
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.AssignedContributor</td>
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Location</td>
-                       
-                          <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
-                 @Html.ActionLink("Edit", "DeskEdit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "DeskDetails", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "DeskDelete", new { id = item.Id })
-            </td>
+
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
+                            @Html.ActionLink("Assign Contributor", "BookingEdit", new { id = item.Id }) |                            
+                            @Html.ActionLink("Delete", "DeskDelete", new { id = item.Id })
+                        </td>
                     </tr>
 
                 </tbody>
@@ -64,3 +77,11 @@
         </table>
     </div>
 </div>
+
+@*<script type="text/javascript">
+       
+         $(document).ready(function(){           
+                  $("#successMessage").fadeOut(6000);                             
+                  $("#errorMessage").fadeOut(6000);           
+         });
+</script>*@

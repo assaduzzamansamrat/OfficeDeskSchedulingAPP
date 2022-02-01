@@ -60,7 +60,7 @@ namespace OfficeDeskScheduler.Controllers
             List<User> users = userDataService.GetAllContributors();
             operationModel.User = users;
             return View(operationModel);
-           
+
         }
         [HttpPost]
         public async Task<IActionResult> InviteContributors(TeamAndContributorMapper teamAndContributorMapper)
@@ -68,8 +68,8 @@ namespace OfficeDeskScheduler.Controllers
             int userExistCount = deskBookingDataService.GetContributorAndTeamdataByTeamIdAndContributorId(teamAndContributorMapper);
             int currentUsercount = deskBookingDataService.GetContributorCountinMapperTableByTeamId(teamAndContributorMapper.TeamId);
             Team team = teamDataService.GetTeamByID(teamAndContributorMapper.TeamId);
-           
-            if (userExistCount<=0 && currentUsercount < team.TeamSize)
+
+            if (userExistCount <= 0 && currentUsercount < team.TeamSize)
             {
                 User contributorDetails = userDataService.GetUserByID(teamAndContributorMapper.ContributorId);
                 long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
@@ -119,12 +119,14 @@ namespace OfficeDeskScheduler.Controllers
         }
         public async Task<IActionResult> Booking()
         {
+            ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
+            ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
             long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
             List<DeskBooking> booking = deskBookingDataService.GetAll(userId);
             return View(booking);
         }
         [HttpGet]
-        public async Task<IActionResult> BookingCreate( )
+        public async Task<IActionResult> BookingCreate()
         {
             return View();
         }
@@ -134,6 +136,27 @@ namespace OfficeDeskScheduler.Controllers
         {
             deskBooking.BookedBy = (long)HttpContext.Session.GetInt32(SessionUserId);
             deskBookingDataService.CreateNewDeskBooking(deskBooking);
+            return RedirectToAction("Booking", "Manager");
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> BookingEdit(long Id)
+        {
+            OperationModel operationModel = new OperationModel();
+            DeskBooking deskBooking = deskBookingDataService.GetDeskByID(Id);
+            List<User> users = userDataService.GetAllContributors();
+            operationModel.User = users;
+            operationModel.DeskBooking = deskBooking;
+            return View(operationModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> BookingEdit(DeskBooking deskBooking)
+        {
+
+            deskBookingDataService.UpdateDesk(deskBooking);
+            NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.ContributorAssignSuccessMessage);
             return RedirectToAction("Booking", "Manager");
         }
 
