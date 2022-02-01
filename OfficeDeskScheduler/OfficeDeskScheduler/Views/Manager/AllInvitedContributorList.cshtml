@@ -1,0 +1,73 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_ManagerLayout";
+}
+
+
+@model IEnumerable<Services.EntityModels.TeamAndContributorMapper>
+
+<p class="">
+    @*<a type="buton" href="/Manager/BookingCreate" class="btn btn-create">+ Create</a>*@
+</p>
+<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-expanded-width u-table u-table-responsive u-table-1">
+        <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+                
+
+            </colgroup>
+            <thead class="u-custom-font u-font-courier-new u-palette-4-base u-table-header u-table-header-1">
+                <tr style="height: 58px;">
+                    <th class="u-table-cell">Team Name </th>
+                    <th class="u-table-cell">User Name </th>
+                    <th class="u-table-cell">Invitation Status</th>                   
+                    <th class="u-table-cell">Action </th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tbody class="u-table-body">
+                    <tr style="height: 55px;">
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.TeamName</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.ContributorName</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
+                            @{
+                                if (item.IsInvaitationAccept == true)
+                                {
+                                    <Span>Accept</Span>
+                                   
+                                }
+                                if (item.IsInvaitationAccept == true)
+                                {
+                                    <Span>Reject</Span>
+                                   
+                                }
+                                else
+                                {
+                                  <Span>Pending</Span>
+                                }
+                            }
+                        </td>
+                       
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
+                            @Html.ActionLink("Edit", "DeskEdit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "DeskDetails", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "DeskDelete", new { id = item.Id })
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            }
+
+        </table>
+    </div>
+</div>

@@ -82,6 +82,7 @@ namespace OfficeDeskScheduler.Controllers
                 teamAndContributorMapper.ChoosedDeskId = 0;
                 teamAndContributorMapper.TeamId = teamAndContributorMapper.TeamId;
                 deskBookingDataService.InviteContributors(teamAndContributorMapper);
+                teamAndContributorMapper.TeamName = team.TeamName;
                 NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.ContributorInviteSuccessMessage);
                 return RedirectToAction("Booking", "Manager");
             }
@@ -100,7 +101,13 @@ namespace OfficeDeskScheduler.Controllers
 
         }
 
-
+        public async Task<IActionResult> AllInvitedContributorList()
+        {
+            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
+            List<TeamAndContributorMapper> teamAndContributorMappers = new List<TeamAndContributorMapper>();
+            teamAndContributorMappers = teamDataService.GetAllInvitedContributorList(userId);
+            return View(teamAndContributorMappers);
+        }
         public async Task<IActionResult> Map()
         {
             return View();

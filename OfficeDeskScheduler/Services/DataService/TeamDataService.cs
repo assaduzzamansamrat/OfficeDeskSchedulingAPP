@@ -175,5 +175,18 @@ namespace Services.DataService
             return false;
         }
 
+        public List<TeamAndContributorMapper> GetAllInvitedContributorList(long managerId)
+        {
+            try
+            {
+               return  context.TeamAndContributorMappers.Where(x => x.ManagerId == managerId).ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }
