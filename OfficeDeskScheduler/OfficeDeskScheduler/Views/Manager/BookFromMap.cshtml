@@ -408,7 +408,8 @@
         success: function (result) {
 
             for(var i=0;i< result.length;i++)
-            {
+            { 
+                var s =result[i];
                 var desk_number = result[i].deskNumber;
                  $("#"+desk_number).find("span").addClass("cls_005_gray");
                  $("#"+desk_number).find("span").removeClass("cls_005");

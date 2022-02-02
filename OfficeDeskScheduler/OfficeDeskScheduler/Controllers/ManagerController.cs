@@ -46,13 +46,13 @@ namespace OfficeDeskScheduler.Controllers
 
         public async Task<IActionResult> AutoBookDesks(long Id)
         {
-           
+
             List<Desk> desk = new List<Desk>();
             desk = teamDataService.AutoBookDesks(Id);
             int countBookedesks = deskBookingDataService.GetDeskBookingCountByTeamId(Id);
             if (desk != null && countBookedesks <= 0)
             {
-                foreach(var item in desk)
+                foreach (var item in desk)
                 {
                     DeskBooking deskBooking = new DeskBooking();
                     deskBooking.DeskId = item.Id;
@@ -68,7 +68,7 @@ namespace OfficeDeskScheduler.Controllers
             NotificationManager.SetErrorNotificationMessage(this, NotificationManager.AutoDeskBookingErrorMessage);
 
             return RedirectToAction("Booking", "Manager");
-           
+
         }
         [HttpGet]
         public async Task<IActionResult> InviteContributors(long Id)
@@ -124,8 +124,8 @@ namespace OfficeDeskScheduler.Controllers
         public async Task<IActionResult> DeskBookingDelete(long Id)
         {
             bool isDelete = false;
-            isDelete =deskBookingDataService.DeskBookingDelete(Id);
-            if(isDelete == true)
+            isDelete = deskBookingDataService.DeskBookingDelete(Id);
+            if (isDelete == true)
             {
                 NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
                 return RedirectToAction("Booking", "Manager");
@@ -213,7 +213,11 @@ namespace OfficeDeskScheduler.Controllers
             foreach (var item in deskBooking)
             {
                 Desk desk = deskDataService.GetDeskByID(item.DeskId);
-                bookedDeskList.Add(desk);
+                if (desk != null)
+                {
+                    bookedDeskList.Add(desk);
+                }
+
             }
             return Json(bookedDeskList);
         }
