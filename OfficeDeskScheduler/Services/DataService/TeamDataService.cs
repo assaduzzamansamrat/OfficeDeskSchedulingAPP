@@ -86,9 +86,9 @@ namespace Services.DataService
                 // Taking All desks From the table 
                 List<Desk> deskList = new List<Desk>();
                 List<Desk> deskListToRemove = new List<Desk>();
-                string deskType = "NormalDesk";
+                string deskType = "Normal Desk";
                 Team team = context.Teams.Where(x=> x.Id == teamId).FirstOrDefault();
-                deskList = context.Desks.Where(x=> x.DeskType.Trim().ToLower() == deskType.Trim().ToLower()).ToList();
+                deskList = context.Desks.Where(x=> x.DeskType == deskType).ToList();
                 if (team != null)
                 {
                     // making an array from comma seperated string 
@@ -112,7 +112,7 @@ namespace Services.DataService
                         }
                       
                     }
-                    if(team.TeamSize >= deskList.Count())
+                    if(deskList.Count() >= team.TeamSize)
                     {
                         return deskList.Take(team.TeamSize).ToList();
                     }

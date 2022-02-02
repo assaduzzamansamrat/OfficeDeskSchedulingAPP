@@ -46,9 +46,27 @@ namespace OfficeDeskScheduler.Controllers
 
         public async Task<IActionResult> AutoBookDesks(long Id)
         {
+           
             List<Desk> desk = new List<Desk>();
             desk = teamDataService.AutoBookDesks(Id);
-            return Json(desk);
+            if(desk != null)
+            {
+                foreach(var item in desk)
+                {
+                    DeskBooking deskBooking = new DeskBooking();
+                    deskBooking.DeskId = item.Id;
+                    deskBooking.Location = "Canada";
+                    deskBooking.TeamId = Id;
+                    deskBooking.StartDateTime = DateTime.Now;
+                    deskBooking.EndDateTime = DateTime.Now.AddDays(1);
+                    deskBooking.BookedBy = (long)HttpContext.Session.GetInt32(SessionUserId);
+                    deskBookingDataService.CreateNewDeskBooking(deskBooking);
+                }
+            }
+
+           
+            return RedirectToAction("Booking", "Manager");
+           
         }
         [HttpGet]
         public async Task<IActionResult> InviteContributors(long Id)
