@@ -9,7 +9,9 @@ namespace OfficeDeskScheduler.HelperClasses
         public static string  ContributorInviteSuccessMessage = "Invite sent successfully.";
         public static string  ContributorExistErrorMessage = "Already invited to this team.";
         public static string  ContributorSizeErrorMessage = "Team size exeed. Please increase team size.";
-        public static string ContributorAssignSuccessMessage = "user assigned successfully.";
+        public static string ContributorAssignSuccessMessage = "User assigned successfully.";
+        public static string AutoDeskBookingSuccessMessage = "Auto desk booked successfully.";
+        public static string AutoDeskBookingErrorMessage = "Desk alreay booked.";
 
 
         public static string  SetSuccessNotificationMessage(Controller controller, string message)

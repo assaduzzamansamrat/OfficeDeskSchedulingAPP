@@ -49,7 +49,8 @@ namespace OfficeDeskScheduler.Controllers
            
             List<Desk> desk = new List<Desk>();
             desk = teamDataService.AutoBookDesks(Id);
-            if(desk != null)
+            int countBookedesks = deskBookingDataService.GetDeskBookingCountByTeamId(Id);
+            if (desk != null && countBookedesks <= 0)
             {
                 foreach(var item in desk)
                 {
@@ -62,9 +63,10 @@ namespace OfficeDeskScheduler.Controllers
                     deskBooking.BookedBy = (long)HttpContext.Session.GetInt32(SessionUserId);
                     deskBookingDataService.CreateNewDeskBooking(deskBooking);
                 }
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.AutoDeskBookingSuccessMessage);
             }
+            NotificationManager.SetErrorNotificationMessage(this, NotificationManager.AutoDeskBookingErrorMessage);
 
-           
             return RedirectToAction("Booking", "Manager");
            
         }
