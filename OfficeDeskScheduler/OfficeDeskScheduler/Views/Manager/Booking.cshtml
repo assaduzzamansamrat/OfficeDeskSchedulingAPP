@@ -13,7 +13,7 @@
 @if (@ViewBag.SuccessMessage != null && @ViewBag.SuccessMessage != "" && @ViewBag.SuccessMessage != string.Empty)
 {
     <div id="successMessage" class="alert alert-success" role="alert">
-        ViewBag.SuccessMessage
+        @ViewBag.SuccessMessage
     </div>
 }
 
@@ -66,7 +66,7 @@
 
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
                             @Html.ActionLink("Assign Contributor", "BookingEdit", new { id = item.Id }) |                            
-                            @Html.ActionLink("Delete", "DeskDelete", new { id = item.Id })
+                            @Html.ActionLink("Delete Booking", "DeskBookingDelete", new { id = item.Id })
                         </td>
                     </tr>
 

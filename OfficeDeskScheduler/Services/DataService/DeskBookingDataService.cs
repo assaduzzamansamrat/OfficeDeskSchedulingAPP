@@ -31,6 +31,27 @@ namespace Services.DataService
 
         }
 
+        public bool DeskBookingDelete(long Id)
+        {
+            try
+            {
+                DeskBooking deskBookng = new DeskBooking();
+                deskBookng = context.DeskBookings.Where(x => x.Id == Id).FirstOrDefault();
+                if(deskBookng != null)
+                {
+                    context.DeskBookings.Remove(deskBookng);
+                    context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public bool InviteContributors(TeamAndContributorMapper teamAndContributorMapper)
         {
             try

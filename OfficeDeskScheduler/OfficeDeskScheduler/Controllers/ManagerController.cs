@@ -121,6 +121,22 @@ namespace OfficeDeskScheduler.Controllers
 
         }
 
+        public async Task<IActionResult> DeskBookingDelete(long Id)
+        {
+            bool isDelete = false;
+            isDelete =deskBookingDataService.DeskBookingDelete(Id);
+            if(isDelete == true)
+            {
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
+                return RedirectToAction("Booking", "Manager");
+            }
+            else
+            {
+                NotificationManager.SetErrorNotificationMessage(this, NotificationManager.DeleteErrorMessage);
+                return RedirectToAction("Booking", "Manager");
+            }
+        }
+
         public async Task<IActionResult> AllInvitedContributorList()
         {
             long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
