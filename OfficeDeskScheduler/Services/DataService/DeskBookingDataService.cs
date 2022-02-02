@@ -115,6 +115,21 @@ namespace Services.DataService
         }
 
 
+        public List<TeamAndContributorMapper> GetAllInvitationsOfContributorBycontributorId(long Id)
+        {
+            try
+            {
+               return context.TeamAndContributorMappers.Where(x => x.ContributorId == Id).ToList();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
         public bool CreateNewDeskBooking(DeskBooking deskBooking)
         {
          

@@ -50,60 +50,185 @@
 </head>
 <body>
     <div class="row">
-        <nav class="navbar navbar-light col-md-12" style="background-color: #0e4872;margin-bottom:0px!important">
+        <nav class="navbar navbar-light col-md-12" style="background-color: #0e4872;margin-bottom:0px!important;z-index: 100000 !important;">
             <h4 class="main-header">Contributor Dashboard</h4>
         </nav>
-        <div class="col-md-12" style="height:100vh !important;">
-            <!-- Navbar content -->
-
-            <div class="side-bar col-md-2">
-
-                <ul class="features-list">
-
-                    <li class="features-item">
-                        <a href="/Admin" class="menu-Item">
-                            <span class="features-item-text">Manage Users</span>
-                            <span class="tooltip">Manage Users</span>
-                        </a>
-                    </li>
-
-                    <li class="features-item active">
-                        <a href="/Admin/Team" class="menu-Item">
-                            <span class="features-item-text">Manage Teams</span>
-                            <span class="tooltip">Manage Teams</span>
-                        </a>
-                    </li>
-                    <li class="features-item active">
-                        <a href="/Admin/Desk" class="menu-Item">
-                            <span class="features-item-text">Manage Desks</span>
-                            <span class="tooltip">Manage Teams</span>
-                        </a>
-                    </li>
-
-                </ul>
-
-
-            </div>
-
-            <div class="container col-md-10">
-                <!-- Just an image -->
-                <a style="font-size: 25px;" onclick="ShowNavBar();"><i class="fas fa-bars"></i></a>
-                @RenderBody()
 
 
 
-            </div>
+        <!-- Navbar content -->
+
+        <div class="side-bar col-md-2" style="position:absolute;">
+
+            <ul class="features-list">
+
+
+
+                <li class="features-item active">
+                    <a href="/Contributor/Index" class="menu-Item">
+                        <span class="features-item-text">My Invitations</span>
+                        <span class="tooltip">My Invitations</span>
+                    </a>
+                </li>
+
+            </ul>
 
 
         </div>
+
+        <div class=" col-md-10" style="left: 16%;">
+            <!-- Just an image -->
+            <a style="font-size: 25px;" onclick="ShowNavBar();"><i class="fas fa-bars"></i></a>
+            @RenderBody()
+
+
+
+        </div>
+
 
     </div>
 
 
 
 
-
     <!-- CSSScript Demo Page -->
+
+
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function () {
+            $("#successMessage").fadeOut(6000);                             
+                  $("#errorMessage").fadeOut(6000);      
+            $('input[type=radio][name=Gender]').change(function () {
+                if (this.value == 'Male') {
+                    $('body').removeClass('magenta');
+                    $('body').addClass('blue');
+                }
+                else if (this.value == 'Female') {
+                    $('body').removeClass('blue');
+                    $('body').addClass('magenta');
+                }
+            });
+
+            $(".required").focusin(function () {
+                $(this).removeClass("required-field");
+            });
+
+            //Password Strength Check
+            $(".password").keyup(function () {
+
+                // Check Password Input Field By Regular Expression
+                $(".passwordlength").css("display", "none");
+                var pass = $(this).val();
+
+                var strength = 1;
+                var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
+                jQuery.map(arr, function (regexp) {
+                    if (pass.match(regexp))
+                        strength++;
+                });
+                if (strength < 3) {
+                    $(this).css("color", "red");
+                }
+                else if (strength >= 3 && strength <= 4) {
+                    $(this).css("color", "#c39b07");
+                }
+                else if (strength >= 5) {
+                    $(this).css("color", "green");
+                }
+
+            });
+
+            $(".email").keyup(function () {
+                $("#validEmail").css("display", "none");
+                //$("#existEmail").css("display", "block");
+            });
+            $("#ConfirmPassword").keyup(function () {
+                $(".passwordmatch").css("display", "none");
+            });
+        });
+
+        function CommonValidation() {
+            var isValid = true;
+            $(".required").each(function () {
+
+                // Check Empty Input Fields
+                var value = $(this).val();
+                if (value != null && value != "" && typeof (value) !== undefined) {
+                    //do nothing
+                }
+                else {
+                    isValid = false;
+                    $(this).addClass("required-field");
+                }
+
+
+
+            });
+
+            // Check Email Address
+            $(".email").each(function () {
+
+                // Check Email Input Field By Regular Expression
+                var userinput = $(this).val();
+
+                if (userinput != null && userinput != "" && typeof (userinput) !== undefined) {
+                    var pattern = /^\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+
+                    if (!pattern.test(userinput)) {
+
+                        isValid = false;
+                        $("#validEmail").css("display", "block");
+                        //$("#existEmail").css("display", "block");
+                        $(this).addClass("required-field");
+                    }
+                }
+
+            });
+
+
+
+            //Password Strength Check
+            $(".password-box").each(function () {
+
+                // Check Password Input Field By Regular Expression
+                var pass = $(this).val();
+                var confirmPass = $("#ConfirmPassword").val();
+
+                if (pass != confirmPass) {
+                    $(".passwordmatch").css("display", "block");
+                }
+
+                var strength = 1;
+                var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
+                jQuery.map(arr, function (regexp) {
+                    if (pass.match(regexp))
+                        strength++;
+                });
+
+                if (pass.length <= 6) {
+                    // If Password length Is less than 6
+                    $(".passwordlength").css("display", "block");
+                    isValid = false;
+                }
+                else {
+                    $(".passwordlength").css("display", "none");
+                }
+                if (strength < 3) {
+                    // if Password Is not Strong
+                    isValid = false;
+                }
+
+
+            });
+
+
+
+            return isValid;
+        }
+    </script>
 
 
 

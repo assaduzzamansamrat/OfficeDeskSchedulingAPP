@@ -6,3 +6,84 @@
 @{
     Layout = "_ContributorLayout";
 }
+
+
+
+<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <p></p>
+    @model IEnumerable<Services.EntityModels.TeamAndContributorMapper>
+    @if (@ViewBag.SuccessMessage != null && @ViewBag.SuccessMessage != "" && @ViewBag.SuccessMessage != string.Empty)
+    {
+        <div id="successMessage" class="alert alert-success" role="alert">
+            @ViewBag.SuccessMessage
+        </div>
+    }
+
+    @if (@ViewBag.ErrorMessage != null && @ViewBag.ErrorMessage != "" && @ViewBag.ErrorMessage != string.Empty)
+    {
+        <div id="errorMessage" class="alert alert-danger" role="alert">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+</div>
+<p class="">
+    @*<a type="buton" href="/Manager/BookingCreate" class="btn btn-create">+ Create</a>*@
+</p>
+<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-expanded-width u-table u-table-responsive u-table-1">
+        <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+                <col width="25%">
+
+            </colgroup>
+            <thead class="u-custom-font u-font-courier-new u-palette-4-base u-table-header u-table-header-1">
+                <tr style="height: 58px;">
+                    <th class="u-table-cell">Team Name </th>
+                    <th class="u-table-cell">Manager Name </th>
+                    <th class="u-table-cell">Invitation Status </th>
+                    <th class="u-table-cell">Action </th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tbody class="u-table-body">
+                    <tr style="height: 55px;">
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.TeamName</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.ManagerName</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
+
+                            @{
+                                if (item.IsInvaitationAccept == true)
+                                {
+                                    <Span>Accept</Span>
+
+                                }
+                                if (item.IsInvaitationAccept == true)
+                                {
+                                    <Span>Reject</Span>
+
+                                }
+                                else
+                                {
+                                    <Span>Pending</Span>
+                                }
+                            }
+                        </td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
+                            @Html.ActionLink("Accept", "AcceptInvitation", new { id = item.Id }) |
+                            @Html.ActionLink("Reject", "RejectInvitation", new { id = item.Id })
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            }
+
+        </table>
+    </div>
+</div>
