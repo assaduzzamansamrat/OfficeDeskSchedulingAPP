@@ -15,6 +15,8 @@
         font-family: sans-serif !important;
     }
 
+  
+
     .main-panel {
         margin-top: 5%;
         margin-bottom: 5%;
@@ -172,16 +174,25 @@
                         <div class="col-sm-12">
                             <div class="md-form mt-0">
                                 <div class="dropdown" style="margin-left: 20px;">
-
+                                    <label for="Equipments" class="visually-hidden">Equipment Name </label>
                                     <select name="Equipments" id="Equipments">
                                         <option value="Desktop">Desktop</option>
                                         <option value="Laptop">Laptop</option>
                                         <option value="Printer">Printer</option>
 
                                     </select>
-                                    <button type="button" calss="btn btn-primary" onclick="AddEquipment();"> Add Equipment</button>
+                                    <button type="button" calss="btn btn-primary" style="color: #fff; background-color: #337ab7;border-color: #2e6da4;display: inline-block;margin-bottom: 0;font-weight: 400;text-align: center;white-space: nowrap;vertical-align: middle;
+-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;background-image: none;border: 1px solid transparent;
+ padding: 6px 12px;font-size: 14px;line-height: 1.42857143;border-radius: 4px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+" onclick="AddEquipment();"> Add Equipment</button>
+
+ <button type="button" calss="btn btn-primary" style="color: #fff; background-color: #337ab7;border-color: #2e6da4;display: inline-block;margin-bottom: 0;font-weight: 400;text-align: center;white-space: nowrap;vertical-align: middle;
+-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;background-image: none;border: 1px solid transparent;
+ padding: 6px 12px;font-size: 14px;line-height: 1.42857143;border-radius: 4px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+" onclick="ResetEquipment();"> Reset Equipment</button>
                                 </div>
                             </div>
+                            
                         </div>
                         <div class="col-sm-12">
                             <div class="md-form mt-0">
@@ -192,15 +203,7 @@
                         <div class="col-sm-12">
                             <div class="md-form mt-0">
                                 <div class="dropdown" style="margin-left: 20px;">
-                                    @* <button class="btn btn-primary dropdown-toggle" type="button" name="ManagerId" id="ManagerId" placeholder="ManagerId" data-toggle="dropdown">
-                                        Dropdown Example
-                                        <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu">
-                                        <li>Manager one</li>
-                                        <li>Manager two</li>
-                                        <li>Manager three</li>
-                                        </ul>*@
+                                    <label for="ManagerId" class="visually-hidden">Select Manager </label>
                                     <select name="ManagerId" id="ManagerId">
 
                                         @foreach (var item in Model)
@@ -220,7 +223,7 @@
                             <div class="col-sm-11">
                             </div>
                             <div class="col-sm-1">
-                                <input type="submit" class="btn btn-success success-btn btn-sm" value="Submit" />
+                                <input type="submit" onclick="return CommonValidation();" class="btn btn-primary" value="Submit" />
                             </div>
                         </div>
 
@@ -254,5 +257,9 @@
         $("#EquipmentDetails").val("");
         $("#EquipmentDetails").val(finalText);
         clickCounter = clickCounter + 1;
+    }
+
+    function ResetEquipment(){
+         $("#EquipmentDetails").val("");
     }
 </script>

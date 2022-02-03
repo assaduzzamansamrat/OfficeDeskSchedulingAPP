@@ -140,6 +140,7 @@ namespace OfficeDeskScheduler.Controllers
             try
             {
                 userDataService.Delete(Id);
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
                 return RedirectToAction("Index", "Admin");
             }
             catch (Exception)
