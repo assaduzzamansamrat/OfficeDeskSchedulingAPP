@@ -20,7 +20,8 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                ViewBag.SussessMessage =  NotificationManager.GetSuccessNotificationMessage(this);
+                ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
+                ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
                 List<User> usersList = userDataService.GetAll();
                 return View(usersList);
             }
@@ -29,7 +30,7 @@ namespace OfficeDeskScheduler.Controllers
 
                 throw ex;
             }
-          
+
         }
         [HttpGet]
         public async Task<IActionResult> Create()
@@ -42,11 +43,23 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                if(user != null)
+
+                if (user != null)
                 {
-                    userDataService.CreateNewUser(user);
+                    bool isUserExist = userDataService.CheckUserExistOrnotByEmailAddress(user.EmailAddress, 0);
+                    if (isUserExist == false)
+                    {
+                        userDataService.CreateNewUser(user);
+                        NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.UserCreateSuccessMessage);
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else
+                    {
+                        NotificationManager.SetErrorNotificationMessage(this, NotificationManager.EmailExistErrorMessage);
+                        return RedirectToAction("Index", "Admin");
+                    }
                 }
-                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.UserCreateSuccessMessage);
+                NotificationManager.SetErrorNotificationMessage(this, NotificationManager.CommonErrorMessage);
                 return RedirectToAction("Index", "Admin");
             }
             catch (Exception ex)
@@ -56,7 +69,11 @@ namespace OfficeDeskScheduler.Controllers
             }
         }
 
-
+        public async Task<IActionResult> CheckEmailExistOrNot(string email, long Id)
+        {
+            bool isUserExist = userDataService.CheckUserExistOrnotByEmailAddress(email, Id);
+            return Json(isUserExist);
+        }
         public async Task<IActionResult> Details(long Id)
         {
             try
@@ -69,7 +86,7 @@ namespace OfficeDeskScheduler.Controllers
 
                 throw ex;
             }
-           
+
         }
 
         [HttpGet]
@@ -77,7 +94,7 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                User user = userDataService.GetUserByID(Id);               
+                User user = userDataService.GetUserByID(Id);
                 return View(user);
             }
             catch (Exception ex)
@@ -92,12 +109,24 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                bool result =  userDataService.UpdateUser(user);
-                if(result == true)
+                if (user != null)
                 {
-                    return RedirectToAction("Index", "Admin");
+                    bool isUserExist = userDataService.CheckUserExistOrnotByEmailAddress(user.EmailAddress, user.Id);
+                    if (isUserExist == false)
+                    {
+                        bool result = userDataService.UpdateUser(user);
+                        NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.UserEditSuccessMessage);
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else
+                    {
+                        NotificationManager.SetErrorNotificationMessage(this, NotificationManager.EmailExistErrorMessage);
+                        return RedirectToAction("Index", "Admin");
+                    }
                 }
+                NotificationManager.SetErrorNotificationMessage(this, NotificationManager.CommonErrorMessage);
                 return RedirectToAction("Index", "Admin");
+
             }
             catch (Exception ex)
             {

@@ -90,15 +90,10 @@ namespace Services.DataService
                         user.FirstName = _user.FirstName;
                         user.LastName = _user.LastName;
                         user.EmailAddress = _user.EmailAddress;
-                        user.ContactNumber = _user.ContactNumber;
-                        user.DateOfBirth = _user.DateOfBirth;
-                        user.AddressOne = _user.AddressOne;
-                        user.AddressTwo = _user.AddressTwo;
+                        user.ContactNumber = _user.ContactNumber;                       
+                        user.AddressOne = _user.AddressOne;                      
                         user.Role = _user.Role;
-                        user.Password = _user.Password;
-                        user.State = _user.State;
-                        user.ZipCode = _user.ZipCode;
-                        user.City = _user.City;
+                        user.Password = Utilities.GetPasswordHash(_user.Password);                        
                         context.SaveChanges();
                         return true;
                     }
@@ -183,6 +178,36 @@ namespace Services.DataService
                 context.SaveChanges();
                 isUserAddTrue = true;
                 return isUserAddTrue;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public bool CheckUserExistOrnotByEmailAddress(string email, long Id)
+        {
+            try
+            {
+                int count = 0;
+                if(Id>0)
+                {
+                    count = context.Users.Where(x => x.EmailAddress.Trim().ToLower() == email.Trim().ToLower() && x.Id != Id).Count();
+                }
+                else
+                {
+                    count = context.Users.Where(x => x.EmailAddress.Trim().ToLower() == email.Trim().ToLower()).Count();
+                }
+               
+                if (count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {

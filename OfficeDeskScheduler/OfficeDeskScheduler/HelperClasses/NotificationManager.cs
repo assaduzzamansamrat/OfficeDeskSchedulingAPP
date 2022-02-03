@@ -6,6 +6,7 @@ namespace OfficeDeskScheduler.HelperClasses
     {
         public  static string TeamCreateSuccessMessage = "Team created successfully.";
         public  static string UserCreateSuccessMessage = "User created successfully.";
+        public static string UserEditSuccessMessage = "User edited successfully.";
         public static string  ContributorInviteSuccessMessage = "Invite sent successfully.";
         public static string DeleteSuccessMessage = "Delete successfull.";
         public static string  ContributorExistErrorMessage = "Already invited to this team.";
@@ -14,6 +15,8 @@ namespace OfficeDeskScheduler.HelperClasses
         public static string AutoDeskBookingSuccessMessage = "Auto desk booked successfully.";
         public static string AutoDeskBookingErrorMessage = "Desk alreay booked.";
         public static string DeleteErrorMessage = "Delete failed.";
+        public static string EmailExistErrorMessage = "Email adready exist. Please try with another email address";
+        public static string CommonErrorMessage = "Something wrong please try again.";
 
 
         public static string  SetSuccessNotificationMessage(Controller controller, string message)

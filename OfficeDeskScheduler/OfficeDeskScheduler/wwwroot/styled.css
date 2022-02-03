@@ -53,6 +53,17 @@ body {
     z-index: 1000 !important;
 }
 
+.alert-danger {
+    color: #fff !important;
+    background-color: #f00303 !important;
+    border-color: #ff0f36 !important;
+}
+.alert-success {
+    color: #fff !important;
+    background-color: #2c760e !important;
+    border-color: #366013 !important;
+}
+
 .logo-name-wrapper {
   position: relative;
   margin-bottom: 2.1rem;

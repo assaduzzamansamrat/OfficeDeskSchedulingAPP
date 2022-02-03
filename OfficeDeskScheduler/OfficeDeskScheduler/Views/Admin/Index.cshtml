@@ -7,17 +7,28 @@
 @{
     Layout = "_AdminLayout";
 }
-@if(@ViewBag.SussessMessage != null && @ViewBag.SussessMessage !="")
+<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+ <p class="">
+   
+</p>
+@if (@ViewBag.SuccessMessage != null && @ViewBag.SuccessMessage != "" && @ViewBag.SuccessMessage != string.Empty)
 {
     <div id="successMessage" class="alert alert-success" role="alert">
-        @ViewBag.SussessMessage 
+        @ViewBag.SuccessMessage
     </div>
 }
 
-
-<p class="" style="margin-left: 60px;">
+@if (@ViewBag.ErrorMessage != null && @ViewBag.ErrorMessage != "" && @ViewBag.ErrorMessage != string.Empty)
+{
+    <div id="errorMessage" class="alert alert-danger"  role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+<p class="">
     <a type="buton" href="Admin/Create" class="btn btn-create">+ Create</a>
 </p>
+</div>
+
 <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
     <div class="u-expanded-width u-table u-table-responsive u-table-1">
         <table class="u-table-entity u-table-entity-1">
@@ -51,7 +62,7 @@
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.ContactNumber</td>
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Role</td>
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">
-                            @Html.ActionLink("Edit", "Edit", new { id=item.Id , @class="btn btn-primary"}) |
+                            @Html.ActionLink("Edit", "Edit", new { id=item.Id}) |
                             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
                             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
                         </td>
@@ -65,9 +76,4 @@
     </div>
 </div>
 
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#successMessage").fadeOut(6000);
-});    
-</script>
 

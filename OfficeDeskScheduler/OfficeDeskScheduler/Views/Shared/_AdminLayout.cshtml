@@ -39,6 +39,11 @@
             color: #fff !important;
         }
 
+       .required-field {
+        border-bottom: 1px solid red !important;
+    }
+
+
     </style>
 
     <meta charset="utf-8">
@@ -113,6 +118,8 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+             $("#successMessage").fadeOut(6000);                             
+                  $("#errorMessage").fadeOut(6000);      
             $('input[type=radio][name=Gender]').change(function () {
                 if (this.value == 'Male') {
                     $('body').removeClass('magenta');
