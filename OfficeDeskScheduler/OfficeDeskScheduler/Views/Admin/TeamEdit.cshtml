@@ -24,7 +24,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Team.TeamName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Team.TeamName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Team.TeamName, new { htmlAttributes = new { @class = "form-control required" } })
                 @Html.ValidationMessageFor(model => model.Team.TeamName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Team.TeamSize, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Team.TeamSize, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Team.TeamSize, new { htmlAttributes = new { @class = "form-control required" } })
                 @Html.ValidationMessageFor(model => model.Team.TeamSize, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -40,14 +40,23 @@
             <div class="col-sm-12">
                 <div class="md-form mt-0">
                     <div class="dropdown" style="margin-left: 20px;">
-
+                          <label for="Equipments" class="visually-hidden">Equipment Name </label>
                         <select name="Equipments" id="Equipments">
                             <option value="Desktop">Desktop</option>
                             <option value="Laptop">Laptop</option>
                             <option value="Printer">Printer</option>
 
                         </select>
-                        <button type="button" calss="btn btn-primary" onclick="AddEquipment();"> Add Equipment</button>
+                       
+                                    <button type="button" calss="btn btn-primary" style="color: #fff; background-color: #337ab7;border-color: #2e6da4;display: inline-block;margin-bottom: 0;font-weight: 400;text-align: center;white-space: nowrap;vertical-align: middle;
+-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;background-image: none;border: 1px solid transparent;
+ padding: 6px 12px;font-size: 14px;line-height: 1.42857143;border-radius: 4px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+" onclick="AddEquipment();"> Add Equipment</button>
+
+ <button type="button" calss="btn btn-primary" style="color: #fff; background-color: #337ab7;border-color: #2e6da4;display: inline-block;margin-bottom: 0;font-weight: 400;text-align: center;white-space: nowrap;vertical-align: middle;
+-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;background-image: none;border: 1px solid transparent;
+ padding: 6px 12px;font-size: 14px;line-height: 1.42857143;border-radius: 4px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+" onclick="ResetEquipment();"> Reset Equipment</button>
                     </div>
                 </div>
             </div>
@@ -55,7 +64,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Team.EquipmentDetails, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Team.EquipmentDetails, new { htmlAttributes = new { @class = "form-control", @readonly="readonly" } })
+                @Html.EditorFor(model => model.Team.EquipmentDetails, new { htmlAttributes = new { @class = "form-control required", @readonly="readonly" } })
                 @Html.ValidationMessageFor(model => model.Team.EquipmentDetails, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -64,11 +73,20 @@
             <div class="col-sm-10" style="margin-left: -19px;">
                 <div class="md-form mt-0">
                     <div class="dropdown" style="margin-left: 20px;">
+                        <label for="ManagerId" class="visually-hidden">Select Manager </label>
                         <select name="Team.ManagerId" id="Team.ManagerId">
 
                             @foreach (var item in Model.User)
                             {
-                                <option value='@item.Id'>@item.LastName</option>
+                                if(Model.Team.ManagerId == @item.Id)
+                                {
+                                    <option  value='@item.Id' selected>@item.LastName</option>
+                                }
+                                else
+                                {
+                                    <option value='@item.Id'>@item.LastName</option>
+                                }
+                              
                             }
 
                         </select>
@@ -82,7 +100,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" onclick="return CommonValidation();"  value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -110,5 +128,10 @@
         $("#Team_EquipmentDetails").val("");
         $("#Team_EquipmentDetails").val(finalText);
         clickCounter = clickCounter + 1;
+    }
+     function ResetEquipment(){
+         $("#Team_EquipmentDetails").val("");
+         finalText ="";
+           clickCounter =0;
     }
 </script>
