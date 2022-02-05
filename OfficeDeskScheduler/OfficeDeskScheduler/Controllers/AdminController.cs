@@ -23,11 +23,18 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
-                ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
-                NotificationManager.ResetNotificationMessage(this);
-                List<User> usersList = userDataService.GetAll();
-                return View(usersList);
+                if (HttpContext.Session.GetInt32(SessionUserId)!= null)
+                {
+                    ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
+                    ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
+                    NotificationManager.ResetNotificationMessage(this);
+                    List<User> usersList = userDataService.GetAll();
+                    return View(usersList);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
             }
             catch (Exception ex)
             {
@@ -39,7 +46,15 @@ namespace OfficeDeskScheduler.Controllers
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            return View();
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+          
         }
 
         [HttpPost]
@@ -82,8 +97,16 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                User user = userDataService.GetUserByID(Id);
-                return View(user);
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    User user = userDataService.GetUserByID(Id);
+                    return View(user);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+               
             }
             catch (Exception ex)
             {
@@ -98,8 +121,16 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                User user = userDataService.GetUserByID(Id);
-                return View(user);
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    User user = userDataService.GetUserByID(Id);
+                    return View(user);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+                
             }
             catch (Exception ex)
             {
@@ -143,9 +174,17 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                userDataService.Delete(Id);
-                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
-                return RedirectToAction("Index", "Admin");
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    userDataService.Delete(Id);
+                    NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
+                    return RedirectToAction("Index", "Admin");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+              
             }
             catch (Exception)
             {
@@ -158,11 +197,21 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
-                ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
-                NotificationManager.ResetNotificationMessage(this);
-                List<Team> teamList = teamDataService.GetAll();
-                return View(teamList);
+
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
+                    ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
+                    NotificationManager.ResetNotificationMessage(this);
+                    List<Team> teamList = teamDataService.GetAll();
+                    return View(teamList);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+
+                
             }
             catch (Exception ex)
             {
@@ -176,9 +225,18 @@ namespace OfficeDeskScheduler.Controllers
 
         public async Task<IActionResult> TeamCreate()
         {
-            List<User> managers = new List<User>();
-            managers = userDataService.GetAllManagers();
-            return View(managers);
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                List<User> managers = new List<User>();
+                managers = userDataService.GetAllManagers();
+                return View(managers);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+
         }
 
         [HttpPost]
@@ -206,13 +264,21 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                List<User> managers = new List<User>();
-                managers = userDataService.GetAllManagers();
-                Team team = teamDataService.GetTeamByID(Id);
-                OperationModel opratonModel = new OperationModel();
-                opratonModel.User = managers;
-                opratonModel.Team = team;
-                return View(opratonModel);
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    List<User> managers = new List<User>();
+                    managers = userDataService.GetAllManagers();
+                    Team team = teamDataService.GetTeamByID(Id);
+                    OperationModel opratonModel = new OperationModel();
+                    opratonModel.User = managers;
+                    opratonModel.Team = team;
+                    return View(opratonModel);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+              
             }
             catch (Exception ex)
             {
@@ -245,8 +311,16 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                Team team = teamDataService.GetTeamByID(Id);
-                return View(team);
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    Team team = teamDataService.GetTeamByID(Id);
+                    return View(team);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+               
             }
             catch (Exception ex)
             {
@@ -260,9 +334,18 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                teamDataService.Delete(Id);
-                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
-                return RedirectToAction("Team", "Admin");
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    teamDataService.Delete(Id);
+                    NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
+                    return RedirectToAction("Team", "Admin");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+
+               
             }
             catch (Exception)
             {
@@ -275,11 +358,20 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
-                ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
-                NotificationManager.ResetNotificationMessage(this);
-                List<Desk> deskList = deskDataService.GetAll();
-                return View(deskList);
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
+                    ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
+                    NotificationManager.ResetNotificationMessage(this);
+                    List<Desk> deskList = deskDataService.GetAll();
+                    return View(deskList);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+
+              
             }
             catch (Exception ex)
             {
@@ -291,7 +383,15 @@ namespace OfficeDeskScheduler.Controllers
 
         public async Task<IActionResult> DeskCreate()
         {
-            return View();
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+           
         }
 
         [HttpPost]
@@ -318,8 +418,16 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                Desk team = deskDataService.GetDeskByID(Id);
-                return View(team);
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    Desk team = deskDataService.GetDeskByID(Id);
+                    return View(team);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+               
             }
             catch (Exception ex)
             {
@@ -352,8 +460,16 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                Desk desk = deskDataService.GetDeskByID(Id);
-                return View(desk);
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    Desk desk = deskDataService.GetDeskByID(Id);
+                    return View(desk);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+              
             }
             catch (Exception ex)
             {
@@ -367,10 +483,17 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-              
-                deskDataService.Delete(Id);
-                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
-                return RedirectToAction("Desk", "Admin");
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    deskDataService.Delete(Id);
+                    NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
+                    return RedirectToAction("Desk", "Admin");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+               
             }
             catch (Exception)
             {
@@ -387,9 +510,9 @@ namespace OfficeDeskScheduler.Controllers
         public async Task<IActionResult> logout()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Index","Login");
+            return RedirectToAction("Index", "Login");
         }
 
-       
+
     }
 }
