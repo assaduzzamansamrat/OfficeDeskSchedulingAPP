@@ -68,5 +68,11 @@ namespace OfficeDeskScheduler.Controllers
             }
           
         }
+
+        public async Task<IActionResult> logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Login");
+        }
     }
 }
