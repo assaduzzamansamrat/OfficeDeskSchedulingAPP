@@ -17,7 +17,9 @@ namespace OfficeDeskScheduler.HelperClasses
         public static string DeleteErrorMessage = "Delete failed.";
         public static string EmailExistErrorMessage = "Email adready exist. Please try with another email address";
         public static string CommonErrorMessage = "Something wrong please try again.";
-
+        public static string TeamEditSuccessMessage = "Team edited successfully.";
+        public static string DeskCreateSuccessMessage = "Desk created successfully.";
+        public static string DeskEditSuccessMessage = "Desk edited successfully.";
 
         public static string  SetSuccessNotificationMessage(Controller controller, string message)
         {
@@ -55,6 +57,13 @@ namespace OfficeDeskScheduler.HelperClasses
                 return mesage;
             }
             return string.Empty;
+        }
+
+        public static bool ResetNotificationMessage(Controller controller)
+        {
+            controller.TempData["successMessage"] = null;
+            controller.TempData["errorMessage"] = null;
+            return true;
         }
     }
 }

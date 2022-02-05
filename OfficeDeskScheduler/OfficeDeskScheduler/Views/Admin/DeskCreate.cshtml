@@ -163,21 +163,33 @@
                                 <input type="text" class="form-control required" name="DeskNumber" id="DeskNumber" placeholder="Desk Number">
                             </div>
                         </div>
-                         <div class="col-sm-12">
+                        <div class="col-sm-12">
                             <div class="md-form mt-0">
                                 <div class="dropdown" style="margin-left: 20px;">
-                                  
+
                                     <select name="Equipments" id="Equipments">
                                         <option value="Desktop">Desktop</option>
                                         <option value="Laptop">Laptop</option>
                                         <option value="Printer">Printer</option>
-                                 
-                                     </select>
-                                     <button type="button" calss="btn btn-primary" onclick="AddEquipment();"> Add Equipment</button>
+
+                                    </select>
+                                    <button type="button" calss="btn btn-primary" style="color: #fff; background-color: #337ab7;border-color: #2e6da4;display: inline-block;margin-bottom: 0;font-weight: 400;text-align: center;white-space: nowrap;vertical-align: middle;
+-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;background-image: none;border: 1px solid transparent;
+ padding: 6px 12px;font-size: 14px;line-height: 1.42857143;border-radius: 4px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+" onclick="AddEquipment();">
+                                        Add Equipment
+                                    </button>
+
+                                    <button type="button" calss="btn btn-primary" style="color: #fff; background-color: #337ab7;border-color: #2e6da4;display: inline-block;margin-bottom: 0;font-weight: 400;text-align: center;white-space: nowrap;vertical-align: middle;
+-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;background-image: none;border: 1px solid transparent;
+ padding: 6px 12px;font-size: 14px;line-height: 1.42857143;border-radius: 4px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+" onclick="ResetEquipment();">
+                                        Reset Equipment
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                         <div class="col-sm-12">
+                        <div class="col-sm-12">
                             <div class="md-form mt-0">
                                 <span class="req-asterisk">*</span>
                                 <textarea type="text" class="form-control required" name="EquipmentDetails" id="EquipmentDetails" readonly="readonly" placeholder="Equipment Details" rows="4" cols="50"></textarea>
@@ -192,13 +204,13 @@
                         <div class="col-sm-12">
                             <div class="md-form mt-0">
                                 <div class="dropdown" style="margin-left: 20px;">
-                                  
+
                                     <select name="DeskType" id="DeskType">
                                         <option value="Meeting Room Desk">Meeting Room Desk</option>
                                         <option value="Normal Desk">Normal Desk</option>
                                         <option value="Other Desk">Other Desk</option>
-                                 
-                                     </select>
+
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -208,18 +220,18 @@
                                 <input type="text" class="form-control required" name="NumberOfSeats" id="NumberOfSeats" placeholder="Number Of Seats">
                             </div>
                         </div>
-                         <div class="form-row">
-                        <div class="col-sm-10">
+                        <div class="form-row">
+                            <div class="col-sm-10">
+                            </div>
+                            <div class="col-sm-11">
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="submit" class="btn btn-primary"  onclick="return CommonValidation();" value="Submit" />
+                            </div>
                         </div>
-                        <div class="col-sm-11">
-                        </div>
-                        <div class="col-sm-1">
-                            <input type="submit" class="btn btn-success success-btn btn-sm"  value="Submit" />
-                        </div>
-                    </div>
 
                     </div>
-                   
+
                 </div>
 
             </form>
@@ -236,9 +248,9 @@
     var finalText="";
     function AddEquipment()
     {
-       
+
         var equipmentValues = $( "#Equipments option:selected" ).text();
-        
+
         if(clickCounter==0){
             finalText = finalText+equipmentValues;
         }
@@ -248,5 +260,10 @@
         $("#EquipmentDetails").val("");
         $("#EquipmentDetails").val(finalText);
         clickCounter = clickCounter + 1;
+    }
+      function ResetEquipment(){
+         $("#EquipmentDetails").val("");
+           finalText ="";
+           clickCounter =0;
     }
 </script>

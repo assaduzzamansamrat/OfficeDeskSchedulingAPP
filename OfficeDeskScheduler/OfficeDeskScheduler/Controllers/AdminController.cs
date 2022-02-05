@@ -10,6 +10,9 @@ namespace OfficeDeskScheduler.Controllers
         private readonly UserDataService userDataService;
         private readonly TeamDataService teamDataService;
         private readonly DeskDataService deskDataService;
+        const string SessionEmail = "_Email";
+        const string SessionUserId = "_UserId";
+        const string SessionUserRole = "_UserRole";
         public AdminController(UserDataService _userDataService, TeamDataService _teamDataService, DeskDataService _deskDataService)
         {
             userDataService = _userDataService;
@@ -22,6 +25,7 @@ namespace OfficeDeskScheduler.Controllers
             {
                 ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
                 ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
+                NotificationManager.ResetNotificationMessage(this);
                 List<User> usersList = userDataService.GetAll();
                 return View(usersList);
             }
@@ -154,6 +158,9 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
+                ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
+                ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
+                NotificationManager.ResetNotificationMessage(this);
                 List<Team> teamList = teamDataService.GetAll();
                 return View(teamList);
             }
@@ -183,6 +190,8 @@ namespace OfficeDeskScheduler.Controllers
                 {
                     teamDataService.CreateNewTeam(team);
                 }
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.TeamCreateSuccessMessage);
+
                 return RedirectToAction("Team", "Admin");
             }
             catch (Exception ex)
@@ -220,6 +229,7 @@ namespace OfficeDeskScheduler.Controllers
                 bool result = teamDataService.UpdateTeam(team);
                 if (result == true)
                 {
+                    NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.TeamEditSuccessMessage);
                     return RedirectToAction("Team", "Admin");
                 }
                 return RedirectToAction("Team", "Admin");
@@ -251,6 +261,7 @@ namespace OfficeDeskScheduler.Controllers
             try
             {
                 teamDataService.Delete(Id);
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
                 return RedirectToAction("Team", "Admin");
             }
             catch (Exception)
@@ -264,6 +275,9 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
+                ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
+                ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
+                NotificationManager.ResetNotificationMessage(this);
                 List<Desk> deskList = deskDataService.GetAll();
                 return View(deskList);
             }
@@ -289,6 +303,7 @@ namespace OfficeDeskScheduler.Controllers
                 {
                     deskDataService.CreateNewDesk(desk);
                 }
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeskCreateSuccessMessage);
                 return RedirectToAction("Desk", "Admin");
             }
             catch (Exception ex)
@@ -321,6 +336,7 @@ namespace OfficeDeskScheduler.Controllers
                 bool result = deskDataService.UpdateDesk(desk);
                 if (result == true)
                 {
+                    NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeskEditSuccessMessage);
                     return RedirectToAction("Desk", "Admin");
                 }
                 return RedirectToAction("Desk", "Admin");
@@ -351,7 +367,9 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
+              
                 deskDataService.Delete(Id);
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
                 return RedirectToAction("Desk", "Admin");
             }
             catch (Exception)
@@ -366,5 +384,12 @@ namespace OfficeDeskScheduler.Controllers
             return View();
         }
 
+        public async Task<IActionResult> logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index","Login");
+        }
+
+       
     }
 }

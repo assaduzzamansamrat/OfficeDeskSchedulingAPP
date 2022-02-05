@@ -24,7 +24,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DeskNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DeskNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DeskNumber, new { htmlAttributes = new { @class = "form-control required" } })
                 @Html.ValidationMessageFor(model => model.DeskNumber, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -39,7 +39,19 @@
                             <option value="Printer">Printer</option>
 
                         </select>
-                        <button type="button" calss="btn btn-primary" onclick="AddEquipment();"> Add Equipment</button>
+                        <button type="button" calss="btn btn-primary" style="color: #fff; background-color: #337ab7;border-color: #2e6da4;display: inline-block;margin-bottom: 0;font-weight: 400;text-align: center;white-space: nowrap;vertical-align: middle;
+-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;background-image: none;border: 1px solid transparent;
+ padding: 6px 12px;font-size: 14px;line-height: 1.42857143;border-radius: 4px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+" onclick="AddEquipment();">
+                                        Add Equipment
+                                    </button>
+
+                                    <button type="button" calss="btn btn-primary" style="color: #fff; background-color: #337ab7;border-color: #2e6da4;display: inline-block;margin-bottom: 0;font-weight: 400;text-align: center;white-space: nowrap;vertical-align: middle;
+-ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;background-image: none;border: 1px solid transparent;
+ padding: 6px 12px;font-size: 14px;line-height: 1.42857143;border-radius: 4px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+" onclick="ResetEquipment();">
+                                        Reset Equipment
+                                    </button>
                     </div>
                 </div>
             </div>
@@ -47,7 +59,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.EquipmentDetails, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EquipmentDetails, new { htmlAttributes = new { @class = "form-control" , @readonly="readonly" } })
+                @Html.EditorFor(model => model.EquipmentDetails, new { htmlAttributes = new { @class = "form-control required" , @readonly="readonly" } })
                 @Html.ValidationMessageFor(model => model.EquipmentDetails, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -55,7 +67,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NumberOfSeats, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NumberOfSeats, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.NumberOfSeats, new { htmlAttributes = new { @class = "form-control required" } })
                 @Html.ValidationMessageFor(model => model.NumberOfSeats, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -65,7 +77,7 @@
             <div class="col-sm-10" style="margin-left: -19px;">
                 <div class="md-form mt-0">
                     <div class="dropdown" style="margin-left: 20px;">
-                        <select name="DeskType" id="DeskType">
+                        <select name="DeskType" id="DeskType">                          
                             <option value="Meeting Room Desk">Meeting Room Desk</option>
                             <option value="Normal Desk">Normal Desk</option>
                             <option value="Other Desk">Other Desk</option>
@@ -81,7 +93,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save"  onclick="return CommonValidation();" class="btn btn-primary" />
             </div>
         </div>
     </div>
@@ -109,5 +121,11 @@
         $("#EquipmentDetails").val("");
         $("#EquipmentDetails").val(finalText);
         clickCounter = clickCounter + 1;
+    }
+
+     function ResetEquipment(){
+         $("#EquipmentDetails").val("");
+           finalText ="";
+           clickCounter =0;
     }
 </script>
