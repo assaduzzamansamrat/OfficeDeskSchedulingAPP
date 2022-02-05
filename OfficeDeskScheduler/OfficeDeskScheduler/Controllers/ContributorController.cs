@@ -89,5 +89,13 @@ namespace OfficeDeskScheduler.Controllers
             }
             
         }
+
+        public async Task<ActionResult> ChooseThisDesk(long Id)
+        {
+
+            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
+            bool result = deskBookingDataService.ChooseThisDesk(Id, userId);
+            return RedirectToAction("Index", "Contributor");
+        }
     }
 }

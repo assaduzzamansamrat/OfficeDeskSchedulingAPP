@@ -218,6 +218,25 @@ namespace Services.DataService
 
         }
 
+        public bool ChooseThisDesk(long Id,long userId)
+        {
+            try
+            {
+                DeskBooking deskBooking = context.DeskBookings.FirstOrDefault(d => d.Id == Id);
+                if(deskBooking != null)
+                {
+                    deskBooking.AssignedContributor = userId;
+                    context.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public bool UpdateDesk(DeskBooking _desk)
         {
             try
