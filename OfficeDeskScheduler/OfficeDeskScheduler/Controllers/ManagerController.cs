@@ -221,6 +221,10 @@ namespace OfficeDeskScheduler.Controllers
             }
             return Json(bookedDeskList);
         }
-
+        public async Task<IActionResult> logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Login");
+        }
     }
 }

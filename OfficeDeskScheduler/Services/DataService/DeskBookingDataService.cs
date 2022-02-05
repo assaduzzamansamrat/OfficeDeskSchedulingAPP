@@ -56,8 +56,22 @@ namespace Services.DataService
         {
             try
             {
-                context.TeamAndContributorMappers.Add(teamAndContributorMapper);
-                context.SaveChanges();
+                TeamAndContributorMapper TACM = context.TeamAndContributorMappers.Where(x=> x.Id == teamAndContributorMapper.Id).FirstOrDefault();
+
+                if(TACM != null)
+                {
+                    TACM.ContributorId = teamAndContributorMapper.ContributorId;
+                    TACM.ContributorName = teamAndContributorMapper.ContributorName;
+                    TACM.ManagerId = teamAndContributorMapper.ManagerId;
+                    TACM.ManagerName = teamAndContributorMapper.ManagerName;
+                    TACM.IsInvaitationAccept = teamAndContributorMapper.IsInvaitationAccept;
+                    TACM.ChoosedDeskId = teamAndContributorMapper.ChoosedDeskId;
+                    TACM.TeamId = teamAndContributorMapper.TeamId;
+                    context.SaveChanges();
+
+                }
+
+              
                 return true;
             }
             catch (Exception ex)
@@ -171,9 +185,7 @@ namespace Services.DataService
                     DeskBooking deskBooking = context.DeskBookings.FirstOrDefault(d => d.Id == _desk.Id);
                     if (deskBooking != null)
                     {
-                        deskBooking.DeskId = _desk.DeskId;
-                        deskBooking.Location = _desk.Location;
-                        deskBooking.Map = _desk.Map;
+                                          
                         deskBooking.StartDateTime = _desk.StartDateTime;
                         deskBooking.EndDateTime = _desk.EndDateTime; 
                         deskBooking.AssignedContributor = _desk.AssignedContributor;
