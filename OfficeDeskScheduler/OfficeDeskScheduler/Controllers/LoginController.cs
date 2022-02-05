@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OfficeDeskScheduler.HelperClasses;
 using Services.DataService;
 using Services.EntityModels;
 
@@ -19,10 +20,16 @@ namespace OfficeDeskScheduler.Controllers
         // GET: Login
         public async Task<IActionResult> Index()
         {
-           
+            bool isMSPOk = MSPSettings.GetMSPSettings();
+            if(isMSPOk == true)
+            {
                 return View();
-           
+            }
 
+            else
+            {
+                return View("Views/Shared/Error.cshtml");
+            }
         }
 
         [HttpPost]

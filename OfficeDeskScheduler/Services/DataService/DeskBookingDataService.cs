@@ -156,6 +156,30 @@ namespace Services.DataService
             return false;
         }
 
+        public List<DeskBooking> GetAvailabeDesksForChoosing(long Id)
+        {
+            try
+            {
+                List<DeskBooking> deskBooking = new List<DeskBooking>();
+                List<TeamAndContributorMapper> contributorList = new List<TeamAndContributorMapper>();
+                contributorList = context.TeamAndContributorMappers.Where(x => x.ContributorId == Id).ToList();
+                if(contributorList != null)
+                {
+                    foreach(var item in contributorList)
+                    {
+                        deskBooking = context.DeskBookings.Where(x => x.TeamId ==item.TeamId).ToList();
+                    }                  
+                    
+                }
+                return deskBooking;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
 
         public bool CreateNewDeskBooking(DeskBooking deskBooking)
         {

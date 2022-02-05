@@ -74,5 +74,20 @@ namespace OfficeDeskScheduler.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index", "Login");
         }
+
+        public async Task<ActionResult> ChooseDesk()
+        {
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
+                List<DeskBooking> deskBookingList = deskBookingDataService.GetAvailabeDesksForChoosing(userId);
+                return View(deskBookingList);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            
+        }
     }
 }
