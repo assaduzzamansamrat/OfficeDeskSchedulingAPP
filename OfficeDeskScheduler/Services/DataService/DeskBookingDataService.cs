@@ -143,6 +143,19 @@ namespace Services.DataService
             }
         }
 
+        public bool AcceptOrRejectInvitaions(bool isAccept,long Id)
+        {
+            TeamAndContributorMapper teamAndContributorMapper = new TeamAndContributorMapper();
+            teamAndContributorMapper = context.TeamAndContributorMappers.Where(x => x.Id == Id).FirstOrDefault();
+            if(teamAndContributorMapper != null)
+            {
+                teamAndContributorMapper.IsInvaitationAccept = isAccept;
+                context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
 
         public bool CreateNewDeskBooking(DeskBooking deskBooking)
         {

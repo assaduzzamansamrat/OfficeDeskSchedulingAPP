@@ -20,6 +20,8 @@ namespace OfficeDeskScheduler.HelperClasses
         public static string TeamEditSuccessMessage = "Team edited successfully.";
         public static string DeskCreateSuccessMessage = "Desk created successfully.";
         public static string DeskEditSuccessMessage = "Desk edited successfully.";
+        public static string AcceptSuccessMessage = "Invitation Accept successfull.";
+        public static string RejectSuccessMessage = "Invitation Reject successfull.";
 
         public static string  SetSuccessNotificationMessage(Controller controller, string message)
         {

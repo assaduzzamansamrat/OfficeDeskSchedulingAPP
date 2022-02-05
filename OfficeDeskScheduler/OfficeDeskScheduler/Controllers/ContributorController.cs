@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OfficeDeskScheduler.HelperClasses;
 using Services.DataService;
 using Services.EntityModels;
 
@@ -20,11 +21,52 @@ namespace OfficeDeskScheduler.Controllers
             deskDataService = _deskDataService;
             deskBookingDataService = _deskBookingDataService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
-            List<TeamAndContributorMapper> invitationsList =  deskBookingDataService.GetAllInvitationsOfContributorBycontributorId(userId);
-            return View(invitationsList);
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
+                ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
+                NotificationManager.ResetNotificationMessage(this);
+                long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
+                List<TeamAndContributorMapper> invitationsList = deskBookingDataService.GetAllInvitationsOfContributorBycontributorId(userId);
+                return View(invitationsList);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+           
+        }
+
+        public async Task<IActionResult> AcceptInvitation(long Id)
+        {
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                deskBookingDataService.AcceptOrRejectInvitaions(true, Id);
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.AcceptSuccessMessage);
+                return RedirectToAction("Index", "Contributor");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+           
+        }
+        public async Task<IActionResult> RejectInvitation(long Id)
+        {
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                deskBookingDataService.AcceptOrRejectInvitaions(false, Id);
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.RejectSuccessMessage);
+                return RedirectToAction("Index", "Contributor");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+          
         }
     }
 }
