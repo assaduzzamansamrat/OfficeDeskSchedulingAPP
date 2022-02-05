@@ -101,8 +101,9 @@ namespace OfficeDeskScheduler.Controllers
                 teamAndContributorMapper.IsInvaitationAccept = false;
                 teamAndContributorMapper.ChoosedDeskId = 0;
                 teamAndContributorMapper.TeamId = teamAndContributorMapper.TeamId;
-                deskBookingDataService.InviteContributors(teamAndContributorMapper);
                 teamAndContributorMapper.TeamName = team.TeamName;
+                deskBookingDataService.InviteContributors(teamAndContributorMapper);
+                
                 NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.ContributorInviteSuccessMessage);
                 return RedirectToAction("Booking", "Manager");
             }

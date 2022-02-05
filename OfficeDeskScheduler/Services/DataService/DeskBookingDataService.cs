@@ -68,11 +68,17 @@ namespace Services.DataService
                     TACM.ChoosedDeskId = teamAndContributorMapper.ChoosedDeskId;
                     TACM.TeamId = teamAndContributorMapper.TeamId;
                     context.SaveChanges();
+                    return true;
 
                 }
 
-              
-                return true;
+                else
+                {
+                    context.Add(teamAndContributorMapper);
+                    context.SaveChanges();
+                    return false;
+                }
+               
             }
             catch (Exception ex)
             {
@@ -167,7 +173,7 @@ namespace Services.DataService
                 {
                     foreach(var item in contributorList)
                     {
-                        deskBooking = context.DeskBookings.Where(x => x.TeamId ==item.TeamId).ToList();
+                        deskBooking = context.DeskBookings.Where(x => x.TeamId ==item.TeamId && x.AssignedContributor == 0).ToList();
                     }                  
                     
                 }

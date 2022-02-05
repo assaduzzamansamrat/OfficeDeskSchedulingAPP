@@ -38,7 +38,7 @@ namespace Services.DataService
             try
             {
 
-                return context.Teams.Where(x=>x.ManagerId == MaagerId).ToList();
+                return context.Teams.Where(x => x.ManagerId == MaagerId).ToList();
 
             }
             catch (Exception ex)
@@ -50,7 +50,7 @@ namespace Services.DataService
         }
         public bool CreateNewTeam(Team team)
         {
-         
+
             try
             {
                 team.CreatedDate = DateTime.Now;
@@ -86,9 +86,19 @@ namespace Services.DataService
                 // Taking All desks From the table 
                 List<Desk> deskList = new List<Desk>();
                 List<Desk> deskListToRemove = new List<Desk>();
+                List<DeskBooking> deskBookingList = new List<DeskBooking>();
                 string deskType = "Normal Desk";
-                Team team = context.Teams.Where(x=> x.Id == teamId).FirstOrDefault();
-                deskList = context.Desks.Where(x=> x.DeskType == deskType).ToList();
+                Team team = context.Teams.Where(x => x.Id == teamId).FirstOrDefault();
+                deskList = context.Desks.Where(x => x.DeskType == deskType).ToList();
+                deskBookingList = context.DeskBookings.Where(x => x.EndDateTime > DateTime.Now).ToList();
+                if (deskBookingList != null)
+                {
+                    foreach (var item in deskBookingList)
+                    {
+                        Desk deskToRemove = context.Desks.Where(x => x.Id == item.DeskId).FirstOrDefault();
+                        deskList.Remove(deskToRemove);
+                    }
+                }
                 if (team != null)
                 {
                     // making an array from comma seperated string 
@@ -98,21 +108,21 @@ namespace Services.DataService
                         foreach (var item in array)
                         {
                             // Takaing data that does not contain those equipments                       
-                            deskListToRemove = context.Desks.Where(x =>! x.EquipmentDetails.Contains(item) && x.DeskType.Trim().ToLower() == deskType.Trim().ToLower()).ToList();
-                            if(deskListToRemove != null)
+                            deskListToRemove = context.Desks.Where(x => !x.EquipmentDetails.Contains(item) && x.DeskType.Trim().ToLower() == deskType.Trim().ToLower()).ToList();
+                            if (deskListToRemove != null)
                             {
-                                foreach(var items in deskListToRemove)
+                                foreach (var items in deskListToRemove)
                                 {
                                     // removeing those data from out main list
-                                   deskList.Remove(items);
+                                    deskList.Remove(items);
                                 }
-                                
+
                             }
-                          
+
                         }
-                      
+
                     }
-                    if(deskList.Count() >= team.TeamSize)
+                    if (deskList.Count() >= team.TeamSize)
                     {
                         return deskList.Take(team.TeamSize).ToList();
                     }
@@ -143,7 +153,7 @@ namespace Services.DataService
                         team.EditedDate = DateTime.Now;
                         team.TeamName = _team.TeamName;
                         team.ManagerId = _team.ManagerId;
-                      
+
                         context.SaveChanges();
                         return true;
                     }
@@ -179,7 +189,7 @@ namespace Services.DataService
         {
             try
             {
-               return  context.TeamAndContributorMappers.Where(x => x.ManagerId == managerId).ToList();
+                return context.TeamAndContributorMappers.Where(x => x.ManagerId == managerId).ToList();
             }
             catch (Exception ex)
             {
