@@ -92,10 +92,13 @@ namespace OfficeDeskScheduler.Controllers
 
         public async Task<ActionResult> ChooseThisDesk(long Id)
         {
-
+            ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
+            ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
+            NotificationManager.ResetNotificationMessage(this);
+            NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeskChooseSuccessMessage);
             long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
             bool result = deskBookingDataService.ChooseThisDesk(Id, userId);
-            return RedirectToAction("Index", "Contributor");
+            return RedirectToAction("ChooseDesk", "Contributor");
         }
     }
 }

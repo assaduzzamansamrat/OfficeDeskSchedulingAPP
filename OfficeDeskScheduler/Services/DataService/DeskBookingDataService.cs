@@ -177,6 +177,15 @@ namespace Services.DataService
                     }                  
                     
                 }
+
+                foreach(var item in deskBooking)
+                {
+                    Desk desk = context.Desks.Where(x=>x.Id == item.DeskId).FirstOrDefault();
+                    if(desk != null)
+                    {
+                        item.Map = desk.DeskNumber;
+                    }
+                }
                 return deskBooking;
             }
             catch (Exception ex)

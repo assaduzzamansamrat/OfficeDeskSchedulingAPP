@@ -24,17 +24,33 @@ namespace OfficeDeskScheduler.Controllers
         }
         public IActionResult Index()
         {
-            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
-            List<Team> teamList = teamDataService.GetAllByManagerId(userId);
-            return View(teamList);
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
+                List<Team> teamList = teamDataService.GetAllByManagerId(userId);
+                return View(teamList);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+           
         }
 
         public async Task<IActionResult> TeamDetails(long Id)
         {
             try
             {
-                Team team = teamDataService.GetTeamByID(Id);
-                return View(team);
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
+                {
+                    Team team = teamDataService.GetTeamByID(Id);
+                    return View(team);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+              
             }
             catch (Exception ex)
             {
@@ -73,13 +89,21 @@ namespace OfficeDeskScheduler.Controllers
         [HttpGet]
         public async Task<IActionResult> InviteContributors(long Id)
         {
-            OperationModel operationModel = new OperationModel();
-            Team team = teamDataService.GetTeamByID(Id);
-            ViewBag.TeamId = Id;
-            ViewBag.TeamName = team.TeamName;
-            List<User> users = userDataService.GetAllContributors();
-            operationModel.User = users;
-            return View(operationModel);
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                OperationModel operationModel = new OperationModel();
+                Team team = teamDataService.GetTeamByID(Id);
+                ViewBag.TeamId = Id;
+                ViewBag.TeamName = team.TeamName;
+                List<User> users = userDataService.GetAllContributors();
+                operationModel.User = users;
+                return View(operationModel);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            
 
         }
         [HttpPost]
@@ -140,32 +164,73 @@ namespace OfficeDeskScheduler.Controllers
 
         public async Task<IActionResult> AllInvitedContributorList()
         {
-            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
-            List<TeamAndContributorMapper> teamAndContributorMappers = new List<TeamAndContributorMapper>();
-            teamAndContributorMappers = teamDataService.GetAllInvitedContributorList(userId);
-            return View(teamAndContributorMappers);
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
+                List<TeamAndContributorMapper> teamAndContributorMappers = new List<TeamAndContributorMapper>();
+                teamAndContributorMappers = teamDataService.GetAllInvitedContributorList(userId);
+                return View(teamAndContributorMappers);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+          
         }
         public async Task<IActionResult> Map()
         {
-            return View();
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+          
         }
 
         public async Task<IActionResult> BookFromMap()
         {
-            return View();
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+           
         }
         public async Task<IActionResult> Booking()
         {
-            ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
-            ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
-            long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
-            List<DeskBooking> booking = deskBookingDataService.GetAll(userId);
-            return View(booking);
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
+                ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
+                long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
+                List<DeskBooking> booking = deskBookingDataService.GetAll(userId);
+                return View(booking);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+           
         }
         [HttpGet]
         public async Task<IActionResult> BookingCreate()
         {
-            return View();
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+           
         }
 
         [HttpPost]
@@ -180,12 +245,20 @@ namespace OfficeDeskScheduler.Controllers
         [HttpGet]
         public async Task<IActionResult> BookingEdit(long Id)
         {
-            OperationModel operationModel = new OperationModel();
-            DeskBooking deskBooking = deskBookingDataService.GetDeskByID(Id);
-            List<User> users = userDataService.GetAllContributors();
-            operationModel.User = users;
-            operationModel.DeskBooking = deskBooking;
-            return View(operationModel);
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                OperationModel operationModel = new OperationModel();
+                DeskBooking deskBooking = deskBookingDataService.GetDeskByID(Id);
+                List<User> users = userDataService.GetAllContributors();
+                operationModel.User = users;
+                operationModel.DeskBooking = deskBooking;
+                return View(operationModel);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+           
         }
 
         [HttpPost]
@@ -199,28 +272,44 @@ namespace OfficeDeskScheduler.Controllers
 
         public async Task<IActionResult> GetBookingForm(string DeskNumber)
         {
-            Desk desk = deskDataService.GetDeskByDeskNumber(DeskNumber);
-            ViewBag.DeskNumber = DeskNumber;
-            ViewBag.DeskId = desk.Id;
-            ViewBag.EquipmentDetails = desk.EquipmentDetails;
-            return PartialView("~/Views/Manager/BookingCreate.cshtml");
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                Desk desk = deskDataService.GetDeskByDeskNumber(DeskNumber);
+                ViewBag.DeskNumber = DeskNumber;
+                ViewBag.DeskId = desk.Id;
+                ViewBag.EquipmentDetails = desk.EquipmentDetails;
+                return PartialView("~/Views/Manager/BookingCreate.cshtml");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+           
         }
 
         public async Task<IActionResult> GetAllBookedDeskList()
         {
-            List<DeskBooking> deskBooking = deskDataService.GetallBookedDesk();
-            List<Desk> bookedDeskList = new List<Desk>();
-
-            foreach (var item in deskBooking)
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
             {
-                Desk desk = deskDataService.GetDeskByID(item.DeskId);
-                if (desk != null)
-                {
-                    bookedDeskList.Add(desk);
-                }
+                List<DeskBooking> deskBooking = deskDataService.GetallBookedDesk();
+                List<Desk> bookedDeskList = new List<Desk>();
 
+                foreach (var item in deskBooking)
+                {
+                    Desk desk = deskDataService.GetDeskByID(item.DeskId);
+                    if (desk != null)
+                    {
+                        bookedDeskList.Add(desk);
+                    }
+
+                }
+                return Json(bookedDeskList);
             }
-            return Json(bookedDeskList);
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+           
         }
 
 
