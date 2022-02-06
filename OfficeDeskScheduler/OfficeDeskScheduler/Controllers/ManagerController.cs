@@ -78,8 +78,10 @@ namespace OfficeDeskScheduler.Controllers
                     deskBooking.EndDateTime = DateTime.Now.AddDays(1);
                     deskBooking.BookedBy = (long)HttpContext.Session.GetInt32(SessionUserId);
                     deskBookingDataService.CreateNewDeskBooking(deskBooking);
+                   
                 }
                 NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.AutoDeskBookingSuccessMessage);
+                return RedirectToAction("Booking", "Manager");
             }
             NotificationManager.SetErrorNotificationMessage(this, NotificationManager.AutoDeskBookingErrorMessage);
 
@@ -208,6 +210,7 @@ namespace OfficeDeskScheduler.Controllers
             {
                 ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
                 ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
+                NotificationManager.ResetNotificationMessage(this);
                 long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
                 List<DeskBooking> booking = deskBookingDataService.GetAll(userId);
                 return View(booking);

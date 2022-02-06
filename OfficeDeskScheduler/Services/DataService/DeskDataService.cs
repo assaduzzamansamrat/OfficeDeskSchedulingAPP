@@ -79,7 +79,7 @@ namespace Services.DataService
         {
             try
             {
-                return context.DeskBookings.ToList();
+                return context.DeskBookings.Where(x=> x.StartDateTime<= DateTime.Now && x.EndDateTime >= DateTime.Now).ToList();
             }
             catch (Exception)
             {
