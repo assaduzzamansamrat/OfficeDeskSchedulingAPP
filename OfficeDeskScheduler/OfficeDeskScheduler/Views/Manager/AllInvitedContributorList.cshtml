@@ -7,7 +7,23 @@
 
 
 @model IEnumerable<Services.EntityModels.TeamAndContributorMapper>
+<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <p></p>
 
+@if (@ViewBag.SuccessMessage != null && @ViewBag.SuccessMessage != "" && @ViewBag.SuccessMessage != string.Empty)
+{
+    <div id="successMessage" class="alert alert-success" role="alert">
+        @ViewBag.SuccessMessage
+    </div>
+}
+
+@if (@ViewBag.ErrorMessage != null && @ViewBag.ErrorMessage != "" && @ViewBag.ErrorMessage != string.Empty)
+{
+    <div id="errorMessage" class="alert alert-danger"  role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+</div>
 <p class="">
     @*<a type="buton" href="/Manager/BookingCreate" class="btn btn-create">+ Create</a>*@
 </p>

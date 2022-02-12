@@ -209,6 +209,9 @@ namespace OfficeDeskScheduler.Controllers
         {
             if (HttpContext.Session.GetInt32(SessionUserId) != null)
             {
+                ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
+                ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
+                NotificationManager.ResetNotificationMessage(this);
                 long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
                 List<TeamAndContributorMapper> teamAndContributorMappers = new List<TeamAndContributorMapper>();
                 teamAndContributorMappers = teamDataService.GetAllInvitedContributorList(userId);
@@ -219,6 +222,21 @@ namespace OfficeDeskScheduler.Controllers
                 return RedirectToAction("Index", "Login");
             }
           
+        }
+
+        public async Task<ActionResult> InvitationDelete(long Id)
+        {
+            try
+            {
+                teamDataService.DeletecontributorsById(Id);
+                NotificationManager.SetSuccessNotificationMessage(this, NotificationManager.DeleteSuccessMessage);
+                return RedirectToAction("AllInvitedContributorList", "Manager");
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         public async Task<IActionResult> Map()
         {

@@ -198,5 +198,22 @@ namespace Services.DataService
             }
         }
 
+        public bool DeletecontributorsById(long Id)
+        {
+            if (Id > 0)
+            {
+                TeamAndContributorMapper _teamAndContributorMapper;
+                _teamAndContributorMapper = context.TeamAndContributorMappers.Where(x => x.Id == Id).FirstOrDefault();
+                if(_teamAndContributorMapper != null)
+                {
+                    context.TeamAndContributorMappers.Remove(_teamAndContributorMapper);
+                    context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+
     }
 }
