@@ -432,8 +432,21 @@
 
              $(".showforerror").css("display","block");
              $(".showforbooking").css("display","none");
-             $("#modalBody").html("");
-             $("#modalBody").html("<p>This desk is booked now.</p>");
+             //$("#modalBody").html("");
+             //$("#modalBody").html("<p>This desk is booked now.</p>");
+
+              $.ajax({
+                type: "GET",
+                data:{DeskNumber:deskNumber},
+                url: "/Manager/ShowEquipmentDetails/",
+
+                success: function (viewHTML) {
+                   
+                    $("#modalBody").html("");
+                    $("#modalBody").html(viewHTML);
+                },
+                error: function (errorData) { onError(errorData); }
+            });
              return false;
         }
         else{

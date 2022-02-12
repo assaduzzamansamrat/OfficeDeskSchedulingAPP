@@ -378,6 +378,23 @@ namespace OfficeDeskScheduler.Controllers
            
         }
 
+        public async Task<IActionResult> ShowEquipmentDetails(string DeskNumber)
+        {
+            if (HttpContext.Session.GetInt32(SessionUserId) != null)
+            {
+                Desk desk = deskDataService.GetDeskByDeskNumber(DeskNumber);
+                ViewBag.DeskNumber = DeskNumber;
+                ViewBag.DeskId = desk.Id;
+                ViewBag.EquipmentDetails = desk.EquipmentDetails;
+                return PartialView("~/Views/Manager/BookedDeskDetails.cshtml");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+        }
+
         public async Task<IActionResult> GetAllBookedDeskList()
         {
             if (HttpContext.Session.GetInt32(SessionUserId) != null)
