@@ -23,7 +23,7 @@ namespace OfficeDeskScheduler.Controllers
         {
             try
             {
-                if (HttpContext.Session.GetInt32(SessionUserId)!= null)
+                if (HttpContext.Session.GetInt32(SessionUserId) != null)
                 {
                     ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
                     ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
@@ -54,7 +54,7 @@ namespace OfficeDeskScheduler.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-          
+
         }
 
         [HttpPost]
@@ -106,7 +106,7 @@ namespace OfficeDeskScheduler.Controllers
                 {
                     return RedirectToAction("Index", "Login");
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -130,7 +130,7 @@ namespace OfficeDeskScheduler.Controllers
                 {
                     return RedirectToAction("Index", "Login");
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -184,7 +184,7 @@ namespace OfficeDeskScheduler.Controllers
                 {
                     return RedirectToAction("Index", "Login");
                 }
-              
+
             }
             catch (Exception)
             {
@@ -200,18 +200,39 @@ namespace OfficeDeskScheduler.Controllers
 
                 if (HttpContext.Session.GetInt32(SessionUserId) != null)
                 {
+                    List<TeamDetails> UpdatetdTeamList = new List<TeamDetails>();
                     ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
                     ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
                     NotificationManager.ResetNotificationMessage(this);
                     List<Team> teamList = teamDataService.GetAll();
-                    return View(teamList);
+                    foreach (var item in teamList)
+                    {
+                        User user = new User();
+                        TeamDetails teamDetails = new TeamDetails();
+                        user = userDataService.GetUserByID(item.ManagerId);
+                        if (user != null)
+                        {
+                            teamDetails.Id = item.Id;
+                            teamDetails.ManagerId = item.ManagerId;
+                            teamDetails.ManagerName = user.FirstName + " " + user.LastName;
+                            teamDetails.CreatedBy = item.CreatedBy;
+                            teamDetails.CreatedDate = item.CreatedDate;
+                            teamDetails.EditedBy = item.EditedBy;
+                            teamDetails.EditedDate = item.EditedDate;
+                            teamDetails.EquipmentDetails = item.EquipmentDetails;
+                            teamDetails.TeamName = item.TeamName;
+                            teamDetails.TeamSize = item.TeamSize;
+                            UpdatetdTeamList.Add(teamDetails);
+                        }
+                    }
+                    return View(UpdatetdTeamList);
                 }
                 else
                 {
                     return RedirectToAction("Index", "Login");
                 }
 
-                
+
             }
             catch (Exception ex)
             {
@@ -278,7 +299,7 @@ namespace OfficeDeskScheduler.Controllers
                 {
                     return RedirectToAction("Index", "Login");
                 }
-              
+
             }
             catch (Exception ex)
             {
@@ -313,14 +334,36 @@ namespace OfficeDeskScheduler.Controllers
             {
                 if (HttpContext.Session.GetInt32(SessionUserId) != null)
                 {
+                    TeamDetails UpdatetdTeamDetails = new TeamDetails();
+
                     Team team = teamDataService.GetTeamByID(Id);
-                    return View(team);
+                   
+                    if (team != null)
+                    {
+                        User user = new User();                       
+                        user = userDataService.GetUserByID(team.ManagerId);
+                        if(user != null)
+                        {
+                            UpdatetdTeamDetails.Id = team.Id;
+                            UpdatetdTeamDetails.ManagerId = team.ManagerId;
+                            UpdatetdTeamDetails.ManagerName = user.FirstName + " " + user.LastName;
+                            UpdatetdTeamDetails.CreatedBy = team.CreatedBy;
+                            UpdatetdTeamDetails.CreatedDate = team.CreatedDate;
+                            UpdatetdTeamDetails.EditedBy = team.EditedBy;
+                            UpdatetdTeamDetails.EditedDate = team.EditedDate;
+                            UpdatetdTeamDetails.EquipmentDetails = team.EquipmentDetails;
+                            UpdatetdTeamDetails.TeamName = team.TeamName;
+                            UpdatetdTeamDetails.TeamSize = team.TeamSize;
+                        }                     
+                       
+                    }
+                    return View(UpdatetdTeamDetails);
                 }
                 else
                 {
                     return RedirectToAction("Index", "Login");
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -345,7 +388,7 @@ namespace OfficeDeskScheduler.Controllers
                     return RedirectToAction("Index", "Login");
                 }
 
-               
+
             }
             catch (Exception)
             {
@@ -371,7 +414,7 @@ namespace OfficeDeskScheduler.Controllers
                     return RedirectToAction("Index", "Login");
                 }
 
-              
+
             }
             catch (Exception ex)
             {
@@ -391,7 +434,7 @@ namespace OfficeDeskScheduler.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-           
+
         }
 
         [HttpPost]
@@ -427,7 +470,7 @@ namespace OfficeDeskScheduler.Controllers
                 {
                     return RedirectToAction("Index", "Login");
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -469,7 +512,7 @@ namespace OfficeDeskScheduler.Controllers
                 {
                     return RedirectToAction("Index", "Login");
                 }
-              
+
             }
             catch (Exception ex)
             {
@@ -493,7 +536,7 @@ namespace OfficeDeskScheduler.Controllers
                 {
                     return RedirectToAction("Index", "Login");
                 }
-               
+
             }
             catch (Exception)
             {

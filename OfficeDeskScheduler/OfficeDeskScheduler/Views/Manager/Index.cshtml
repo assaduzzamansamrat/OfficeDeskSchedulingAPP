@@ -14,7 +14,7 @@
 }
 
 
-@model IEnumerable<Services.EntityModels.Team>
+@model IEnumerable<Services.EntityModels.TeamDetails>
 
 
 <p class="">
@@ -34,8 +34,8 @@
             </colgroup>
             <thead class="u-custom-font u-font-courier-new u-palette-4-base u-table-header u-table-header-1">
                 <tr style="height: 58px;">
-                    <th class="u-table-cell">Id </th>
-                    <th class="u-table-cell">Manager Id </th>
+                    <th class="u-table-cell">Team Id </th>
+                    <th class="u-table-cell">Manager Name </th>
                     <th class="u-table-cell">Team Name </th>
                     <th class="u-table-cell">Team Size </th>
                     <th class="u-table-cell">Equipment Details </th>
@@ -50,7 +50,7 @@
                 <tbody class="u-table-body">
                     <tr style="height: 55px;">
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Id</td>
-                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.ManagerId</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.ManagerName</td>
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.TeamName</td>
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.TeamSize</td>
                          <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.EquipmentDetails</td>

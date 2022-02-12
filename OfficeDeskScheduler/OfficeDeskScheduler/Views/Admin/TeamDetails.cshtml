@@ -4,7 +4,7 @@
 @{
 }
 
-@model Services.EntityModels.Team
+@model Services.EntityModels.TeamDetails
 
 @{
     Layout = "_AdminLayout";
@@ -29,6 +29,14 @@
     
             <dd>
                 @Html.DisplayFor(model => model.ManagerId)
+            </dd>
+
+             <dt>
+                @Html.DisplayNameFor(model => model.ManagerName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ManagerName)
             </dd>
              <dt>
                 @Html.DisplayNameFor(model => model.TeamSize)
