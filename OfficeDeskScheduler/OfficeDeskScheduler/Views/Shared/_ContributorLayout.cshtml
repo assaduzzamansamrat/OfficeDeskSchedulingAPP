@@ -213,7 +213,7 @@
                         strength++;
                 });
 
-                if (pass.length <= 6) {
+                if (pass.length < 6) {
                     // If Password length Is less than 6
                     $(".passwordlength").css("display", "block");
                     isValid = false;
