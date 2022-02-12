@@ -445,6 +445,7 @@
                 url: "/Manager/GetBookingForm/",
 
                 success: function (viewHTML) {
+                   
                     $("#modalBody").html("");
                     $("#modalBody").html(viewHTML);
                 },
@@ -452,6 +453,14 @@
             });
         }
 
+
+    }
+
+    function onError(error){
+         $(".showforerror").css("display","block");
+             $(".showforbooking").css("display","none");
+             $("#modalBody").html("");
+             $("#modalBody").html("<p>This desk is not registered from the admin. Please contact admin to register this desk.</p>");
     }
 </script>
 
