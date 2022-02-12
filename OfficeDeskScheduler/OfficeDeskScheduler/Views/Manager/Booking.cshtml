@@ -9,7 +9,7 @@
 
 <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
     <p></p>
-@model IEnumerable<Services.EntityModels.DeskBooking>
+@model IEnumerable<Services.EntityModels.DeskBookingDetails>
 @if (@ViewBag.SuccessMessage != null && @ViewBag.SuccessMessage != "" && @ViewBag.SuccessMessage != string.Empty)
 {
     <div id="successMessage" class="alert alert-success" role="alert">
@@ -33,7 +33,7 @@
             <colgroup>
                 <col width="10%">
                 <col width="10%">
-                <col width="15%">
+                <col width="10%">
                 <col width="15%">
                 <col width="15%">
                 <col width="15%">
@@ -58,10 +58,10 @@
                 <tbody class="u-table-body">
                     <tr style="height: 55px;">
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Id</td>
-                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.DeskId</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.DeskNumber</td>
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.StartDateTime</td>
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.EndDateTime</td>
-                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.AssignedContributor</td>
+                        <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.AssignedContributorName</td>
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">@item.Location</td>
 
                         <td class="u-border-1 u-border-grey-30 u-border-no-left u-border-no-right u-table-cell">

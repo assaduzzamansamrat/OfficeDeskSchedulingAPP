@@ -249,12 +249,59 @@ namespace OfficeDeskScheduler.Controllers
         {
             if (HttpContext.Session.GetInt32(SessionUserId) != null)
             {
+                List<DeskBookingDetails> deskBookingDetails = new List<DeskBookingDetails>();
                 ViewBag.SuccessMessage = NotificationManager.GetSuccessNotificationMessage(this);
                 ViewBag.ErrorMessage = NotificationManager.GetErrorNotificationMessage(this);
                 NotificationManager.ResetNotificationMessage(this);
                 long userId = (long)HttpContext.Session.GetInt32(SessionUserId);
                 List<DeskBooking> booking = deskBookingDataService.GetAll(userId);
-                return View(booking);
+                if(booking != null)
+                {
+                    foreach (var item in booking)
+                    {
+                        DeskBookingDetails deskBookings = new DeskBookingDetails();
+                        Desk desk = deskDataService.GetDeskByID(item.DeskId);
+                        if (item.AssignedContributor > 0)
+                        {
+                            User user = userDataService.GetUserByID(item.AssignedContributor);
+                            if (desk != null && user != null)
+                            {
+                                deskBookings.Id = item.Id;
+                                deskBookings.TeamId = item.TeamId;
+                                deskBookings.Location = item.Location;
+                                deskBookings.Map = item.Map;
+                                deskBookings.StartDateTime = item.StartDateTime;
+                                deskBookings.EndDateTime = item.EndDateTime;
+                                deskBookings.BookedBy = item.BookedBy;
+                                deskBookings.DeskId = item.DeskId;
+                                deskBookings.DeskNumber = desk.DeskNumber;
+                                deskBookings.AssignedContributorId = item.AssignedContributor;
+                                deskBookings.AssignedContributorName = user.FirstName + " " + user.LastName;
+                                deskBookingDetails.Add(deskBookings);
+                            }
+                        }
+                        else
+                        {
+                          if (desk != null)
+                            {
+                                deskBookings.Id = item.Id;
+                                deskBookings.TeamId = item.TeamId;
+                                deskBookings.Location = item.Location;
+                                deskBookings.Map = item.Map;
+                                deskBookings.StartDateTime = item.StartDateTime;
+                                deskBookings.EndDateTime = item.EndDateTime;
+                                deskBookings.BookedBy = item.BookedBy;
+                                deskBookings.DeskId = item.DeskId;
+                                deskBookings.DeskNumber = desk.DeskNumber;
+                                deskBookings.AssignedContributorId = item.AssignedContributor;
+                                deskBookings.AssignedContributorName = "N/A";
+                                deskBookingDetails.Add(deskBookings);
+                            }
+                        }
+                       
+                    }
+                }
+                return View(deskBookingDetails);
             }
             else
             {
